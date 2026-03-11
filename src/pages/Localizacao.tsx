@@ -72,7 +72,7 @@ const Localizacao = () => {
                   className="font-display text-center mb-2"
                   style={{ fontSize: "32px", color: "#F2EAD8", fontFamily: "'Cormorant Garamond', serif" }}
                 >
-                  38°34&apos;N 7°54&apos;W
+                  38°34'N 7°54'W
                 </p>
                 <p className="label-muted text-center">{t("localizacao.address")}</p>
               </div>
@@ -91,7 +91,7 @@ const Localizacao = () => {
                     Herdade do Monte Claro
                   </p>
                   <p className="body-text">Alentejo, Portugal</p>
-                  <p className="body-text">38°34&apos;N 7°54&apos;W</p>
+                  <p className="body-text">38°34'N 7°54'W</p>
                   <div style={{ borderTop: "1px solid rgba(200,160,80,0.18)", marginTop: "16px", paddingTop: "16px" }}>
                     <p className="label-muted">{language === "pt" ? "A 35 min de Évora · 1h45 de Lisboa" : "35 min from Évora · 1h45 from Lisbon"}</p>
                   </div>

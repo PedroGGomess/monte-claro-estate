@@ -133,7 +133,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const t = (key: string): string => {
-    return translations[language][key] ?? translations["pt"][key] ?? key;
+    const value = translations[language][key] ?? translations["pt"][key];
+    if (value === undefined && import.meta.env.DEV) {
+      console.warn(`[i18n] Missing translation key: "${key}"`);
+    }
+    return value ?? key;
   };
 
   return (
