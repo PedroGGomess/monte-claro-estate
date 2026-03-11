@@ -17,8 +17,7 @@ const GallerySection = () => (
         <ScrollReveal
           key={i}
           delay={i * 0.1}
-          className={`relative overflow-hidden group ${i === 0 ? "row-span-2" : ""}`}
-          style={i === 0 ? { gridRow: "1 / 3" } : undefined}
+          className={`relative overflow-hidden group ${i === 0 ? "[grid-row:1/3]" : ""}`}
         >
           <img
             src={img.src}
