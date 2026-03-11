@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import CustomCursor from "@/components/CustomCursor";
 import FilmGrain from "@/components/FilmGrain";
 import HeroOverlay from "@/components/HeroOverlay";
+import HeroFallback from "@/components/HeroFallback";
+import WebGLErrorBoundary from "@/components/WebGLErrorBoundary";
 import StatsStrip from "@/components/StatsStrip";
 import AboutSection from "@/components/AboutSection";
 import FeaturesSection from "@/components/FeaturesSection";
@@ -19,9 +21,11 @@ const Index = () => (
 
     {/* Hero */}
     <section className="relative w-full h-screen overflow-hidden">
-      <Suspense fallback={<div className="w-full h-full bg-background" />}>
-        <HeroScene />
-      </Suspense>
+      <WebGLErrorBoundary fallback={<HeroFallback />}>
+        <Suspense fallback={<HeroFallback />}>
+          <HeroScene />
+        </Suspense>
+      </WebGLErrorBoundary>
       <HeroOverlay />
     </section>
 
