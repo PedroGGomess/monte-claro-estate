@@ -2,7 +2,7 @@ import { siteConfig } from "@/config/siteConfig";
 import ScrollReveal from "./ScrollReveal";
 
 const StatsStrip = () => (
-  <section className="w-full border-b gold-border-line">
+  <section id="propriedade" className="w-full border-b gold-border-line">
     <div className="flex flex-col md:flex-row">
       {siteConfig.stats.map((s, i) => (
         <ScrollReveal

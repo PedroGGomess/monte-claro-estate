@@ -2,7 +2,7 @@ import { siteConfig } from "@/config/siteConfig";
 import ScrollReveal from "./ScrollReveal";
 
 const LocationSection = () => (
-  <section className="px-8 md:px-14 py-16 md:py-24">
+  <section id="localizacao" className="px-8 md:px-14 py-16 md:py-24">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[100px] max-w-[1400px] mx-auto">
       <div>
         <ScrollReveal>

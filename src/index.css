@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Tenor+Sans&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -115,6 +119,25 @@
     pointer-events: none;
     z-index: 9999;
     opacity: 0.3;
+  }
+
+  .btn-calendly {
+    border: 1px solid #C8A050;
+    color: #C8A050;
+    padding: 12px 28px;
+    letter-spacing: 0.15em;
+    font-size: 11px;
+    background: none;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: 'Tenor Sans', sans-serif;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .btn-calendly:hover {
+    background: #C8A050;
+    color: #08060A;
   }
 
   .btn-primary-outline {

@@ -5,6 +5,7 @@ const VisitSection = () => {
   const { visit } = siteConfig;
   return (
     <section
+      id="visita"
       className="border-t gold-border-line py-32 md:py-40 px-8 flex flex-col items-center text-center relative"
     >
       {/* Ambient glow */}
@@ -29,7 +30,14 @@ const VisitSection = () => {
         <p className="body-text mt-8 max-w-[400px]">{visit.body}</p>
       </ScrollReveal>
       <ScrollReveal delay={0.4} className="flex flex-col sm:flex-row gap-6 mt-12">
-        <button className="btn-primary-outline">{visit.btn1}</button>
+        <a
+          href="https://calendly.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-calendly"
+        >
+          {visit.btn1}
+        </a>
         <button className="btn-ghost">{visit.btn2}</button>
       </ScrollReveal>
     </section>
