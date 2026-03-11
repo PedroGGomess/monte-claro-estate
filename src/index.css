@@ -99,7 +99,7 @@
     font-family: 'Tenor Sans', sans-serif;
     font-size: 14px;
     line-height: 2.1;
-    color: hsl(var(--muted-bone) / 0.45);
+    color: rgba(242, 234, 216, 0.65);
   }
 
   .gold-border-line {
