@@ -1,8 +1,10 @@
-import { siteConfig } from "@/config/siteConfig";
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
+import { Link } from "react-router-dom";
 
 const VisitSection = () => {
-  const { visit } = siteConfig;
+  const { t } = useLanguage();
+
   return (
     <section
       id="visita"
@@ -17,28 +19,23 @@ const VisitSection = () => {
       />
 
       <ScrollReveal>
-        <span className="label-upper">Visita Privada</span>
+        <span className="label-upper">{t("visit.label")}</span>
       </ScrollReveal>
       <ScrollReveal delay={0.15}>
         <h2
           className="heading-display text-bone mt-10 max-w-[900px]"
           style={{ fontSize: "clamp(2rem, 7vw, 7rem)" }}
-          dangerouslySetInnerHTML={{ __html: visit.title }}
+          dangerouslySetInnerHTML={{ __html: t("visit.title") }}
         />
       </ScrollReveal>
       <ScrollReveal delay={0.3}>
-        <p className="body-text mt-8 max-w-[400px]">{visit.body}</p>
+        <p className="body-text mt-8 max-w-[400px]">{t("visit.body")}</p>
       </ScrollReveal>
       <ScrollReveal delay={0.4} className="flex flex-col sm:flex-row gap-6 mt-12">
-        <a
-          href="https://calendly.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-calendly"
-        >
-          {visit.btn1}
-        </a>
-        <button className="btn-ghost">{visit.btn2}</button>
+        <Link to="/agendar" className="btn-calendly">
+          {t("visit.btn1")}
+        </Link>
+        <button className="btn-ghost">{t("visit.btn2")}</button>
       </ScrollReveal>
     </section>
   );
