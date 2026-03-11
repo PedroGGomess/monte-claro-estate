@@ -51,11 +51,11 @@ export const siteConfig = {
     },
   ],
   gallery: [
-    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80", caption: "Vista Panorâmica" },
-    { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", caption: "Fachada Principal" },
-    { src: "https://images.unsplash.com/photo-1505916349660-8d91a382bf58?w=800&q=80", caption: "Olival Centenário" },
-    { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", caption: "Interior · Sala" },
-    { src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80", caption: "Paisagem Alentejana" },
+    { src: "https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=1200&q=90", caption: "Vista Panorâmica" },
+    { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=90", caption: "Fachada Principal" },
+    { src: "https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=800&q=90", caption: "Olival Centenário" },
+    { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=90", caption: "Interior · Sala" },
+    { src: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&q=90", caption: "Paisagem Alentejana" },
   ],
   distances: [
     { place: "Évora", time: "35 min" },

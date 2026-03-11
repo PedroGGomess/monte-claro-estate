@@ -4,9 +4,8 @@ import ScrollReveal from "./ScrollReveal";
 const AboutSection = () => {
   const { about } = siteConfig;
   return (
-    <section className="px-8 md:px-14 py-24 md:py-40">
+    <section className="px-8 md:px-14 py-16 md:py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[100px] items-center max-w-[1400px] mx-auto">
-        {/* Left */}
         <div>
           <ScrollReveal>
             <span className="label-upper">A Propriedade</span>
@@ -17,7 +16,7 @@ const AboutSection = () => {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <blockquote className="border-l border-gold/40 pl-6 mt-10 font-display italic text-bone/70 text-xl md:text-[28px] leading-relaxed">
+            <blockquote className="border-l border-gold/40 pl-6 mt-10 font-display italic text-xl md:text-[28px] leading-relaxed" style={{ color: "rgba(242,234,216,0.7)" }}>
               {about.quote}
             </blockquote>
           </ScrollReveal>
@@ -32,17 +31,14 @@ const AboutSection = () => {
           </ScrollReveal>
         </div>
 
-        {/* Right */}
         <ScrollReveal delay={0.2}>
           <div className="relative">
-            <div className="absolute -inset-x-[18px] inset-y-[18px] border border-gold/20 pointer-events-none"
-              style={{ top: "-18px", right: "18px", bottom: "18px", left: "-18px" }}
-            />
+            <div className="absolute pointer-events-none" style={{ top: "-18px", right: "18px", bottom: "18px", left: "-18px", border: "1px solid rgba(200,160,80,0.2)" }} />
             <img
               src={about.image}
               alt="Casa senhorial no Alentejo"
               className="w-full object-cover"
-              style={{ aspectRatio: "3/4", filter: "brightness(0.88) saturate(0.9)" }}
+              style={{ aspectRatio: "3/4", filter: "brightness(0.82) saturate(0.88)" }}
               loading="lazy"
             />
             <p className="label-muted mt-4 text-center">{about.imageCaption}</p>
