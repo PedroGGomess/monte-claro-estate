@@ -1,23 +1,33 @@
 import { siteConfig } from "@/config/siteConfig";
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
 
 const AboutSection = () => {
   const { about } = siteConfig;
+  const { t, language } = useLanguage();
+
+  const renderHeading = () => {
+    if (language === "pt") {
+      return <>Onde o tempo ainda é <em>nosso</em></>;
+    }
+    return <>Where time still <em>belongs</em> to us</>;
+  };
+
   return (
-    <section className="px-8 md:px-14 py-16 md:py-24">
+    <section id="propriedade" className="px-8 md:px-14 py-16 md:py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[100px] items-center max-w-[1400px] mx-auto">
         <div>
           <ScrollReveal>
-            <span className="label-upper">A Propriedade</span>
+            <span className="label-upper">{t("about.label")}</span>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h2 className="heading-display text-bone text-4xl md:text-[58px] mt-8 leading-[1.1]">
-              Onde o tempo ainda é <em>nosso</em>
+              {renderHeading()}
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <blockquote className="border-l border-gold/40 pl-6 mt-10 font-display italic text-xl md:text-[28px] leading-relaxed" style={{ color: "rgba(242,234,216,0.7)" }}>
-              {about.quote}
+              {t("about.quote")}
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>

@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import SiteNav from "./SiteNav";
 import { siteConfig } from "@/config/siteConfig";
 
 const fadeUp = (delay: number) => ({
@@ -14,51 +16,20 @@ const fadeDown = (delay: number) => ({
 });
 
 const HeroOverlay = () => {
+  const { t } = useLanguage();
   const { hero } = siteConfig;
+
   return (
     <div className="absolute inset-0 z-10 flex flex-col justify-between pointer-events-none">
       {/* Nav */}
-      <motion.nav
-        {...fadeDown(0.4)}
-        className="flex items-center justify-between px-8 md:px-14 pt-8 pointer-events-auto"
-      >
-        <div className="font-display text-bone text-lg tracking-widest leading-tight">
-          Herdade do<br />
-          <em>Monte Claro</em>
-        </div>
-        <div className="hidden md:flex items-center gap-10">
-          {[
-            { label: "Propriedade", href: "#propriedade" },
-            { label: "Galeria", href: "#galeria" },
-            { label: "Localização", href: "#localizacao" },
-          ].map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="label-muted hover:text-gold transition-colors duration-500 cursor-pointer"
-            >
-              {label}
-            </a>
-          ))}
-          <a
-            href="https://calendly.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-calendly pointer-events-auto"
-          >
-            Agendar Visita
-          </a>
-        </div>
-      </motion.nav>
+      <motion.div {...fadeDown(0.4)} className="pointer-events-auto">
+        <SiteNav transparent />
+      </motion.div>
 
       {/* Center */}
       <div className="flex-1 flex flex-col items-center justify-center">
         <motion.p {...fadeUp(1)} className="label-upper mb-6">
-          {hero.label}
+          {t("hero.label")}
         </motion.p>
         <motion.h1
           {...fadeUp(1.3)}
@@ -70,7 +41,7 @@ const HeroOverlay = () => {
           <em>{hero.titleItalic}</em>
         </motion.h1>
         <motion.p {...fadeUp(2)} className="label-muted mt-8">
-          {hero.subtitle}
+          {t("hero.subtitle")}
         </motion.p>
       </div>
 
@@ -81,7 +52,7 @@ const HeroOverlay = () => {
         </motion.span>
 
         <motion.div {...fadeUp(2.4)} className="flex flex-col items-center gap-3">
-          <span className="label-upper text-[8px]">Explorar</span>
+          <span className="label-upper text-[8px]">{t("hero.explore")}</span>
           <div className="w-px h-16 bg-gold/30 overflow-hidden">
             <div className="w-full h-full bg-gold animate-scroll-line" />
           </div>
