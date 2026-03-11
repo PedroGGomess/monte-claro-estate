@@ -2,7 +2,7 @@ import { siteConfig } from "@/config/siteConfig";
 import ScrollReveal from "./ScrollReveal";
 
 const GallerySection = () => (
-  <section className="px-8 md:px-14 py-16 md:py-24">
+  <section id="galeria" className="px-8 md:px-14 py-16 md:py-24">
     <ScrollReveal className="mb-12">
       <span className="label-upper">Galeria</span>
     </ScrollReveal>

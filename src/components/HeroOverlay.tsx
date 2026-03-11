@@ -27,14 +27,31 @@ const HeroOverlay = () => {
           <em>Monte Claro</em>
         </div>
         <div className="hidden md:flex items-center gap-10">
-          {["Propriedade", "Galeria", "Localização"].map((l) => (
-            <a key={l} className="label-muted hover:text-gold transition-colors duration-500 cursor-pointer">
-              {l}
+          {[
+            { label: "Propriedade", href: "#propriedade" },
+            { label: "Galeria", href: "#galeria" },
+            { label: "Localização", href: "#localizacao" },
+          ].map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="label-muted hover:text-gold transition-colors duration-500 cursor-pointer"
+            >
+              {label}
             </a>
           ))}
-          <button className="btn-primary-outline pointer-events-auto">
+          <a
+            href="https://calendly.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-calendly pointer-events-auto"
+          >
             Agendar Visita
-          </button>
+          </a>
         </div>
       </motion.nav>
 
