@@ -1,0 +1,76 @@
+export const siteConfig = {
+  name: "Herdade do Monte Claro",
+  nameItalic: "Monte Claro",
+  hero: {
+    label: "Alentejo · Portugal · Venda Exclusiva",
+    title: "Herdade do",
+    titleItalic: "Monte Claro",
+    subtitle: "48 hectares · Casa Senhorial T5 · Olival Centenário",
+    coords: "38°34'N 7°54'W",
+    location: "Évora, Portugal",
+  },
+  stats: [
+    { value: "48 ha", label: "Área Total" },
+    { value: "580 m²", label: "Área Construída" },
+    { value: "T5", label: "Tipologia" },
+    { value: "1873", label: "Fundação" },
+    { value: "35 min", label: "De Évora" },
+  ],
+  about: {
+    quote: "Uma raridade no coração do Alentejo — terra, memória e silêncio.",
+    p1: "A Herdade do Monte Claro estende-se por 48 hectares de paisagem alentejana intocada, onde o montado de sobro se funde com olivais centenários e a linha do horizonte parece não ter fim. É uma propriedade que transcende o conceito de residência — é um território de contemplação.",
+    p2: "A casa senhorial, fundada em 1873, foi cuidadosamente restaurada para preservar a autenticidade dos materiais originais: pedra regional, cal, madeiras nobres e azulejos artesanais. Cada divisão respira história enquanto oferece o conforto contemporâneo que uma propriedade desta envergadura exige.",
+    p3: "A produção própria de azeite extra virgem, a autossuficiência hídrica através de furo artesiano e poço natural, e a biodiversidade protegida do montado classificado fazem desta herdade um exemplo raro de sustentabilidade patrimonial no Alentejo.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    imageCaption: "Casa Principal · Séc. XIX",
+  },
+  features: [
+    {
+      num: "01",
+      title: "Olival Centenário",
+      desc: "12 hectares de olival com árvores centenárias. Produção própria de azeite extra virgem de qualidade excepcional, reconhecido regionalmente.",
+      tag: "12 hectares",
+    },
+    {
+      num: "02",
+      title: "Casa Senhorial",
+      desc: "580 m² restaurados com respeito absoluto pelos materiais originais. Pedra, cal, madeira nobre e azulejo artesanal. Autenticidade preservada.",
+      tag: "580 m² · T5",
+    },
+    {
+      num: "03",
+      title: "Água Própria",
+      desc: "Furo artesiano, poço histórico e charca natural garantem total autossuficiência hídrica. Independência absoluta da rede pública.",
+      tag: "Autossuficiente",
+    },
+    {
+      num: "04",
+      title: "Montado de Sobro",
+      desc: "20 hectares de montado classificado. Ecossistema protegido com biodiversidade notável. Habitat natural de espécies endémicas.",
+      tag: "20 hectares",
+    },
+  ],
+  gallery: [
+    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80", caption: "Vista Panorâmica" },
+    { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", caption: "Fachada Principal" },
+    { src: "https://images.unsplash.com/photo-1505916349660-8d91a382bf58?w=800&q=80", caption: "Olival Centenário" },
+    { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", caption: "Interior · Sala" },
+    { src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80", caption: "Paisagem Alentejana" },
+  ],
+  distances: [
+    { place: "Évora", time: "35 min" },
+    { place: "Lisboa", time: "1h 45min" },
+    { place: "Aeroporto de Lisboa", time: "1h 55min" },
+    { place: "Espanha · Badajoz", time: "1h 10min" },
+  ],
+  visit: {
+    title: 'Venha <em>sentir</em> o que as palavras não descrevem.',
+    body: "Cada visita é uma experiência privada e exclusiva. Agende o seu momento para conhecer a Herdade do Monte Claro ao ritmo do Alentejo.",
+    btn1: "Agendar Visita",
+    btn2: "Contactar",
+  },
+  footer: {
+    tagline: "Alentejo · Portugal · Venda Exclusiva",
+    phone: "+351 266 000 000",
+  },
+};
