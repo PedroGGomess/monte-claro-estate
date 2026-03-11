@@ -247,9 +247,13 @@ const HeroScene = () => (
         antialias: true,
         toneMapping: THREE.ACESFilmicToneMapping,
         toneMappingExposure: 1.0,
+        pixelRatio: Math.min(window.devicePixelRatio, 2),
       }}
       camera={{ fov: 55, near: 0.1, far: 500, position: [32, 12, 0] }}
       style={{ width: "100%", height: "100%" }}
+      onCreated={({ gl }) => {
+        gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      }}
     >
       <ambientLight color="#6B3010" intensity={0.8} />
       <directionalLight color="#FFB060" intensity={1.8} position={[8, 20, 10]} />
