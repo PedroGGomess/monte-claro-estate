@@ -40,15 +40,21 @@ const LocationSection = () => {
 
         <ScrollReveal delay={0.2}>
           <div
-            className="w-full flex flex-col items-center justify-center"
+            className="w-full overflow-hidden"
             style={{
               aspectRatio: "1/1",
-              background: "radial-gradient(circle at center, hsl(var(--gold) / 0.12) 0%, hsl(var(--card)) 70%)",
               border: "1px solid hsl(var(--gold) / 0.12)",
             }}
           >
-            <div className="w-3 h-3 bg-gold animate-pulse-glow" />
-            <span className="label-muted mt-4 text-[9px]">Santa Margarida da Serra · Grândola</span>
+            <iframe
+              title="Localização da Herdade do Monte Claro"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-8.7%2C38.05%2C-8.4%2C38.3&layer=mapnik&marker=38.1667%2C-8.5667"
+              width="100%"
+              height="100%"
+              style={{ border: 0, display: "block" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </ScrollReveal>
       </div>
