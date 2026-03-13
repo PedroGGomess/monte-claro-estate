@@ -48,7 +48,7 @@ const LocationSection = () => {
           >
             <iframe
               title="Localização da Herdade do Monte Claro"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-8.7%2C38.05%2C-8.4%2C38.3&layer=mapnik&marker=38.1667%2C-8.5667"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-8.68%2C38.10%2C-8.45%2C38.24&layer=mapnik&marker=38.1635%2C-8.5645"
               width="100%"
               height="100%"
               style={{ border: 0, display: "block" }}
