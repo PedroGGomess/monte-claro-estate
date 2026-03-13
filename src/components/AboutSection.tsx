@@ -21,12 +21,12 @@ const AboutSection = () => {
             <span className="label-upper">{t("about.label")}</span>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="heading-display text-bone text-4xl md:text-[58px] mt-8 leading-[1.1]">
+            <h2 className="heading-display text-foreground text-4xl md:text-[58px] mt-8 leading-[1.1]">
               {renderHeading()}
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <blockquote className="border-l border-gold/40 pl-6 mt-10 font-display italic text-xl md:text-[28px] leading-relaxed" style={{ color: "rgba(242,234,216,0.7)" }}>
+            <blockquote className="border-l border-gold/40 pl-6 mt-10 font-display italic text-xl md:text-[28px] leading-relaxed" style={{ color: "rgba(30,22,14,0.65)" }}>
               {t("about.quote")}
             </blockquote>
           </ScrollReveal>
@@ -43,7 +43,7 @@ const AboutSection = () => {
 
         <ScrollReveal delay={0.2}>
           <div className="relative">
-            <div className="absolute pointer-events-none" style={{ top: "-18px", right: "18px", bottom: "18px", left: "-18px", border: "1px solid rgba(200,160,80,0.2)" }} />
+            <div className="absolute pointer-events-none" style={{ top: "-18px", right: "18px", bottom: "18px", left: "-18px", border: "1px solid rgba(155,130,100,0.2)" }} />
             <img
               src={images.hero}
               alt="Projeto aprovado · Herdade em Grândola"

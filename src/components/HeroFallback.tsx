@@ -3,7 +3,7 @@ const HeroFallback = () => (
     className="absolute inset-0 w-full h-full"
     style={{
       background:
-        "radial-gradient(ellipse at 50% 100%, #C87030 0%, #3D1A08 40%, #08060A 80%)",
+        "linear-gradient(160deg, #E8E2D8 0%, #D4C8B8 40%, #C2B5A0 100%)",
     }}
   />
 );
