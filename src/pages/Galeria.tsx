@@ -21,7 +21,7 @@ const allImages = [
   { src: herdadeImages.poolPergola, captionPt: "Pérgola · Piscina", captionEn: "Pergola · Pool", category: "casa" as Category },
   { src: herdadeImages.diningKitchen, captionPt: "Sala de Jantar · Cozinha", captionEn: "Dining Room · Kitchen", category: "casa" as Category },
   { src: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=90", captionPt: "Piscina Exterior · Projeto", captionEn: "Outdoor Pool · Project", category: "casa" as Category },
-  { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=90", captionPt: "Vista Aérea · Terreno · Ladeado por Duas Estradas", captionEn: "Aerial View · Land · Flanked by Two Roads", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=90", captionPt: "Terreno · Ladeado por Duas Estradas", captionEn: "Land · Flanked by Two Roads", category: "terra" as Category },
   { src: "https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=800&q=90", captionPt: "Olival Centenário", captionEn: "Century Olive Grove", category: "terra" as Category },
   { src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=90", captionPt: "Montado de Sobro · Sobreiros", captionEn: "Cork Oak Montado", category: "terra" as Category },
   { src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&q=90", captionPt: "Fauna Local · Reserva", captionEn: "Local Wildlife · Reserve", category: "terra" as Category },
