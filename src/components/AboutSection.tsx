@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/siteConfig";
+import { siteConfig, images } from "@/config/siteConfig";
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -45,8 +45,8 @@ const AboutSection = () => {
           <div className="relative">
             <div className="absolute pointer-events-none" style={{ top: "-18px", right: "18px", bottom: "18px", left: "-18px", border: "1px solid rgba(200,160,80,0.2)" }} />
             <img
-              src={about.image}
-              alt="Vista aérea da herdade em Grândola"
+              src={images.hero}
+              alt="Projeto aprovado · Herdade em Grândola"
               className="w-full object-cover"
               style={{ aspectRatio: "3/4", filter: "brightness(0.82) saturate(0.88)" }}
               loading="lazy"

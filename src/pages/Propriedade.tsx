@@ -5,12 +5,12 @@ import CustomCursor from "@/components/CustomCursor";
 import FilmGrain from "@/components/FilmGrain";
 import SiteFooter from "@/components/SiteFooter";
 import { useLanguage } from "@/context/LanguageContext";
-import { siteConfig } from "@/config/siteConfig";
+import { siteConfig, images } from "@/config/siteConfig";
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=90",
-  "https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=900&q=90",
-  "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=900&q=90",
+  { src: images.hero, caption: "Vista Geral" },
+  { src: images.frontView, caption: "Fachada" },
+  { src: images.poolPergola, caption: "Piscina" },
 ];
 
 const stats = [
@@ -25,12 +25,12 @@ const stats = [
 ];
 
 const features = [
-  { titlePt: "Pronto a Construir", titleEn: "Ready to Build", icon: "🏗️" },
-  { titlePt: "Duplo Acesso", titleEn: "Dual Access", icon: "🛤️" },
-  { titlePt: "Montado de Sobreiros", titleEn: "Cork Oak Forest", icon: "🌳" },
-  { titlePt: "Água Abundante", titleEn: "Water Abundance", icon: "💧" },
-  { titlePt: "Zona Turística", titleEn: "Tourism Zone", icon: "🏖️" },
-  { titlePt: "Licença Emitida", titleEn: "License Issued", icon: "📜" },
+  { titlePt: "Pronto a Construir", titleEn: "Ready to Build", image: images.facade },
+  { titlePt: "Duplo Acesso", titleEn: "Dual Access", image: images.hero },
+  { titlePt: "Montado de Sobreiros", titleEn: "Cork Oak Forest", image: images.frontView },
+  { titlePt: "Água Abundante", titleEn: "Water Abundance", image: images.poolPergola },
+  { titlePt: "Zona Turística", titleEn: "Tourism Zone", image: images.arches },
+  { titlePt: "Licença Emitida", titleEn: "License Issued", image: images.kitchenMarble },
 ];
 
 const Propriedade = () => {
@@ -45,10 +45,10 @@ const Propriedade = () => {
       {/* Hero */}
       <div className="relative w-full overflow-hidden" style={{ height: "70vh", marginTop: 0 }}>
         <img
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=90"
+          src={images.frontView}
           alt="Herdade em Grândola"
           className="w-full h-full object-cover"
-          style={{ filter: "brightness(0.5) saturate(0.8)" }}
+          style={{ filter: "brightness(0.45) saturate(0.85)" }}
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <p className="label-upper mb-6">{t("propriedade.hero")}</p>
@@ -121,12 +121,12 @@ const Propriedade = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            {galleryImages.map((src, i) => (
+            {galleryImages.map((img, i) => (
               <ScrollReveal key={i} delay={i * 0.15}>
                 <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img
-                    src={src}
-                    alt=""
+                    src={img.src}
+                    alt={img.caption}
                     className="w-full h-full object-cover"
                     style={{ filter: "brightness(0.82) saturate(0.88)" }}
                     loading="lazy"
@@ -145,17 +145,25 @@ const Propriedade = () => {
             <ScrollReveal
               key={i}
               delay={i * 0.1}
-              className={`px-8 py-14 flex flex-col items-center text-center group ${
+              className={`relative overflow-hidden group ${
                 i % 3 !== 2 ? "md:border-r gold-border-line" : ""
               } ${i < 3 ? "border-b gold-border-line" : ""}`}
+              style={{ aspectRatio: "4/3" }}
             >
-              <span style={{ fontSize: "2rem" }}>{f.icon}</span>
-              <h3
-                className="font-display mt-4 text-lg"
-                style={{ color: "#F2EAD8", fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                {language === "pt" ? f.titlePt : f.titleEn}
-              </h3>
+              <img
+                src={f.image}
+                alt={language === "pt" ? f.titlePt : f.titleEn}
+                className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                style={{ filter: "brightness(0.4) saturate(0.8)" }}
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h3
+                  className="font-display text-lg md:text-xl tracking-wide"
+                  style={{ color: "#F2EAD8", fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  {language === "pt" ? f.titlePt : f.titleEn}
+                </h3>
+              </div>
             </ScrollReveal>
           ))}
         </div>

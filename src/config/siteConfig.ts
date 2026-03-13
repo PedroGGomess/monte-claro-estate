@@ -1,3 +1,25 @@
+import herdade01 from "@/assets/herdade-01.jpg";
+import herdade02 from "@/assets/herdade-02.jpg";
+import herdade03 from "@/assets/herdade-03.jpg";
+import herdade04 from "@/assets/herdade-04.jpg";
+import herdade05 from "@/assets/herdade-05.jpg";
+import herdade06 from "@/assets/herdade-06.jpg";
+import herdade07 from "@/assets/herdade-07.jpg";
+import herdade08 from "@/assets/herdade-08.jpg";
+import herdade09 from "@/assets/herdade-09.jpg";
+
+export const images = {
+  hero: herdade01,
+  arches: herdade02,
+  facade: herdade03,
+  kitchenMarble: herdade04,
+  kitchenMinimal: herdade05,
+  livingRoom: herdade06,
+  frontView: herdade07,
+  poolPergola: herdade08,
+  diningKitchen: herdade09,
+};
+
 export const siteConfig = {
   name: "Herdade em Grândola",
   nameItalic: "Grândola",
@@ -21,8 +43,8 @@ export const siteConfig = {
     p1: "Esta propriedade de 12 hectares, situada na prestigiada zona de Santa Margarida da Serra, oferece o equilíbrio perfeito entre a serenidade da serra e a sofisticação da costa. Com uma localização estratégica a apenas 20 minutos das praias da Comporta e Melides, 7 minutos de Grândola e 1h15 de Lisboa, este é o ativo ideal para quem procura exclusividade e rapidez de execução.",
     p2: "O terreno possui Projeto de Arquitetura aprovado e Licença de Construção emitida, permitindo o início imediato das obras. A área de construção de 500m² inclui 2 habitações gémeas, 5 estúdios contíguos, 1 estúdio independente, garagem e uma zona de lazer/piscina de grandes dimensões.",
     p3: "A autossuficiência hídrica é garantida por furo de água, 2 poços tradicionais e um curso de água natural. O terreno é povoado por sobreiros estrategicamente distribuídos, conferindo a mística do montado alentejano sem condicionar as áreas de construção. Inserido em zona apta para Projetos de Turismo segundo o PDM.",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=90",
-    imageCaption: "Vista aérea · 12 hectares",
+    image: herdade01,
+    imageCaption: "Projeto Aprovado · Vista Geral",
   },
   features: [
     {
@@ -51,11 +73,11 @@ export const siteConfig = {
     },
   ],
   gallery: [
-    { src: "https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=1200&q=90", caption: "Vista Panorâmica" },
-    { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=90", caption: "Terreno · 12 hectares" },
-    { src: "https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=800&q=90", caption: "Montado de Sobreiros" },
-    { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=90", caption: "Paisagem Alentejana" },
-    { src: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&q=90", caption: "Acesso · Estrada" },
+    { src: herdade01, caption: "Vista Geral · Piscina" },
+    { src: herdade07, caption: "Fachada Principal" },
+    { src: herdade02, caption: "Arcadas · Exterior" },
+    { src: herdade08, caption: "Pérgola · Piscina" },
+    { src: herdade09, caption: "Sala de Jantar · Cozinha" },
   ],
   distances: [
     { place: "Comporta / Melides", time: "20 min" },
