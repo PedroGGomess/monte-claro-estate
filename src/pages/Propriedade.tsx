@@ -106,17 +106,20 @@ const Propriedade = () => {
                 className="border-l border-gold/40 pl-6 mt-10 font-display italic text-xl leading-relaxed"
                 style={{ color: "rgba(30,22,14,0.68)", fontFamily: "'Cormorant Garamond', serif" }}
               >
-                {t("about.quote")}
+                {language === "pt" ? siteConfig.about.quote : siteConfig.about.quoteEn}
               </blockquote>
             </ScrollReveal>
             <ScrollReveal delay={0.3}>
-              <p className="body-text mt-10">{siteConfig.about.p1}</p>
+              <p className="body-text mt-10">{language === "pt" ? siteConfig.about.p1 : siteConfig.about.p1En}</p>
             </ScrollReveal>
             <ScrollReveal delay={0.4}>
-              <p className="body-text mt-6">{siteConfig.about.p2}</p>
+              <p className="body-text mt-6">{language === "pt" ? siteConfig.about.p2 : siteConfig.about.p2En}</p>
             </ScrollReveal>
             <ScrollReveal delay={0.5}>
-              <p className="body-text mt-6">{siteConfig.about.p3}</p>
+              <p className="body-text mt-6">{language === "pt" ? siteConfig.about.p3 : siteConfig.about.p3En}</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.6}>
+              <p className="body-text mt-6">{language === "pt" ? siteConfig.about.p4 : siteConfig.about.p4En}</p>
             </ScrollReveal>
           </div>
 

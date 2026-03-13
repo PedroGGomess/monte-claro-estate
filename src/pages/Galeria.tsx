@@ -20,16 +20,17 @@ const allImages = [
   { src: herdadeImages.frontView, captionPt: "Vista Frontal · Propriedade", captionEn: "Front View · Property", category: "casa" as Category },
   { src: herdadeImages.poolPergola, captionPt: "Pérgola · Piscina", captionEn: "Pergola · Pool", category: "casa" as Category },
   { src: herdadeImages.diningKitchen, captionPt: "Sala de Jantar · Cozinha", captionEn: "Dining Room · Kitchen", category: "casa" as Category },
-  { src: "https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=1200&q=90", captionPt: "Vista Panorâmica · Alentejo", captionEn: "Panoramic View · Alentejo", category: "paisagem" as Category },
+  { src: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=90", captionPt: "Piscina Exterior · Projeto", captionEn: "Outdoor Pool · Project", category: "casa" as Category },
+  { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=90", captionPt: "Terreno · Ladeado por Duas Estradas", captionEn: "Land · Flanked by Two Roads", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=800&q=90", captionPt: "Olival Centenário", captionEn: "Century Olive Grove", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=90", captionPt: "Montado de Sobro · Sobreiros", captionEn: "Cork Oak Montado", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&q=90", captionPt: "Fauna Local · Reserva", captionEn: "Local Wildlife · Reserve", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&q=90", captionPt: "Floresta de Sobro · Alentejo", captionEn: "Cork Forest · Alentejo", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1468436139062-f60a71c5c892?w=1200&q=90", captionPt: "Planície Alentejana · Vista Panorâmica", captionEn: "Alentejo Plain · Panoramic View", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=1200&q=90", captionPt: "Horizonte Alentejano", captionEn: "Alentejo Horizon", category: "paisagem" as Category },
   { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=90", captionPt: "Paisagem Alentejana", captionEn: "Alentejo Landscape", category: "paisagem" as Category },
   { src: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800&q=90", captionPt: "Pôr do Sol · Alentejo", captionEn: "Sunset · Alentejo", category: "paisagem" as Category },
-  { src: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=90", captionPt: "Céu Alentejano", captionEn: "Alentejo Sky", category: "paisagem" as Category },
-  { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=90", captionPt: "Planície Alentejana", captionEn: "Alentejo Plain", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=800&q=90", captionPt: "Olival Centenário", captionEn: "Century Olive Grove", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=90", captionPt: "Montado de Sobro", captionEn: "Cork Oak Forest", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&q=90", captionPt: "Fauna Local", captionEn: "Local Wildlife", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&q=90", captionPt: "Floresta de Sobro", captionEn: "Cork Forest", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=90", captionPt: "Piscina Exterior · Luxo", captionEn: "Outdoor Pool · Luxury", category: "casa" as Category },
+  { src: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=90", captionPt: "Céu Alentejano · Serra", captionEn: "Alentejo Sky · Hills", category: "paisagem" as Category },
 ];
 
 const Galeria = () => {
@@ -128,11 +129,11 @@ const Galeria = () => {
                   onClick={() => setActiveCategory(key)}
                   className="label-upper transition-colors duration-300 flex items-center gap-2"
                   style={{
-                    color: activeCategory === key ? "hsl(var(--gold))" : "rgba(30,22,14,0.35)",
-                    borderBottom: activeCategory === key ? "1px solid hsl(var(--gold))" : "1px solid transparent",
-                    paddingBottom: "4px",
+                    color: activeCategory === key ? "hsl(var(--gold))" : "rgba(30,22,14,0.45)",
                     background: "none",
                     border: "none",
+                    borderBottom: activeCategory === key ? "1px solid hsl(var(--gold))" : "1px solid transparent",
+                    paddingBottom: "4px",
                     cursor: "pointer",
                   }}
                 >
@@ -144,35 +145,35 @@ const Galeria = () => {
           </div>
         </ScrollReveal>
 
-        {/* Masonry grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-[6px] pb-28">
+        {/* Uniform grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[6px] pb-28">
           {filtered.map((img, i) => (
             <ScrollReveal key={`${activeCategory}-${i}`} delay={Math.min(i * 0.05, 0.4)}>
               <div
-                className="relative overflow-hidden group mb-[6px] cursor-pointer"
+                className="relative overflow-hidden group cursor-pointer"
+                style={{ aspectRatio: "4/3" }}
                 onClick={() => openLightbox(i)}
               >
                 <img
                   src={img.src}
                   alt={caption(img)}
-                  className="w-full object-cover transition-transform duration-[1.4s] group-hover:scale-[1.06]"
+                  className="w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-[1.06]"
                   style={{ filter: "brightness(0.84) saturate(0.88)", display: "block" }}
                   loading="lazy"
                 />
+                {/* Permanent subtle gradient at bottom */}
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5"
-                  style={{ background: "linear-gradient(to top, rgba(10,8,6,0.72) 0%, transparent 55%)" }}
+                  className="absolute inset-0 flex items-end p-5"
+                  style={{ background: "linear-gradient(to top, rgba(10,8,6,0.55) 0%, transparent 50%)" }}
                 >
-                  <div>
-                    <span className="label-upper text-[8px]" style={{ color: "rgba(242,234,216,0.75)" }}>
-                      {caption(img)}
-                    </span>
-                  </div>
+                  <span className="label-upper text-[8px] transition-opacity duration-500 opacity-60 group-hover:opacity-100" style={{ color: "rgba(242,234,216,0.90)" }}>
+                    {caption(img)}
+                  </span>
                 </div>
-                {/* Subtle border on hover */}
+                {/* Gold border on hover */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ border: "1px solid hsl(var(--gold) / 0.22)" }}
+                  style={{ border: "1px solid hsl(var(--gold) / 0.30)" }}
                 />
               </div>
             </ScrollReveal>
