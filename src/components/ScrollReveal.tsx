@@ -6,9 +6,10 @@ interface Props {
   children: ReactNode;
   delay?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const ScrollReveal = ({ children, delay = 0, className = "" }: Props) => {
+const ScrollReveal = ({ children, delay = 0, className = "", style }: Props) => {
   const { ref, visible } = useScrollReveal(0.12);
   return (
     <motion.div
