@@ -7,9 +7,9 @@ const LocationSection = () => {
 
   const renderHeading = () => {
     if (language === "pt") {
-      return <>Perto de tudo, <em>longe</em> do mundo</>;
+      return <>No <em>Triângulo de Ouro</em> do Alentejo</>;
     }
-    return <>Close to everything, <em>far</em> from the world</>;
+    return <>In the Alentejo <em>Golden Triangle</em></>;
   };
 
   return (
@@ -47,7 +47,7 @@ const LocationSection = () => {
             }}
           >
             <div className="w-3 h-3 bg-gold animate-pulse-glow" />
-            <span className="label-muted mt-4 text-[9px]">Monte Claro · Alentejo</span>
+            <span className="label-muted mt-4 text-[9px]">Santa Margarida da Serra · Grândola</span>
           </div>
         </ScrollReveal>
       </div>

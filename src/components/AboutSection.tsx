@@ -8,9 +8,9 @@ const AboutSection = () => {
 
   const renderHeading = () => {
     if (language === "pt") {
-      return <>Onde o tempo ainda é <em>nosso</em></>;
+      return <>O valor do tempo: pronto a <em>construir</em></>;
     }
-    return <>Where time still <em>belongs</em> to us</>;
+    return <>The value of time: ready to <em>build</em></>;
   };
 
   return (
@@ -46,7 +46,7 @@ const AboutSection = () => {
             <div className="absolute pointer-events-none" style={{ top: "-18px", right: "18px", bottom: "18px", left: "-18px", border: "1px solid rgba(200,160,80,0.2)" }} />
             <img
               src={about.image}
-              alt="Casa senhorial no Alentejo"
+              alt="Vista aérea da herdade em Grândola"
               className="w-full object-cover"
               style={{ aspectRatio: "3/4", filter: "brightness(0.82) saturate(0.88)" }}
               loading="lazy"
