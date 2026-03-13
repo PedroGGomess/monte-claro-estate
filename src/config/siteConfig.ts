@@ -73,11 +73,13 @@ export const siteConfig = {
     },
   ],
   gallery: [
+    { src: herdade05, caption: "Interior · Sala Principal" },
     { src: herdade01, caption: "Vista Geral · Piscina" },
     { src: herdade07, caption: "Fachada Principal" },
     { src: herdade02, caption: "Arcadas · Exterior" },
     { src: herdade08, caption: "Pérgola · Piscina" },
     { src: herdade09, caption: "Sala de Jantar · Cozinha" },
+    { src: herdade04, caption: "Cozinha · Mármore" },
   ],
   distances: [
     { place: "Comporta / Melides", time: "20 min" },

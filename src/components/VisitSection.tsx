@@ -14,7 +14,7 @@ const VisitSection = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at center, hsl(var(--gold) / 0.04) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse at center, hsl(var(--gold) / 0.06) 0%, transparent 60%)",
         }}
       />
 
@@ -23,7 +23,7 @@ const VisitSection = () => {
       </ScrollReveal>
       <ScrollReveal delay={0.15}>
         <h2
-          className="heading-display text-bone mt-10 max-w-[900px]"
+          className="heading-display text-foreground mt-10 max-w-[900px]"
           style={{ fontSize: "clamp(2rem, 7vw, 7rem)" }}
           dangerouslySetInnerHTML={{ __html: t("visit.title") }}
         />

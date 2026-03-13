@@ -20,7 +20,7 @@ const LocationSection = () => {
             <span className="label-upper">{t("location.label")}</span>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="heading-display text-bone text-4xl md:text-[58px] mt-8 leading-[1.1]">
+            <h2 className="heading-display text-foreground text-4xl md:text-[58px] mt-8 leading-[1.1]">
               {renderHeading()}
             </h2>
           </ScrollReveal>
@@ -28,7 +28,7 @@ const LocationSection = () => {
             {siteConfig.distances.map((d, i) => (
               <ScrollReveal key={i} delay={0.2 + i * 0.08}>
                 <div className="flex items-center justify-between py-5 border-b gold-border-line">
-                  <span className="font-body text-[13px]" style={{ color: "rgba(242,234,216,0.55)" }}>
+                  <span className="font-body text-[13px]" style={{ color: "rgba(30,22,14,0.55)" }}>
                     {d.place}
                   </span>
                   <span className="font-display text-gold text-[26px]">{d.time}</span>
@@ -43,7 +43,8 @@ const LocationSection = () => {
             className="w-full flex flex-col items-center justify-center"
             style={{
               aspectRatio: "1/1",
-              background: "radial-gradient(circle at center, hsl(var(--gold) / 0.06) 0%, hsl(var(--ink)) 70%)",
+              background: "radial-gradient(circle at center, hsl(var(--gold) / 0.12) 0%, hsl(var(--card)) 70%)",
+              border: "1px solid hsl(var(--gold) / 0.12)",
             }}
           >
             <div className="w-3 h-3 bg-gold animate-pulse-glow" />

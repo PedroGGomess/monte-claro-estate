@@ -9,8 +9,8 @@ import { useLanguage } from "@/context/LanguageContext";
 const inputStyle: React.CSSProperties = {
   background: "transparent",
   border: "none",
-  borderBottom: "1px solid rgba(200,160,80,0.3)",
-  color: "#F2EAD8",
+  borderBottom: "1px solid rgba(30,22,14,0.22)",
+  color: "hsl(var(--foreground))",
   fontSize: "16px",
   width: "100%",
   padding: "10px 0",
@@ -23,7 +23,7 @@ const labelStyle: React.CSSProperties = {
   fontSize: "11px",
   letterSpacing: "0.15em",
   textTransform: "uppercase" as const,
-  color: "rgba(242,234,216,0.5)",
+  color: "rgba(30,22,14,0.45)",
   marginBottom: "6px",
   fontFamily: "'Tenor Sans', sans-serif",
 };
@@ -41,9 +41,9 @@ const Agendar = () => {
   const getFocusStyle = (name: string): React.CSSProperties => ({
     ...inputStyle,
     borderBottom: focused === name
-      ? "1px solid #C8A050"
-      : "1px solid rgba(200,160,80,0.3)",
-    boxShadow: focused === name ? "0 1px 0 0 rgba(200,160,80,0.3)" : "none",
+      ? "1px solid hsl(var(--gold))"
+      : "1px solid rgba(30,22,14,0.22)",
+    boxShadow: focused === name ? "0 1px 0 0 hsl(var(--gold) / 0.3)" : "none",
   });
 
   const handleSubmit = (e: FormEvent) => {
@@ -57,7 +57,7 @@ const Agendar = () => {
   };
 
   return (
-    <div style={{ background: "#08060A", minHeight: "100vh" }}>
+    <div className="bg-background" style={{ minHeight: "100vh" }}>
       <CustomCursor />
       <FilmGrain />
       <SiteNav />
@@ -71,7 +71,7 @@ const Agendar = () => {
                 className="heading-display"
                 style={{
                   fontSize: "clamp(2.2rem, 4vw, 3rem)",
-                  color: "#F2EAD8",
+                  color: "hsl(var(--foreground))",
                   fontFamily: "'Cormorant Garamond', serif",
                   lineHeight: 1.1,
                 }}
@@ -82,7 +82,7 @@ const Agendar = () => {
             <ScrollReveal delay={0.1}>
               <p
                 className="font-display italic mt-4"
-                style={{ color: "#C8A050", fontSize: "18px", fontFamily: "'Cormorant Garamond', serif" }}
+                style={{ color: "hsl(var(--gold))", fontSize: "18px", fontFamily: "'Cormorant Garamond', serif" }}
               >
                 {t("agendar.subtitle")}
               </p>
@@ -93,17 +93,17 @@ const Agendar = () => {
             <ScrollReveal delay={0.3}>
               <div
                 className="mt-12 pt-8"
-                style={{ borderTop: "1px solid rgba(200,160,80,0.18)" }}
+                style={{ borderTop: "1px solid hsl(var(--gold) / 0.18)" }}
               >
                 <div className="mb-4">
                   <p className="label-upper mb-1">{language === "pt" ? "Telefone" : "Phone"}</p>
-                  <p style={{ color: "#F2EAD8", fontFamily: "'Cormorant Garamond', serif", fontSize: "20px" }}>
+                  <p style={{ color: "hsl(var(--foreground))", fontFamily: "'Cormorant Garamond', serif", fontSize: "20px" }}>
                     +351 266 000 000
                   </p>
                 </div>
                 <div className="mb-4">
                   <p className="label-upper mb-1">Email</p>
-                  <p style={{ color: "#F2EAD8", fontFamily: "'Cormorant Garamond', serif", fontSize: "20px" }}>
+                  <p style={{ color: "hsl(var(--foreground))", fontFamily: "'Cormorant Garamond', serif", fontSize: "20px" }}>
                     info@monteclaro.pt
                   </p>
                 </div>
@@ -118,17 +118,17 @@ const Agendar = () => {
               {submitted ? (
                 <div
                   className="flex flex-col items-center justify-center text-center py-24"
-                  style={{ border: "1px solid rgba(200,160,80,0.18)" }}
+                  style={{ border: "1px solid hsl(var(--gold) / 0.18)" }}
                 >
                   <div
                     className="w-12 h-12 mb-8 flex items-center justify-center"
-                    style={{ border: "1px solid #C8A050" }}
+                    style={{ border: "1px solid hsl(var(--gold))" }}
                   >
-                    <span style={{ color: "#C8A050", fontSize: "24px" }}>✓</span>
+                    <span style={{ color: "hsl(var(--gold))", fontSize: "24px" }}>✓</span>
                   </div>
                   <h2
                     className="heading-display"
-                    style={{ fontSize: "32px", color: "#F2EAD8", fontFamily: "'Cormorant Garamond', serif" }}
+                    style={{ fontSize: "32px", color: "hsl(var(--foreground))", fontFamily: "'Cormorant Garamond', serif" }}
                   >
                     {language === "pt" ? "Visita Agendada" : "Visit Scheduled"}
                   </h2>
@@ -173,7 +173,7 @@ const Agendar = () => {
                         required
                         style={{
                           ...getFocusStyle("data"),
-                          colorScheme: "dark",
+                          colorScheme: "light",
                         }}
                         onFocus={() => setFocused("data")}
                         onBlur={() => setFocused(null)}
@@ -190,10 +190,10 @@ const Agendar = () => {
                         onFocus={() => setFocused("periodo")}
                         onBlur={() => setFocused(null)}
                       >
-                        <option value="" style={{ background: "#08060A" }}>—</option>
-                        <option value="manha" style={{ background: "#08060A" }}>{t("agendar.manha")}</option>
-                        <option value="tarde" style={{ background: "#08060A" }}>{t("agendar.tarde")}</option>
-                        <option value="fimdesemana" style={{ background: "#08060A" }}>{t("agendar.fimdesemana")}</option>
+                        <option value="" style={{ background: "hsl(var(--background))" }}>—</option>
+                        <option value="manha" style={{ background: "hsl(var(--background))" }}>{t("agendar.manha")}</option>
+                        <option value="tarde" style={{ background: "hsl(var(--background))" }}>{t("agendar.tarde")}</option>
+                        <option value="fimdesemana" style={{ background: "hsl(var(--background))" }}>{t("agendar.fimdesemana")}</option>
                       </select>
                     </div>
                     <div style={fieldStyle}>
@@ -207,11 +207,11 @@ const Agendar = () => {
                         onFocus={() => setFocused("pessoas")}
                         onBlur={() => setFocused(null)}
                       >
-                        <option value="" style={{ background: "#08060A" }}>—</option>
-                        <option value="1" style={{ background: "#08060A" }}>1</option>
-                        <option value="2" style={{ background: "#08060A" }}>2</option>
-                        <option value="3" style={{ background: "#08060A" }}>3</option>
-                        <option value="4+" style={{ background: "#08060A" }}>4+</option>
+                        <option value="" style={{ background: "hsl(var(--background))" }}>—</option>
+                        <option value="1" style={{ background: "hsl(var(--background))" }}>1</option>
+                        <option value="2" style={{ background: "hsl(var(--background))" }}>2</option>
+                        <option value="3" style={{ background: "hsl(var(--background))" }}>3</option>
+                        <option value="4+" style={{ background: "hsl(var(--background))" }}>4+</option>
                       </select>
                     </div>
                   </div>
@@ -236,7 +236,7 @@ const Agendar = () => {
                       onChange={(e) => setComercial(e.target.checked)}
                       style={{
                         marginTop: "2px",
-                        accentColor: "#C8A050",
+                        accentColor: "hsl(var(--gold))",
                         width: "16px",
                         height: "16px",
                         cursor: "pointer",
@@ -247,7 +247,7 @@ const Agendar = () => {
                       htmlFor="comercial"
                       style={{
                         fontSize: "12px",
-                        color: "rgba(242,234,216,0.6)",
+                        color: "rgba(30,22,14,0.55)",
                         fontFamily: "'Tenor Sans', sans-serif",
                         letterSpacing: "0.05em",
                         cursor: "pointer",

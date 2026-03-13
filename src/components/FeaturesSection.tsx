@@ -16,17 +16,17 @@ const FeaturesSection = () => (
 
           <span
             className="absolute top-6 right-8 font-display leading-none"
-            style={{ fontSize: "52px", color: "rgba(200,160,80,0.07)" }}
+            style={{ fontSize: "52px", color: "rgba(30,22,14,0.05)" }}
           >
             {f.num}
           </span>
 
-          <h3 className="font-display text-xl mt-8" style={{ color: "#F2EAD8" }}>
+          <h3 className="font-display text-xl mt-8" style={{ color: "hsl(var(--foreground))" }}>
             {f.title}
           </h3>
           <p
             className="font-body mt-4"
-            style={{ fontSize: "13px", lineHeight: 1.9, color: "rgba(242,234,216,0.55)" }}
+            style={{ fontSize: "13px", lineHeight: 1.9, color: "rgba(30,22,14,0.58)" }}
           >
             {f.desc}
           </p>

@@ -37,7 +37,7 @@ const Propriedade = () => {
   const { t, language } = useLanguage();
 
   return (
-    <div style={{ background: "#08060A", minHeight: "100vh" }}>
+    <div className="bg-background" style={{ minHeight: "100vh" }}>
       <CustomCursor />
       <FilmGrain />
       <SiteNav />
@@ -54,7 +54,7 @@ const Propriedade = () => {
           <p className="label-upper mb-6">{t("propriedade.hero")}</p>
           <h1
             className="heading-display text-center"
-            style={{ fontSize: "clamp(3rem, 10vw, 9rem)", color: "#F2EAD8" }}
+            style={{ fontSize: "clamp(3rem, 10vw, 9rem)", color: "#F5F0E8" }}
           >
             {language === "pt" ? (
               <>A <em>Propriedade</em></>
@@ -69,7 +69,7 @@ const Propriedade = () => {
       <ScrollReveal>
         <div
           className="grid grid-cols-2 md:grid-cols-4 border-b gold-border-line"
-          style={{ borderTop: "1px solid rgba(200,160,80,0.18)" }}
+          style={{ borderTop: "1px solid hsl(var(--gold) / 0.18)" }}
         >
           {stats.map((s, i) => (
             <div
@@ -104,7 +104,7 @@ const Propriedade = () => {
             <ScrollReveal delay={0.2}>
               <blockquote
                 className="border-l border-gold/40 pl-6 mt-10 font-display italic text-xl leading-relaxed"
-                style={{ color: "rgba(242,234,216,0.7)", fontFamily: "'Cormorant Garamond', serif" }}
+                style={{ color: "rgba(30,22,14,0.68)", fontFamily: "'Cormorant Garamond', serif" }}
               >
                 {t("about.quote")}
               </blockquote>
@@ -139,7 +139,7 @@ const Propriedade = () => {
       </div>
 
       {/* Features grid */}
-      <div style={{ borderTop: "1px solid rgba(200,160,80,0.18)" }}>
+      <div style={{ borderTop: "1px solid hsl(var(--gold) / 0.18)" }}>
         <div className="grid grid-cols-2 md:grid-cols-3">
           {features.map((f, i) => (
             <ScrollReveal
@@ -159,7 +159,7 @@ const Propriedade = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3
                   className="font-display text-lg md:text-xl tracking-wide"
-                  style={{ color: "#F2EAD8", fontFamily: "'Cormorant Garamond', serif" }}
+                  style={{ color: "#F5F0E8", fontFamily: "'Cormorant Garamond', serif" }}
                 >
                   {language === "pt" ? f.titlePt : f.titleEn}
                 </h3>
@@ -171,9 +171,9 @@ const Propriedade = () => {
 
       {/* CTA */}
       <ScrollReveal>
-        <div className="py-24 flex flex-col items-center text-center px-8" style={{ borderTop: "1px solid rgba(200,160,80,0.18)" }}>
+        <div className="py-24 flex flex-col items-center text-center px-8" style={{ borderTop: "1px solid hsl(var(--gold) / 0.18)" }}>
           <h2
-            className="heading-display text-bone"
+            className="heading-display text-foreground"
             style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
           >
             {language === "pt" ? <>Agendar uma <em>Visita Privada</em></> : <>Schedule a <em>Private Visit</em></>}

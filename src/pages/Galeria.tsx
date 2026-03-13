@@ -46,7 +46,7 @@ const Galeria = () => {
   ];
 
   return (
-    <div style={{ background: "#08060A", minHeight: "100vh" }}>
+    <div className="bg-background" style={{ minHeight: "100vh" }}>
       <CustomCursor />
       <FilmGrain />
       <SiteNav />
@@ -55,7 +55,7 @@ const Galeria = () => {
         {/* Title */}
         <ScrollReveal>
           <h1
-            className="heading-display text-bone"
+            className="heading-display text-foreground"
             style={{ fontSize: "clamp(3rem, 8vw, 8rem)", fontFamily: "'Cormorant Garamond', serif" }}
           >
             {t("galeria.title")}
@@ -64,15 +64,15 @@ const Galeria = () => {
 
         {/* Category filter */}
         <ScrollReveal delay={0.1}>
-          <div className="flex items-center gap-8 mt-10 mb-14" style={{ borderBottom: "1px solid rgba(200,160,80,0.18)", paddingBottom: "24px" }}>
+          <div className="flex items-center gap-8 mt-10 mb-14" style={{ borderBottom: "1px solid hsl(var(--gold) / 0.18)", paddingBottom: "24px" }}>
             {categories.map(({ key, label }) => (
               <button
                 key={key}
                 onClick={() => setActiveCategory(key)}
                 className="label-upper transition-colors duration-300"
                 style={{
-                  color: activeCategory === key ? "#C8A050" : "rgba(242,234,216,0.35)",
-                  borderBottom: activeCategory === key ? "1px solid #C8A050" : "1px solid transparent",
+                  color: activeCategory === key ? "hsl(var(--gold))" : "rgba(30,22,14,0.35)",
+                  borderBottom: activeCategory === key ? "1px solid hsl(var(--gold))" : "1px solid transparent",
                   paddingBottom: "4px",
                   background: "none",
                   border: "none",
@@ -115,20 +115,20 @@ const Galeria = () => {
       {lightboxIdx !== null && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center"
-          style={{ background: "rgba(8,6,10,0.97)" }}
+          style={{ background: "rgba(247,242,235,0.97)" }}
           onClick={closeLightbox}
         >
           <button
             onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
             className="absolute top-6 right-6"
-            style={{ background: "none", border: "none", color: "#C8A050", cursor: "pointer" }}
+            style={{ background: "none", border: "none", color: "hsl(var(--gold))", cursor: "pointer" }}
           >
             <X size={28} />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); prevImage(); }}
             className="absolute left-6"
-            style={{ background: "none", border: "none", color: "#C8A050", cursor: "pointer" }}
+            style={{ background: "none", border: "none", color: "hsl(var(--gold))", cursor: "pointer" }}
           >
             <ChevronLeft size={36} />
           </button>
@@ -149,7 +149,7 @@ const Galeria = () => {
           <button
             onClick={(e) => { e.stopPropagation(); nextImage(); }}
             className="absolute right-6"
-            style={{ background: "none", border: "none", color: "#C8A050", cursor: "pointer" }}
+            style={{ background: "none", border: "none", color: "hsl(var(--gold))", cursor: "pointer" }}
           >
             <ChevronRight size={36} />
           </button>

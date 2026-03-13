@@ -2,40 +2,92 @@ import { siteConfig } from "@/config/siteConfig";
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 
+const imgStyle = { filter: "brightness(0.88) saturate(0.90)" };
+const hoverOverlay = {
+  background: "linear-gradient(to top, rgba(20,15,10,0.55) 0%, transparent 60%)",
+};
+
 const GallerySection = () => {
   const { t } = useLanguage();
+  const gallery = siteConfig.gallery;
 
   return (
     <section id="galeria" className="px-8 md:px-14 py-16 md:py-24">
       <ScrollReveal className="mb-12">
         <span className="label-upper">{t("gallery.label")}</span>
       </ScrollReveal>
+
+      {/* Primary grid: first image large on left, two stacked on right */}
       <div
-        className="grid gap-[2px]"
-        style={{
-          gridTemplateColumns: "1.6fr 1fr",
-          gridTemplateRows: "480px 320px",
-        }}
+        className="grid gap-[2px] mb-[2px]"
+        style={{ gridTemplateColumns: "1.6fr 1fr", gridTemplateRows: "240px 240px" }}
       >
-        {siteConfig.gallery.map((img, i) => (
-          <ScrollReveal
-            key={i}
-            delay={i * 0.1}
-            className={`relative overflow-hidden group ${i === 0 ? "[grid-row:1/3]" : ""}`}
-          >
+        {/* Large image spanning both rows */}
+        <ScrollReveal
+          delay={0}
+          className="relative overflow-hidden group"
+          style={{ gridRow: "1 / 3" }}
+        >
+          <img
+            src={gallery[0].src}
+            alt={gallery[0].caption}
+            className="w-full h-full object-cover transition-all duration-[1.2s] group-hover:scale-[1.03]"
+            style={imgStyle}
+            loading="lazy"
+          />
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6" style={hoverOverlay}>
+            <span className="label-upper text-[10px]" style={{ color: "rgba(242,236,224,0.85)" }}>
+              {gallery[0].caption}
+            </span>
+          </div>
+        </ScrollReveal>
+
+        {/* Two stacked images on right */}
+        {gallery.slice(1, 3).map((img, i) => (
+          <ScrollReveal key={i + 1} delay={(i + 1) * 0.1} className="relative overflow-hidden group">
             <img
               src={img.src}
               alt={img.caption}
-              className="w-full h-full object-cover transition-all duration-[1.2s]"
-              style={{ filter: "brightness(0.82) saturate(0.88)" }}
+              className="w-full h-full object-cover transition-all duration-[1.2s] group-hover:scale-[1.03]"
+              style={imgStyle}
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
-              <span className="label-upper text-[10px]">{img.caption}</span>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6" style={hoverOverlay}>
+              <span className="label-upper text-[10px]" style={{ color: "rgba(242,236,224,0.85)" }}>
+                {img.caption}
+              </span>
             </div>
           </ScrollReveal>
         ))}
       </div>
+
+      {/* Secondary row: remaining images equal width */}
+      {gallery.length > 3 && (
+        <div
+          className="grid gap-[2px]"
+          style={{
+            gridTemplateColumns: `repeat(${Math.min(gallery.length - 3, 4)}, 1fr)`,
+            gridTemplateRows: "320px",
+          }}
+        >
+          {gallery.slice(3).map((img, i) => (
+            <ScrollReveal key={i + 3} delay={(i + 3) * 0.1} className="relative overflow-hidden group">
+              <img
+                src={img.src}
+                alt={img.caption}
+                className="w-full h-full object-cover transition-all duration-[1.2s] group-hover:scale-[1.03]"
+                style={imgStyle}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6" style={hoverOverlay}>
+                <span className="label-upper text-[10px]" style={{ color: "rgba(242,236,224,0.85)" }}>
+                  {img.caption}
+                </span>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      )}
     </section>
   );
 };
