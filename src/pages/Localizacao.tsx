@@ -59,22 +59,21 @@ const Localizacao = () => {
           <div className="flex flex-col gap-8">
             <ScrollReveal delay={0.2}>
               <div
-                className="w-full flex flex-col items-center justify-center p-8"
+                className="w-full overflow-hidden"
                 style={{
                   aspectRatio: "4/3",
-                  background: "radial-gradient(circle at center, rgba(200,160,80,0.08) 0%, rgba(8,6,10,1) 75%)",
                   border: "1px solid rgba(200,160,80,0.18)",
                 }}
               >
-                <div className="w-3 h-3 bg-gold mb-6" style={{ animation: "pulse 2s infinite" }} />
-                <p className="label-upper text-center mb-4">Monte Claro</p>
-                <p
-                  className="font-display text-center mb-2"
-                  style={{ fontSize: "32px", color: "#F2EAD8", fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                  38°34'N 7°54'W
-                </p>
-                <p className="label-muted text-center">{t("localizacao.address")}</p>
+                <iframe
+                  title="Localização da Herdade do Monte Claro"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-8.7%2C38.05%2C-8.4%2C38.3&layer=mapnik&marker=38.1667%2C-8.5667"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, display: "block" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </ScrollReveal>
 
