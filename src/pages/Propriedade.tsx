@@ -8,53 +8,29 @@ import { useLanguage } from "@/context/LanguageContext";
 import { siteConfig } from "@/config/siteConfig";
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=90",
   "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=90",
   "https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=900&q=90",
+  "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=900&q=90",
 ];
 
 const stats = [
-  { value: "48 ha", labelPt: "Área Total", labelEn: "Total Area" },
-  { value: "580 m²", labelPt: "Área Construída", labelEn: "Built Area" },
-  { value: "T5", labelPt: "Tipologia", labelEn: "Type" },
-  { value: "1873", labelPt: "Fundação", labelEn: "Founded" },
-  { value: "12 ha", labelPt: "Olival", labelEn: "Olive Grove" },
-  { value: "20 ha", labelPt: "Montado de Sobro", labelEn: "Cork Oak Forest" },
-  { value: "∞", labelPt: "Água Própria", labelEn: "Own Water Source" },
-  { value: "100%", labelPt: "Autossuficiente", labelEn: "Self-Sufficient" },
+  { value: "12 ha", labelPt: "Área Total", labelEn: "Total Area" },
+  { value: "500 m²", labelPt: "Área Aprovada", labelEn: "Approved Area" },
+  { value: "2+6", labelPt: "Habitações", labelEn: "Dwellings" },
+  { value: "3", labelPt: "Fontes de Água", labelEn: "Water Sources" },
+  { value: "20 min", labelPt: "Da Comporta", labelEn: "From Comporta" },
+  { value: "7 min", labelPt: "De Grândola", labelEn: "From Grândola" },
+  { value: "1h15", labelPt: "De Lisboa", labelEn: "From Lisbon" },
+  { value: "100%", labelPt: "Turismo Apto", labelEn: "Tourism Eligible" },
 ];
 
 const features = [
-  {
-    titlePt: "Olival Centenário",
-    titleEn: "Century-Old Olive Grove",
-    icon: "🫒",
-  },
-  {
-    titlePt: "Casa Senhorial",
-    titleEn: "Manor House",
-    icon: "🏛️",
-  },
-  {
-    titlePt: "Montado de Sobro",
-    titleEn: "Cork Oak Forest",
-    icon: "🌳",
-  },
-  {
-    titlePt: "Água Própria",
-    titleEn: "Own Water Source",
-    icon: "💧",
-  },
-  {
-    titlePt: "Autossuficiente",
-    titleEn: "Self-Sufficient",
-    icon: "⚡",
-  },
-  {
-    titlePt: "Fundada 1873",
-    titleEn: "Founded 1873",
-    icon: "📜",
-  },
+  { titlePt: "Pronto a Construir", titleEn: "Ready to Build", icon: "🏗️" },
+  { titlePt: "Duplo Acesso", titleEn: "Dual Access", icon: "🛤️" },
+  { titlePt: "Montado de Sobreiros", titleEn: "Cork Oak Forest", icon: "🌳" },
+  { titlePt: "Água Abundante", titleEn: "Water Abundance", icon: "💧" },
+  { titlePt: "Zona Turística", titleEn: "Tourism Zone", icon: "🏖️" },
+  { titlePt: "Licença Emitida", titleEn: "License Issued", icon: "📜" },
 ];
 
 const Propriedade = () => {
@@ -69,8 +45,8 @@ const Propriedade = () => {
       {/* Hero */}
       <div className="relative w-full overflow-hidden" style={{ height: "70vh", marginTop: 0 }}>
         <img
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=90"
-          alt="A Propriedade"
+          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=90"
+          alt="Herdade em Grândola"
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.5) saturate(0.8)" }}
         />
@@ -112,7 +88,6 @@ const Propriedade = () => {
       {/* Two-column layout */}
       <div className="px-8 md:px-14 py-16 md:py-24 max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[100px]">
-          {/* Left: text */}
           <div>
             <ScrollReveal>
               <span className="label-upper">{t("about.label")}</span>
@@ -120,9 +95,9 @@ const Propriedade = () => {
             <ScrollReveal delay={0.1}>
               <h2 className="heading-display text-bone text-4xl md:text-[52px] mt-8 leading-[1.1]">
                 {language === "pt" ? (
-                  <>Onde o tempo ainda é <em>nosso</em></>
+                  <>O valor do tempo: pronto a <em>construir</em></>
                 ) : (
-                  <>Where time still <em>belongs</em> to us</>
+                  <>The value of time: ready to <em>build</em></>
                 )}
               </h2>
             </ScrollReveal>
@@ -145,7 +120,6 @@ const Propriedade = () => {
             </ScrollReveal>
           </div>
 
-          {/* Right: stacked images */}
           <div className="flex flex-col gap-4">
             {galleryImages.map((src, i) => (
               <ScrollReveal key={i} delay={i * 0.15}>
@@ -198,8 +172,8 @@ const Propriedade = () => {
           </h2>
           <p className="body-text mt-6 max-w-[480px]">
             {language === "pt"
-              ? "Uma experiência exclusiva, ao ritmo do Alentejo."
-              : "An exclusive experience, at the pace of Alentejo."}
+              ? "Uma experiência exclusiva, no Triângulo de Ouro alentejano."
+              : "An exclusive experience, in the Alentejo Golden Triangle."}
           </p>
           <Link to="/agendar" className="btn-calendly mt-10">
             {t("propriedade.cta")}

@@ -3,16 +3,18 @@ import { useLanguage } from "@/context/LanguageContext";
 import SiteNav from "./SiteNav";
 import { siteConfig } from "@/config/siteConfig";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 1, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 1, delay, ease: ease as unknown as [number, number, number, number] },
 });
 
 const fadeDown = (delay: number) => ({
   initial: { opacity: 0, y: -20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 1, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 1, delay, ease: ease as unknown as [number, number, number, number] },
 });
 
 const HeroOverlay = () => {

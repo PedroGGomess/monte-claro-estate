@@ -15,9 +15,9 @@ const SiteNav = ({ transparent = false }: SiteNavProps) => {
         className="font-display text-bone text-lg tracking-widest leading-tight hover:text-gold transition-colors duration-500"
         style={{ fontFamily: "'Cormorant Garamond', serif", color: "#F2EAD8" }}
       >
-        Herdade do
+        Herdade em
         <br />
-        <em>Monte Claro</em>
+        <em>Grândola</em>
       </Link>
       <div className="hidden md:flex items-center gap-10">
         <Link
@@ -38,7 +38,6 @@ const SiteNav = ({ transparent = false }: SiteNavProps) => {
         >
           {t("nav.location")}
         </Link>
-        {/* Language toggle */}
         <div className="flex items-center gap-1" style={{ fontSize: "11px", letterSpacing: "0.12em" }}>
           <button
             onClick={toggle}
