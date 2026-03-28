@@ -286,10 +286,10 @@ const AIChatbot = () => {
             </div>
             <div className="flex-1">
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "17px", color: "hsl(var(--foreground))", lineHeight: 1.2 }}>
-                Concierge
+                Grândola <em>Concierge</em>
               </p>
               <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "8px", letterSpacing: "0.3em", color: "hsl(var(--gold))", textTransform: "uppercase" }}>
-                {language === "pt" ? "Assistente Premium · Online" : "Premium Assistant · Online"}
+                {language === "pt" ? "Assistente Exclusivo · Online" : "Exclusive Assistant · Online"}
               </p>
             </div>
             <button

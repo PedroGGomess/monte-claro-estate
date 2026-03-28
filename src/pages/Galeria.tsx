@@ -8,10 +8,9 @@ import { useLanguage } from "@/context/LanguageContext";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { images as herdadeImages } from "@/config/siteConfig";
 
-type Category = "todos" | "casa" | "terra" | "paisagem";
+type Category = "todos" | "casa";
 
 const allImages = [
-  // Casa / Projeto — property-specific images
   { src: herdadeImages.hero, captionPt: "Vista Geral · Piscina", captionEn: "General View · Pool", category: "casa" as Category },
   { src: herdadeImages.arches, captionPt: "Arcadas · Exterior", captionEn: "Arches · Exterior", category: "casa" as Category },
   { src: herdadeImages.facade, captionPt: "Fachada Principal", captionEn: "Main Facade", category: "casa" as Category },
@@ -21,20 +20,6 @@ const allImages = [
   { src: herdadeImages.frontView, captionPt: "Vista Frontal · Propriedade", captionEn: "Front View · Property", category: "casa" as Category },
   { src: herdadeImages.poolPergola, captionPt: "Pérgola · Piscina", captionEn: "Pergola · Pool", category: "casa" as Category },
   { src: herdadeImages.diningKitchen, captionPt: "Sala de Jantar · Cozinha", captionEn: "Dining Room · Kitchen", category: "casa" as Category },
-  // Casa — luxury architecture
-  { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=90", captionPt: "Arquitetura Contemporânea · Referência", captionEn: "Contemporary Architecture · Reference", category: "casa" as Category },
-  // Terra — Alentejo land, cork oaks, olive groves
-  { src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=90", captionPt: "Montado Alentejano · Sobreiros", captionEn: "Alentejo Montado · Cork Oaks", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=90", captionPt: "Terreno · Ladeado por Duas Estradas", captionEn: "Land · Flanked by Two Roads", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=800&q=90", captionPt: "Olival · Tradição Alentejana", captionEn: "Olive Grove · Alentejo Tradition", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=90", captionPt: "Planície Alentejana · Vista Aérea", captionEn: "Alentejo Plains · Aerial View", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=90", captionPt: "Floresta de Sobreiros", captionEn: "Cork Oak Forest", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1470058869958-2a77571ab1d1?w=800&q=90", captionPt: "Caminho Rural · Alentejo", captionEn: "Rural Path · Alentejo", category: "terra" as Category },
-  // Paisagem — Alentejo sunsets, beaches, landscape
-  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=90", captionPt: "Praia da Comporta · 20 min", captionEn: "Comporta Beach · 20 min", category: "paisagem" as Category },
-  { src: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=90", captionPt: "Costa Alentejana · Praia de Melides", captionEn: "Alentejo Coast · Melides Beach", category: "paisagem" as Category },
-  { src: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=90", captionPt: "Pôr do Sol · Alentejo", captionEn: "Sunset · Alentejo", category: "paisagem" as Category },
-  { src: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=90", captionPt: "Amanhecer · Serra de Grândola", captionEn: "Sunrise · Grândola Hills", category: "paisagem" as Category },
 ];
 
 const Galeria = () => {
@@ -66,8 +51,6 @@ const Galeria = () => {
   const categories: { key: Category; label: string }[] = [
     { key: "todos", label: t("galeria.todos") },
     { key: "casa", label: t("galeria.casa") },
-    { key: "terra", label: t("galeria.terra") },
-    { key: "paisagem", label: t("galeria.paisagem") },
   ];
 
   const caption = (img: typeof allImages[0]) =>
