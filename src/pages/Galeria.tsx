@@ -5,12 +5,13 @@ import FilmGrain from "@/components/FilmGrain";
 import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { images as herdadeImages } from "@/config/siteConfig";
 
 type Category = "todos" | "casa" | "terra" | "paisagem";
 
 const allImages = [
+  // Casa / Projeto — property-specific images
   { src: herdadeImages.hero, captionPt: "Vista Geral · Piscina", captionEn: "General View · Pool", category: "casa" as Category },
   { src: herdadeImages.arches, captionPt: "Arcadas · Exterior", captionEn: "Arches · Exterior", category: "casa" as Category },
   { src: herdadeImages.facade, captionPt: "Fachada Principal", captionEn: "Main Facade", category: "casa" as Category },
@@ -20,23 +21,27 @@ const allImages = [
   { src: herdadeImages.frontView, captionPt: "Vista Frontal · Propriedade", captionEn: "Front View · Property", category: "casa" as Category },
   { src: herdadeImages.poolPergola, captionPt: "Pérgola · Piscina", captionEn: "Pergola · Pool", category: "casa" as Category },
   { src: herdadeImages.diningKitchen, captionPt: "Sala de Jantar · Cozinha", captionEn: "Dining Room · Kitchen", category: "casa" as Category },
-  { src: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=90", captionPt: "Piscina Exterior · Projeto", captionEn: "Outdoor Pool · Project", category: "casa" as Category },
+  // Casa — luxury architecture
+  { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=90", captionPt: "Arquitetura Contemporânea · Referência", captionEn: "Contemporary Architecture · Reference", category: "casa" as Category },
+  // Terra — Alentejo land, cork oaks, olive groves
+  { src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=90", captionPt: "Montado Alentejano · Sobreiros", captionEn: "Alentejo Montado · Cork Oaks", category: "terra" as Category },
   { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=90", captionPt: "Terreno · Ladeado por Duas Estradas", captionEn: "Land · Flanked by Two Roads", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=800&q=90", captionPt: "Olival Centenário", captionEn: "Century Olive Grove", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=90", captionPt: "Montado de Sobro · Sobreiros", captionEn: "Cork Oak Montado", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&q=90", captionPt: "Fauna Local · Reserva", captionEn: "Local Wildlife · Reserve", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&q=90", captionPt: "Floresta de Sobro · Alentejo", captionEn: "Cork Forest · Alentejo", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1468436139062-f60a71c5c892?w=1200&q=90", captionPt: "Planície Alentejana · Vista Panorâmica", captionEn: "Alentejo Plain · Panoramic View", category: "terra" as Category },
-  { src: "https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=1200&q=90", captionPt: "Horizonte Alentejano", captionEn: "Alentejo Horizon", category: "paisagem" as Category },
-  { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=90", captionPt: "Paisagem Alentejana", captionEn: "Alentejo Landscape", category: "paisagem" as Category },
-  { src: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800&q=90", captionPt: "Pôr do Sol · Alentejo", captionEn: "Sunset · Alentejo", category: "paisagem" as Category },
-  { src: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=90", captionPt: "Céu Alentejano · Serra", captionEn: "Alentejo Sky · Hills", category: "paisagem" as Category },
+  { src: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=800&q=90", captionPt: "Olival · Tradição Alentejana", captionEn: "Olive Grove · Alentejo Tradition", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=90", captionPt: "Planície Alentejana · Vista Aérea", captionEn: "Alentejo Plains · Aerial View", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=90", captionPt: "Floresta de Sobreiros", captionEn: "Cork Oak Forest", category: "terra" as Category },
+  { src: "https://images.unsplash.com/photo-1470058869958-2a77571ab1d1?w=800&q=90", captionPt: "Caminho Rural · Alentejo", captionEn: "Rural Path · Alentejo", category: "terra" as Category },
+  // Paisagem — Alentejo sunsets, beaches, landscape
+  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=90", captionPt: "Praia da Comporta · 20 min", captionEn: "Comporta Beach · 20 min", category: "paisagem" as Category },
+  { src: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=90", captionPt: "Costa Alentejana · Praia de Melides", captionEn: "Alentejo Coast · Melides Beach", category: "paisagem" as Category },
+  { src: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=90", captionPt: "Pôr do Sol · Alentejo", captionEn: "Sunset · Alentejo", category: "paisagem" as Category },
+  { src: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=90", captionPt: "Amanhecer · Serra de Grândola", captionEn: "Sunrise · Grândola Hills", category: "paisagem" as Category },
 ];
 
 const Galeria = () => {
   const { t, language } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<Category>("todos");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [imageLoaded, setImageLoaded] = useState<Record<number, boolean>>({});
 
   const filtered = activeCategory === "todos"
     ? allImages
@@ -83,7 +88,7 @@ const Galeria = () => {
           src={herdadeImages.hero}
           alt="Herdade do Monte Claro"
           className="w-full h-full object-cover"
-          style={{ filter: "brightness(0.45) saturate(0.80)" }}
+          style={{ filter: "brightness(0.40) saturate(0.80)" }}
         />
         <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-14 pb-14">
           <span className="label-upper mb-6" style={{ color: "hsl(var(--gold))" }}>
@@ -114,11 +119,11 @@ const Galeria = () => {
         </div>
       </div>
 
-      <div className="px-8 md:px-14">
+      <div className="px-8 md:px-14" style={{ paddingTop: "80px" }}>
         {/* Category filter */}
         <ScrollReveal>
           <div
-            className="flex items-center gap-6 sm:gap-10 mt-10 mb-12"
+            className="flex flex-wrap items-center gap-4 sm:gap-8 mb-14"
             style={{ borderBottom: "1px solid hsl(var(--gold) / 0.18)", paddingBottom: "20px" }}
           >
             {categories.map(({ key, label }) => {
@@ -126,54 +131,81 @@ const Galeria = () => {
               return (
                 <button
                   key={key}
-                  onClick={() => setActiveCategory(key)}
-                  className="label-upper transition-colors duration-300 flex items-center gap-2"
+                  onClick={() => { setActiveCategory(key); setImageLoaded({}); }}
+                  className="label-upper transition-all duration-300 flex items-center gap-2"
                   style={{
-                    color: activeCategory === key ? "hsl(var(--gold))" : "rgba(30,22,14,0.45)",
-                    background: "none",
+                    color: activeCategory === key ? "hsl(var(--gold))" : "rgba(30,22,14,0.40)",
+                    background: activeCategory === key ? "hsl(var(--gold) / 0.06)" : "none",
                     border: "none",
-                    borderBottom: activeCategory === key ? "1px solid hsl(var(--gold))" : "1px solid transparent",
-                    paddingBottom: "4px",
+                    borderBottom: activeCategory === key ? "2px solid hsl(var(--gold))" : "2px solid transparent",
+                    padding: "8px 4px 6px",
                     cursor: "pointer",
                   }}
                 >
                   {label}
-                  <span style={{ fontSize: "8px", opacity: 0.6 }}>({count})</span>
+                  <span
+                    className="inline-flex items-center justify-center"
+                    style={{
+                      fontSize: "8px",
+                      width: "18px",
+                      height: "18px",
+                      borderRadius: "50%",
+                      background: activeCategory === key ? "hsl(var(--gold) / 0.12)" : "rgba(30,22,14,0.06)",
+                      color: activeCategory === key ? "hsl(var(--gold))" : "rgba(30,22,14,0.35)",
+                    }}
+                  >
+                    {count}
+                  </span>
                 </button>
               );
             })}
           </div>
         </ScrollReveal>
 
-        {/* Uniform grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[6px] pb-28">
+        {/* Masonry-style grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[5px] pb-28">
           {filtered.map((img, i) => (
-            <ScrollReveal key={`${activeCategory}-${i}`} delay={Math.min(i * 0.05, 0.4)}>
+            <ScrollReveal key={`${activeCategory}-${i}`} delay={Math.min(i * 0.04, 0.3)}>
               <div
                 className="relative overflow-hidden group cursor-pointer"
-                style={{ aspectRatio: "4/3" }}
+                style={{
+                  aspectRatio: i % 5 === 0 ? "3/4" : "4/3",
+                }}
                 onClick={() => openLightbox(i)}
               >
                 <img
                   src={img.src}
                   alt={caption(img)}
-                  className="w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-[1.06]"
-                  style={{ filter: "brightness(0.84) saturate(0.88)", display: "block" }}
+                  className="w-full h-full object-cover transition-all duration-[1.6s] group-hover:scale-[1.08]"
+                  style={{
+                    filter: "brightness(0.82) saturate(0.90)",
+                    display: "block",
+                    opacity: imageLoaded[i] !== false ? 1 : 0.3,
+                  }}
                   loading="lazy"
+                  onLoad={() => setImageLoaded(prev => ({ ...prev, [i]: true }))}
                 />
-                {/* Permanent subtle gradient at bottom */}
+                {/* Gradient overlay */}
                 <div
-                  className="absolute inset-0 flex items-end p-5"
-                  style={{ background: "linear-gradient(to top, rgba(10,8,6,0.55) 0%, transparent 50%)" }}
+                  className="absolute inset-0 flex items-end justify-between p-5 transition-opacity duration-500"
+                  style={{ background: "linear-gradient(to top, rgba(10,8,6,0.65) 0%, rgba(10,8,6,0.1) 35%, transparent 60%)" }}
                 >
-                  <span className="label-upper text-[8px] transition-opacity duration-500 opacity-60 group-hover:opacity-100" style={{ color: "rgba(242,234,216,0.90)" }}>
+                  <span
+                    className="label-upper text-[8px] transition-all duration-500 opacity-70 group-hover:opacity-100"
+                    style={{ color: "rgba(242,234,216,0.90)" }}
+                  >
                     {caption(img)}
                   </span>
+                  <ZoomIn
+                    size={16}
+                    className="opacity-0 group-hover:opacity-70 transition-all duration-500 translate-y-2 group-hover:translate-y-0"
+                    style={{ color: "rgba(242,234,216,0.80)" }}
+                  />
                 </div>
                 {/* Gold border on hover */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ border: "1px solid hsl(var(--gold) / 0.30)" }}
+                  style={{ border: "1px solid hsl(var(--gold) / 0.35)" }}
                 />
               </div>
             </ScrollReveal>
@@ -185,7 +217,7 @@ const Galeria = () => {
       {lightboxIdx !== null && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center"
-          style={{ background: "rgba(8,6,4,0.96)" }}
+          style={{ background: "rgba(8,6,4,0.97)" }}
           onClick={closeLightbox}
         >
           {/* Top bar */}
@@ -211,11 +243,11 @@ const Galeria = () => {
           {/* Nav: prev */}
           <button
             onClick={(e) => { e.stopPropagation(); prevImage(); }}
-            className="absolute left-4 md:left-8 z-10"
-            style={{ background: "none", border: "none", color: "rgba(200,160,80,0.6)", cursor: "pointer" }}
+            className="absolute left-4 md:left-8 z-10 transition-all duration-300 hover:scale-110"
+            style={{ background: "rgba(200,160,80,0.08)", border: "1px solid rgba(200,160,80,0.2)", color: "rgba(200,160,80,0.7)", cursor: "pointer", padding: "12px" }}
             aria-label="Anterior"
           >
-            <ChevronLeft size={40} />
+            <ChevronLeft size={28} />
           </button>
 
           {/* Image */}
@@ -229,21 +261,59 @@ const Galeria = () => {
               alt={caption(filtered[lightboxIdx])}
               className="max-h-[75vh] w-auto object-contain"
               style={{
-                filter: "brightness(0.96)",
-                border: "1px solid rgba(200,160,80,0.12)",
+                filter: "brightness(0.98)",
+                border: "1px solid rgba(200,160,80,0.15)",
               }}
             />
+            {/* Caption below image */}
+            <p
+              className="mt-4 label-upper text-[9px]"
+              style={{ color: "rgba(200,160,80,0.5)" }}
+            >
+              {caption(filtered[lightboxIdx])}
+            </p>
           </div>
 
           {/* Nav: next */}
           <button
             onClick={(e) => { e.stopPropagation(); nextImage(); }}
-            className="absolute right-4 md:right-8 z-10"
-            style={{ background: "none", border: "none", color: "rgba(200,160,80,0.6)", cursor: "pointer" }}
+            className="absolute right-4 md:right-8 z-10 transition-all duration-300 hover:scale-110"
+            style={{ background: "rgba(200,160,80,0.08)", border: "1px solid rgba(200,160,80,0.2)", color: "rgba(200,160,80,0.7)", cursor: "pointer", padding: "12px" }}
             aria-label="Próxima"
           >
-            <ChevronRight size={40} />
+            <ChevronRight size={28} />
           </button>
+
+          {/* Thumbnail strip at bottom */}
+          <div
+            className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-[3px] px-8 py-4 overflow-x-auto"
+            style={{ background: "rgba(8,6,4,0.8)" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {filtered.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setLightboxIdx(i)}
+                className="shrink-0 overflow-hidden transition-all duration-300"
+                style={{
+                  width: i === lightboxIdx ? "48px" : "36px",
+                  height: i === lightboxIdx ? "36px" : "28px",
+                  opacity: i === lightboxIdx ? 1 : 0.4,
+                  border: i === lightboxIdx ? "1px solid rgba(200,160,80,0.5)" : "1px solid transparent",
+                  cursor: "pointer",
+                  background: "none",
+                  padding: 0,
+                }}
+              >
+                <img
+                  src={img.src}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </button>
+            ))}
+          </div>
         </div>
       )}
 

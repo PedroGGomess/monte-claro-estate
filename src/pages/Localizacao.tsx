@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SiteNav from "@/components/SiteNav";
 import CustomCursor from "@/components/CustomCursor";
 import FilmGrain from "@/components/FilmGrain";
@@ -5,21 +6,22 @@ import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 import { images as herdadeImages } from "@/config/siteConfig";
+import { MapPin, Clock, Car, Plane, Navigation } from "lucide-react";
 
 const distances = [
-  { placePt: "Comporta / Melides", placeEn: "Comporta / Melides", time: "20 min", notePt: "Praias exclusivas", noteEn: "Exclusive beaches" },
-  { placePt: "Grândola", placeEn: "Grândola", time: "7 min", notePt: "Cidade mais próxima", noteEn: "Nearest town" },
-  { placePt: "Lisboa", placeEn: "Lisbon", time: "1h 15min", notePt: "Capital", noteEn: "Capital city" },
-  { placePt: "Aeroporto de Lisboa", placeEn: "Lisbon Airport", time: "1h 25min", notePt: "Internacional", noteEn: "International" },
-  { placePt: "Évora", placeEn: "Évora", time: "1h 10min", notePt: "Património UNESCO", noteEn: "UNESCO Heritage" },
-  { placePt: "Sevilha", placeEn: "Seville", time: "2h 30min", notePt: "Espanha", noteEn: "Spain" },
+  { placePt: "Comporta / Melides", placeEn: "Comporta / Melides", time: "20 min", notePt: "Praias exclusivas", noteEn: "Exclusive beaches", icon: "beach" },
+  { placePt: "Grândola", placeEn: "Grândola", time: "7 min", notePt: "Cidade mais próxima", noteEn: "Nearest town", icon: "town" },
+  { placePt: "Lisboa", placeEn: "Lisbon", time: "1h 15min", notePt: "Capital", noteEn: "Capital city", icon: "city" },
+  { placePt: "Aeroporto de Lisboa", placeEn: "Lisbon Airport", time: "1h 25min", notePt: "Internacional", noteEn: "International", icon: "airport" },
+  { placePt: "Évora", placeEn: "Évora", time: "1h 10min", notePt: "Património UNESCO", noteEn: "UNESCO Heritage", icon: "heritage" },
+  { placePt: "Sevilha", placeEn: "Seville", time: "2h 30min", notePt: "Espanha", noteEn: "Spain", icon: "border" },
 ];
 
 const pois = [
-  { icon: "🏖️", namePt: "Praia da Comporta", nameEn: "Comporta Beach", descPt: "Uma das praias mais exclusivas da Europa", descEn: "One of Europe's most exclusive beaches", dist: "20 min" },
-  { icon: "🏰", namePt: "Castelo de Alcácer do Sal", nameEn: "Alcácer do Sal Castle", descPt: "Vila histórica medieval à beira do Sado", descEn: "Historic medieval town on the Sado river", dist: "25 min" },
-  { icon: "🌿", namePt: "Reserva Natural do Sado", nameEn: "Sado Natural Reserve", descPt: "Golfinhos, aves e paisagens únicas", descEn: "Dolphins, birds and unique landscapes", dist: "30 min" },
-  { icon: "🏖️", namePt: "Praia de Melides", nameEn: "Melides Beach", descPt: "Aldeia costeira com hotelaria de luxo", descEn: "Coastal village with luxury hospitality", dist: "25 min" },
+  { icon: "🏖️", namePt: "Praia da Comporta", nameEn: "Comporta Beach", descPt: "Uma das praias mais exclusivas da Europa, com areia dourada e água cristalina", descEn: "One of Europe's most exclusive beaches, with golden sand and crystal-clear water", dist: "20 min", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=85" },
+  { icon: "🏰", namePt: "Castelo de Alcácer do Sal", nameEn: "Alcácer do Sal Castle", descPt: "Vila histórica medieval à beira do Sado, com pousada de charme", descEn: "Historic medieval town on the Sado river, with a charming pousada", dist: "25 min", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&q=85" },
+  { icon: "🌿", namePt: "Reserva Natural do Sado", nameEn: "Sado Natural Reserve", descPt: "Golfinhos residentes, aves migratórias e paisagens de tirar o fôlego", descEn: "Resident dolphins, migratory birds and breathtaking landscapes", dist: "30 min", image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=85" },
+  { icon: "🏖️", namePt: "Praia de Melides", nameEn: "Melides Beach", descPt: "Aldeia costeira com hotelaria de luxo e restaurantes exclusivos", descEn: "Coastal village with luxury hospitality and exclusive restaurants", dist: "25 min", image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&q=85" },
 ];
 
 const highlights = [
@@ -61,8 +63,16 @@ const highlights = [
   },
 ];
 
+type MapStyle = "roadmap" | "satellite";
+
 const Localizacao = () => {
   const { t, language } = useLanguage();
+  const [mapStyle, setMapStyle] = useState<MapStyle>("roadmap");
+
+  // Google Maps embed — satellite or roadmap view
+  const mapUrl = mapStyle === "satellite"
+    ? "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25000!2d-8.5645!3d38.1635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2spt!4v1700000000000"
+    : "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d50000!2d-8.5645!3d38.1635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2spt!4v1700000000000";
 
   return (
     <div className="bg-background" style={{ minHeight: "100vh" }}>
@@ -76,7 +86,7 @@ const Localizacao = () => {
           src={herdadeImages.frontView}
           alt={language === "pt" ? "Localização da Herdade" : "Estate Location"}
           className="w-full h-full object-cover"
-          style={{ filter: "brightness(0.32) saturate(0.65)" }}
+          style={{ filter: "brightness(0.30) saturate(0.65)" }}
         />
         <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-14 pb-12">
           <span className="label-upper mb-5" style={{ color: "hsl(var(--gold))" }}>
@@ -115,31 +125,50 @@ const Localizacao = () => {
           {/* Left: distance table */}
           <div>
             <ScrollReveal>
-              <span className="label-upper mb-8 block">{language === "pt" ? "Distâncias" : "Distances"}</span>
+              <div className="flex items-center gap-3 mb-8">
+                <Navigation size={14} style={{ color: "hsl(var(--gold))" }} />
+                <span className="label-upper">{language === "pt" ? "Distâncias" : "Distances"}</span>
+              </div>
             </ScrollReveal>
             {distances.map((d, i) => (
               <ScrollReveal key={i} delay={0.08 + i * 0.07}>
-                <div className="flex items-center justify-between py-5 gold-border-line" style={{ borderBottomWidth: "1px", borderBottomStyle: "solid" }}>
-                  <div>
-                    <span
-                      className="block font-body text-[14px]"
-                      style={{ color: "rgba(30,22,14,0.75)", fontFamily: "'Tenor Sans', sans-serif" }}
+                <div
+                  className="flex items-center justify-between py-5 group transition-all duration-300 hover:pl-2"
+                  style={{ borderBottom: "1px solid hsl(var(--gold) / 0.12)" }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div
+                      className="w-8 h-8 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
+                      style={{ background: "hsl(var(--gold) / 0.06)", border: "1px solid hsl(var(--gold) / 0.12)" }}
                     >
-                      {language === "pt" ? d.placePt : d.placeEn}
-                    </span>
+                      {d.icon === "airport" ? <Plane size={13} style={{ color: "hsl(var(--gold))" }} /> :
+                       d.icon === "city" || d.icon === "town" ? <MapPin size={13} style={{ color: "hsl(var(--gold))" }} /> :
+                       <Car size={13} style={{ color: "hsl(var(--gold))" }} />}
+                    </div>
+                    <div>
+                      <span
+                        className="block font-body text-[14px]"
+                        style={{ color: "rgba(30,22,14,0.75)", fontFamily: "'Tenor Sans', sans-serif" }}
+                      >
+                        {language === "pt" ? d.placePt : d.placeEn}
+                      </span>
+                      <span
+                        className="block mt-1"
+                        style={{ fontSize: "9px", letterSpacing: "0.25em", color: "rgba(200,160,80,0.6)", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase" }}
+                      >
+                        {language === "pt" ? d.notePt : d.noteEn}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0 ml-4">
+                    <Clock size={12} style={{ color: "hsl(var(--gold) / 0.4)" }} />
                     <span
-                      className="block mt-1"
-                      style={{ fontSize: "9px", letterSpacing: "0.25em", color: "rgba(200,160,80,0.6)", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase" }}
+                      className="font-display text-gold"
+                      style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "26px", color: "hsl(var(--gold))" }}
                     >
-                      {language === "pt" ? d.notePt : d.noteEn}
+                      {d.time}
                     </span>
                   </div>
-                  <span
-                    className="font-display text-gold text-[28px] shrink-0 ml-4"
-                    style={{ fontFamily: "'Cormorant Garamond', serif", color: "hsl(var(--gold))" }}
-                  >
-                    {d.time}
-                  </span>
                 </div>
               </ScrollReveal>
             ))}
@@ -163,29 +192,80 @@ const Localizacao = () => {
           {/* Right: map + address card */}
           <div className="flex flex-col gap-6">
             <ScrollReveal delay={0.15}>
-              <div
-                className="w-full overflow-hidden relative"
-                style={{
-                  aspectRatio: "4/3",
-                  border: "1px solid rgba(200,160,80,0.20)",
-                }}
-              >
-                <iframe
-                  title="Localização da Herdade do Monte Claro"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-8.68%2C38.10%2C-8.45%2C38.24&layer=mapnik&marker=38.1635%2C-8.5645"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: "block" }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
-                {/* Subtle gold overlay on top edge */}
+              <div className="relative">
+                {/* Map style toggle */}
+                <div className="absolute top-4 right-4 z-10 flex gap-[1px]" style={{ background: "rgba(200,160,80,0.2)" }}>
+                  <button
+                    onClick={() => setMapStyle("roadmap")}
+                    style={{
+                      padding: "6px 14px",
+                      fontSize: "9px",
+                      letterSpacing: "0.2em",
+                      textTransform: "uppercase",
+                      fontFamily: "'Tenor Sans', sans-serif",
+                      background: mapStyle === "roadmap" ? "rgba(247,242,235,0.95)" : "rgba(247,242,235,0.75)",
+                      color: mapStyle === "roadmap" ? "hsl(var(--gold))" : "rgba(30,22,14,0.45)",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {language === "pt" ? "Mapa" : "Map"}
+                  </button>
+                  <button
+                    onClick={() => setMapStyle("satellite")}
+                    style={{
+                      padding: "6px 14px",
+                      fontSize: "9px",
+                      letterSpacing: "0.2em",
+                      textTransform: "uppercase",
+                      fontFamily: "'Tenor Sans', sans-serif",
+                      background: mapStyle === "satellite" ? "rgba(247,242,235,0.95)" : "rgba(247,242,235,0.75)",
+                      color: mapStyle === "satellite" ? "hsl(var(--gold))" : "rgba(30,22,14,0.45)",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {language === "pt" ? "Satélite" : "Satellite"}
+                  </button>
+                </div>
+
                 <div
-                  className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
-                  style={{ background: "linear-gradient(to right, transparent, hsl(var(--gold) / 0.4), transparent)" }}
-                />
+                  className="w-full overflow-hidden relative"
+                  style={{
+                    aspectRatio: "4/3",
+                    border: "1px solid rgba(200,160,80,0.20)",
+                  }}
+                >
+                  <iframe
+                    title="Localização da Herdade do Monte Claro"
+                    src={mapUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, display: "block" }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                  {/* Gold overlay on top edge */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
+                    style={{ background: "linear-gradient(to right, transparent, hsl(var(--gold) / 0.4), transparent)" }}
+                  />
+                </div>
               </div>
+            </ScrollReveal>
+
+            {/* Open in Google Maps button */}
+            <ScrollReveal delay={0.22}>
+              <a
+                href="https://www.google.com/maps?q=38.1635,-8.5645"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-calendly w-full text-center block"
+                style={{ fontSize: "10px" }}
+              >
+                {language === "pt" ? "Abrir no Google Maps" : "Open in Google Maps"}
+              </a>
             </ScrollReveal>
 
             <ScrollReveal delay={0.28}>
@@ -320,7 +400,7 @@ const Localizacao = () => {
           </div>
         </ScrollReveal>
 
-        {/* Points of interest */}
+        {/* Points of interest — now with images */}
         <ScrollReveal delay={0.1}>
           <div className="max-w-[1400px] mx-auto mt-24" style={{ borderTop: "1px solid rgba(200,160,80,0.18)", paddingTop: "72px" }}>
             <span className="label-upper block mb-10" style={{ color: "hsl(var(--gold))" }}>
@@ -330,19 +410,35 @@ const Localizacao = () => {
               {pois.map((poi, i) => (
                 <ScrollReveal key={i} delay={0.1 + i * 0.08}>
                   <div
-                    className="p-8 h-full"
+                    className="h-full group"
                     style={{ background: "hsl(var(--background))" }}
                   >
-                    <span style={{ fontSize: "28px", display: "block", marginBottom: "16px" }}>{poi.icon}</span>
-                    <p className="font-display" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "20px", color: "rgba(30,22,14,0.85)", marginBottom: "8px" }}>
-                      {language === "pt" ? poi.namePt : poi.nameEn}
-                    </p>
-                    <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "12px", color: "rgba(30,22,14,0.5)", lineHeight: 1.8, marginBottom: "16px" }}>
-                      {language === "pt" ? poi.descPt : poi.descEn}
-                    </p>
-                    <span style={{ fontSize: "9px", letterSpacing: "0.35em", color: "hsl(var(--gold))", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase" }}>
-                      {poi.dist}
-                    </span>
+                    {/* POI image */}
+                    <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                      <img
+                        src={poi.image}
+                        alt={language === "pt" ? poi.namePt : poi.nameEn}
+                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                        style={{ filter: "brightness(0.75) saturate(0.85)" }}
+                        loading="lazy"
+                      />
+                      <div
+                        className="absolute bottom-0 left-0 right-0 px-4 py-2"
+                        style={{ background: "linear-gradient(to top, rgba(8,6,4,0.5) 0%, transparent 100%)" }}
+                      >
+                        <span style={{ fontSize: "9px", letterSpacing: "0.3em", color: "hsl(var(--gold))", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase" }}>
+                          {poi.dist}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <p className="font-display" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "20px", color: "rgba(30,22,14,0.85)", marginBottom: "8px" }}>
+                        {language === "pt" ? poi.namePt : poi.nameEn}
+                      </p>
+                      <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "12px", color: "rgba(30,22,14,0.5)", lineHeight: 1.8 }}>
+                        {language === "pt" ? poi.descPt : poi.descEn}
+                      </p>
+                    </div>
                   </div>
                 </ScrollReveal>
               ))}

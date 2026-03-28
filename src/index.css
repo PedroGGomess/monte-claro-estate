@@ -212,3 +212,41 @@ html {
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--gold) / 0.35);
 }
+
+/* Scroll line animation */
+@keyframes scroll-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.animate-scroll-line {
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+/* Typing dots animation */
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: hsl(var(--gold) / 0.4);
+  animation: typing-bounce 1.2s ease-in-out infinite;
+}
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.3; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Chatbot pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  50% { box-shadow: 0 4px 32px rgba(200,160,80,0.35); }
+}
+.chatbot-pulse {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(30, 22, 14, 0.25);
+  font-style: italic;
+}
