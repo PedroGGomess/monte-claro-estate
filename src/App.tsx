@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/context/LanguageContext";
 import AIChatbot from "@/components/AIChatbot";
+import ScrollToTop from "@/components/ScrollToTop";
+import BackToTop from "@/components/BackToTop";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Propriedade from "./pages/Propriedade.tsx";
@@ -21,6 +23,7 @@ const App = () => (
       <Sonner />
       <LanguageProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/propriedade" element={<Propriedade />} />
@@ -31,6 +34,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <AIChatbot />
+          <BackToTop />
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>

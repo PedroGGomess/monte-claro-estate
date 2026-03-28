@@ -202,53 +202,69 @@ const AIChatbot = () => {
 
   return (
     <>
-      {/* Floating button */}
+      {/* Floating button — premium concierge */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed z-[900] transition-all duration-500 hover:scale-105 ${showPulse && !isOpen ? "chatbot-pulse" : ""}`}
+        className="fixed z-[900] transition-all duration-500 hover:scale-[1.03] group"
         style={{
           bottom: "28px",
           right: "28px",
-          width: "58px",
-          height: "58px",
+          height: "52px",
+          padding: isOpen ? "0 16px" : "0 20px 0 16px",
           background: isOpen
             ? "hsl(var(--foreground))"
-            : "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))",
+            : "hsl(var(--gold))",
           border: "none",
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: "0 6px 28px rgba(0,0,0,0.18)",
+          gap: "10px",
+          boxShadow: isOpen
+            ? "0 6px 28px rgba(0,0,0,0.22)"
+            : "0 6px 32px rgba(200,160,80,0.30)",
         }}
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? (
-          <X size={20} style={{ color: "hsl(var(--background))" }} />
+          <X size={18} style={{ color: "hsl(var(--background))" }} />
         ) : (
-          <Sparkles size={22} style={{ color: "hsl(var(--background))" }} />
+          <>
+            <div
+              className="relative flex items-center justify-center"
+              style={{ width: "24px", height: "24px" }}
+            >
+              <Sparkles size={17} style={{ color: "hsl(var(--background))" }} />
+              {/* Pulse dot */}
+              {showPulse && (
+                <span
+                  className="absolute -top-0.5 -right-0.5"
+                  style={{
+                    width: "7px",
+                    height: "7px",
+                    background: "#22c55e",
+                    borderRadius: "50%",
+                    border: "1.5px solid hsl(var(--gold))",
+                    animation: "pulse 2s infinite",
+                  }}
+                />
+              )}
+            </div>
+            <span
+              style={{
+                fontFamily: "'Tenor Sans', sans-serif",
+                fontSize: "10px",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "hsl(var(--background))",
+                fontWeight: 400,
+              }}
+            >
+              Concierge
+            </span>
+          </>
         )}
       </button>
-
-      {/* Label when closed */}
-      {!isOpen && showPulse && (
-        <div
-          className="fixed z-[898] pointer-events-none"
-          style={{
-            bottom: "44px",
-            right: "96px",
-            background: "hsl(var(--background))",
-            border: "1px solid hsl(var(--gold) / 0.25)",
-            padding: "8px 16px",
-            boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-            animation: "fadeIn 0.5s ease-out",
-          }}
-        >
-          <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "11px", color: "hsl(var(--foreground))", whiteSpace: "nowrap" }}>
-            {language === "pt" ? "Posso ajudar?" : "Can I help?"}
-          </p>
-        </div>
-      )}
 
       {/* Chat panel */}
       {isOpen && (
@@ -418,6 +434,10 @@ const AIChatbot = () => {
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.3); }
         }
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;

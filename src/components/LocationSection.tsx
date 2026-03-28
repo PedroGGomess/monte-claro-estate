@@ -9,6 +9,8 @@ const distances = [
   { placePt: "Grândola", placeEn: "Grândola", time: "7 min", notePt: "Cidade mais próxima", noteEn: "Nearest town" },
   { placePt: "Lisboa", placeEn: "Lisbon", time: "1h 15min", notePt: "Capital", noteEn: "Capital city" },
   { placePt: "Aeroporto de Lisboa", placeEn: "Lisbon Airport", time: "1h 25min", notePt: "Internacional", noteEn: "International" },
+  { placePt: "Évora", placeEn: "Évora", time: "1h 10min", notePt: "UNESCO", noteEn: "UNESCO Heritage" },
+  { placePt: "Sevilha, Espanha", placeEn: "Seville, Spain", time: "2h 30min", notePt: "Andaluzia", noteEn: "Andalusia" },
 ];
 
 const LocationSection = () => {
