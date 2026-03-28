@@ -1036,7 +1036,7 @@ const Agendar = () => {
                           +351 269 000 000
                         </span>
                       </a>
-                      <a href="mailto:info@monteclaro.pt" className="flex items-center gap-3 group" style={{ textDecoration: "none" }}>
+                      <a href="mailto:info@herdadegrandola.pt" className="flex items-center gap-3 group" style={{ textDecoration: "none" }}>
                         <div
                           className="w-9 h-9 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-105"
                           style={{ background: "hsl(var(--gold) / 0.04)", border: "1px solid hsl(var(--gold) / 0.15)" }}
@@ -1044,7 +1044,7 @@ const Agendar = () => {
                           <Mail size={13} style={{ color: "hsl(var(--gold))" }} />
                         </div>
                         <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "17px", color: "hsl(var(--foreground))" }}>
-                          info@monteclaro.pt
+                          info@herdadegrandola.pt
                         </span>
                       </a>
                       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group" style={{ textDecoration: "none" }}>

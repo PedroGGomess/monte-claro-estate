@@ -31,7 +31,7 @@ DISTANCES:
 
 CONTACT:
 - Phone: +351 269 000 000
-- Email: info@monteclaro.pt
+- Email: info@herdadegrandola.pt
 - Visits: Daily 9am–8pm, by appointment only
 
 GUIDELINES:

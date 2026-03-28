@@ -35,7 +35,7 @@ const VisitSection = () => {
         <Link to="/agendar" className="btn-calendly">
           {t("visit.btn1")}
         </Link>
-        <button className="btn-ghost">{t("visit.btn2")}</button>
+        <a href="mailto:info@herdadegrandola.pt" className="btn-ghost" style={{ textDecoration: "none" }}>{t("visit.btn2")}</a>
       </ScrollReveal>
     </section>
   );
