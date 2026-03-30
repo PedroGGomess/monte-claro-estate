@@ -259,7 +259,8 @@ const Agendar = () => {
       if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== "REPLACE_WITH_YOUR_APPS_SCRIPT_URL") {
         const gsRes = await fetch(APPS_SCRIPT_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          redirect: "follow",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify({
             name: formData.nome,
             email: formData.email,
