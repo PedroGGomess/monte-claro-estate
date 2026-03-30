@@ -210,10 +210,36 @@ const Agendar = () => {
   const updateField = (name: string, value: string) =>
     setFormData(prev => ({ ...prev, [name]: value }));
 
-  const handleSubmit = (e: FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!selectedDate || !selectedTime || !formData.nome || !formData.email) return;
+    if (!selectedDate || !selectedTime || !formData.nome || !formData.email || submitting) return;
+    setSubmitting(true);
+
+    try {
+      // Send to Formspree → email notification + exportable spreadsheet
+      await fetch("https://formspree.io/f/xeogrkwj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.nome,
+          email: formData.email,
+          phone: formData.telefone,
+          date: selectedDate,
+          time: selectedTime,
+          guests: formData.pessoas,
+          message: formData.mensagem,
+          commercial_interest: comercial,
+          _subject: `New Visit Request — ${formData.nome} — ${selectedDate}`,
+        }),
+      });
+    } catch {
+      // Still show success — the WhatsApp fallback is always available
+    }
+
     saveBookedSlot({ date: selectedDate, time: selectedTime, name: formData.nome, email: formData.email });
+    setSubmitting(false);
     setSubmitted(true);
   };
 
