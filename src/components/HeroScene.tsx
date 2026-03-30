@@ -13,16 +13,16 @@ const HeroScene = () => (
         src={herdade05}
         alt=""
         className="w-full h-full object-cover"
-        style={{ filter: "brightness(0.88) saturate(0.90)" }}
+        style={{ filter: "brightness(0.65) saturate(0.90)" }}
         fetchPriority="high"
       />
     </motion.div>
-    {/* Subtle gradient vignette for text legibility */}
+    {/* Gradient vignette for text legibility */}
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
         background:
-          "linear-gradient(to bottom, rgba(20,15,10,0.38) 0%, rgba(20,15,10,0.05) 50%, rgba(20,15,10,0.25) 100%)",
+          "linear-gradient(to bottom, rgba(20,15,10,0.50) 0%, rgba(20,15,10,0.20) 40%, rgba(20,15,10,0.15) 60%, rgba(20,15,10,0.45) 100%)",
       }}
     />
   </div>

@@ -29,18 +29,24 @@ const HeroOverlay = () => {
       </motion.div>
 
       {/* Center */}
-      <div className="flex-1 flex flex-col items-center justify-center">
+      <div className="flex-1 flex flex-col items-center justify-center px-6">
         <motion.p
           {...fadeUp(1)}
-          className="label-upper mb-6"
-          style={{ color: "rgba(242, 236, 224, 0.72)" }}
+          className="mb-4 sm:mb-6 text-center"
+          style={{
+            fontFamily: "'Tenor Sans', sans-serif",
+            fontSize: "clamp(7px, 2vw, 9px)",
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "rgba(242, 236, 224, 0.72)",
+          }}
         >
           {t("hero.label")}
         </motion.p>
         <motion.h1
           {...fadeUp(1.3)}
           className="heading-display text-center"
-          style={{ fontSize: "clamp(2.5rem, 9vw, 10rem)", color: "#F5F0E8" }}
+          style={{ fontSize: "clamp(3rem, 12vw, 10rem)", color: "#F5F0E8" }}
         >
           {hero.title}
           <br />
@@ -48,8 +54,14 @@ const HeroOverlay = () => {
         </motion.h1>
         <motion.p
           {...fadeUp(2)}
-          className="label-muted mt-8"
-          style={{ color: "rgba(242, 236, 224, 0.5)" }}
+          className="mt-6 sm:mt-8 text-center"
+          style={{
+            fontFamily: "'Tenor Sans', sans-serif",
+            fontSize: "clamp(7px, 1.8vw, 10px)",
+            letterSpacing: "clamp(0.15em, 1vw, 0.4em)",
+            textTransform: "uppercase",
+            color: "rgba(242, 236, 224, 0.5)",
+          }}
         >
           {t("hero.subtitle")}
         </motion.p>
@@ -59,17 +71,25 @@ const HeroOverlay = () => {
       <div className="flex items-end justify-between px-4 sm:px-6 md:px-14 pb-6 sm:pb-8">
         <motion.span
           {...fadeUp(2.2)}
-          className="label-muted hidden md:block text-[7px] sm:text-[9px]"
+          className="label-muted hidden md:block"
           style={{ color: "rgba(242, 236, 224, 0.42)" }}
         >
           {hero.coords}
         </motion.span>
 
         <motion.div {...fadeUp(2.4)} className="flex flex-col items-center gap-2 sm:gap-3">
-          <span className="label-upper text-[6px] sm:text-[8px]" style={{ color: "rgba(242, 236, 224, 0.6)" }}>
+          <span
+            style={{
+              fontFamily: "'Tenor Sans', sans-serif",
+              fontSize: "7px",
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              color: "rgba(242, 236, 224, 0.6)",
+            }}
+          >
             {t("hero.explore")}
           </span>
-          <div className="w-px h-12 sm:h-16 overflow-hidden" style={{ background: "rgba(242,236,224,0.2)" }}>
+          <div className="w-px h-10 sm:h-16 overflow-hidden" style={{ background: "rgba(242,236,224,0.2)" }}>
             <div
               className="w-full h-full animate-scroll-line"
               style={{ background: "rgba(242,236,224,0.65)" }}
@@ -79,7 +99,7 @@ const HeroOverlay = () => {
 
         <motion.span
           {...fadeUp(2.2)}
-          className="label-muted hidden md:block text-[7px] sm:text-[9px]"
+          className="label-muted hidden md:block"
           style={{ color: "rgba(242, 236, 224, 0.42)" }}
         >
           {hero.location}
