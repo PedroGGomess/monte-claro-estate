@@ -68,7 +68,7 @@ const HeroOverlay = () => {
       </div>
 
       {/* Bottom */}
-      <div className="flex items-end justify-between px-4 sm:px-6 md:px-14 pb-6 sm:pb-8">
+      <div className="flex items-end justify-center md:justify-between px-4 sm:px-6 md:px-14 pb-6 sm:pb-8">
         <motion.span
           {...fadeUp(2.2)}
           className="label-muted hidden md:block"
