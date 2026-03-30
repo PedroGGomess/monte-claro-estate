@@ -219,7 +219,7 @@ const Agendar = () => {
 
     try {
       // Send to Formspree → email notification + exportable spreadsheet
-      await fetch("https://formspree.io/f/xeogrkwj", {
+      await fetch("https://formspree.io/f/xwvwooan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
