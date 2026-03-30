@@ -19,14 +19,14 @@ const GallerySection = () => {
 
       {/* Primary grid: first image large on left, two stacked on right */}
       <div
-        className="grid gap-[2px] mb-[2px]"
-        style={{ gridTemplateColumns: "1.6fr 1fr", gridTemplateRows: "240px 240px" }}
+        className="grid gap-[2px] mb-[2px] grid-cols-1 md:grid-cols-[1.6fr_1fr]"
+        style={{ gridTemplateRows: "auto" }}
       >
         {/* Large image spanning both rows */}
         <ScrollReveal
           delay={0}
-          className="relative overflow-hidden group"
-          style={{ gridRow: "1 / 3" }}
+          className="relative overflow-hidden group md:[grid-row:1/3]"
+          style={{ aspectRatio: "4/3" }}
         >
           <img
             src={gallery[0].src}
@@ -64,10 +64,9 @@ const GallerySection = () => {
       {/* Secondary row: remaining images equal width */}
       {gallery.length > 3 && (
         <div
-          className="grid gap-[2px]"
+          className="grid grid-cols-2 md:grid-cols-4 gap-[2px]"
           style={{
-            gridTemplateColumns: `repeat(${Math.min(gallery.length - 3, 4)}, 1fr)`,
-            gridTemplateRows: "320px",
+            gridTemplateRows: "auto",
           }}
         >
           {gallery.slice(3).map((img, i) => (

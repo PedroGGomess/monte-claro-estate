@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { MapPin, ArrowRight } from "lucide-react";
 
 const distances = [
-  { placePt: "Comporta / Melides", placeEn: "Comporta / Melides", time: "20 min", notePt: "Praias exclusivas", noteEn: "Exclusive beaches" },
+  { placePt: "Praia de Melides", placeEn: "Melides Beach", time: "25 min", notePt: "Praia exclusiva", noteEn: "Exclusive beach" },
+  { placePt: "Praia da Comporta", placeEn: "Comporta Beach", time: "30 min", notePt: "Praia premium", noteEn: "Premium beach" },
   { placePt: "Grândola", placeEn: "Grândola", time: "7 min", notePt: "Cidade mais próxima", noteEn: "Nearest town" },
   { placePt: "Lisboa", placeEn: "Lisbon", time: "1h 15min", notePt: "Capital", noteEn: "Capital city" },
   { placePt: "Aeroporto de Lisboa", placeEn: "Lisbon Airport", time: "1h 25min", notePt: "Internacional", noteEn: "International" },

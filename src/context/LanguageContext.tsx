@@ -25,9 +25,9 @@ const translations: Record<Language, Record<string, string>> = {
     "location.heading": "No Triângulo de Ouro do Alentejo",
     "stats.total": "ÁREA TOTAL",
     "stats.built": "ÁREA APROVADA",
-    "stats.type": "HABITAÇÕES",
+    "stats.type": "TIPOLOGIA",
     "stats.founded": "FONTES DE ÁGUA",
-    "stats.fromevora": "DA COMPORTA",
+    "stats.fromevora": "DAS PRAIAS",
     "visit.label": "Visita Privada",
     "visit.title": "Venha <em>conhecer</em> o seu próximo investimento.",
     "visit.body": "Cada visita é uma experiência privada e exclusiva. Agende o seu momento para conhecer esta herdade única no coração do Alentejo.",
@@ -78,9 +78,9 @@ const translations: Record<Language, Record<string, string>> = {
     "location.heading": "In the Alentejo Golden Triangle",
     "stats.total": "TOTAL AREA",
     "stats.built": "APPROVED AREA",
-    "stats.type": "DWELLINGS",
+    "stats.type": "TYPOLOGY",
     "stats.founded": "WATER SOURCES",
-    "stats.fromevora": "FROM COMPORTA",
+    "stats.fromevora": "FROM BEACHES",
     "visit.label": "Private Visit",
     "visit.title": "Come <em>discover</em> your next investment.",
     "visit.body": "Each visit is a private and exclusive experience. Schedule your moment to discover this unique estate in the heart of Alentejo.",
@@ -121,7 +121,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>(() => {
-    return (localStorage.getItem("language") as Language) || "pt";
+    return (localStorage.getItem("language") as Language) || "en";
   });
 
   const toggle = () => {

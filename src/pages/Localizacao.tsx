@@ -9,7 +9,8 @@ import { images as herdadeImages } from "@/config/siteConfig";
 import { MapPin, Clock, Car, Plane, Navigation } from "lucide-react";
 
 const distances = [
-  { placePt: "Comporta / Melides", placeEn: "Comporta / Melides", time: "20 min", notePt: "Praias exclusivas", noteEn: "Exclusive beaches", icon: "beach" },
+  { placePt: "Praia de Melides", placeEn: "Melides Beach", time: "25 min", notePt: "Praia exclusiva", noteEn: "Exclusive beach", icon: "beach" },
+  { placePt: "Praia da Comporta", placeEn: "Comporta Beach", time: "30 min", notePt: "Praia premium", noteEn: "Premium beach", icon: "beach" },
   { placePt: "Grândola", placeEn: "Grândola", time: "7 min", notePt: "Cidade mais próxima", noteEn: "Nearest town", icon: "town" },
   { placePt: "Lisboa", placeEn: "Lisbon", time: "1h 15min", notePt: "Capital", noteEn: "Capital city", icon: "city" },
   { placePt: "Aeroporto de Lisboa", placeEn: "Lisbon Airport", time: "1h 25min", notePt: "Internacional", noteEn: "International", icon: "airport" },
@@ -18,7 +19,7 @@ const distances = [
 ];
 
 const pois = [
-  { icon: "🏖️", namePt: "Praia da Comporta", nameEn: "Comporta Beach", descPt: "Uma das praias mais exclusivas da Europa, com areia dourada e água cristalina", descEn: "One of Europe's most exclusive beaches, with golden sand and crystal-clear water", dist: "20 min", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=85" },
+  { icon: "🏖️", namePt: "Praia da Comporta", nameEn: "Comporta Beach", descPt: "Uma das praias mais exclusivas da Europa, com areia dourada e água cristalina", descEn: "One of Europe's most exclusive beaches, with golden sand and crystal-clear water", dist: "30 min", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=85" },
   { icon: "🏰", namePt: "Castelo de Alcácer do Sal", nameEn: "Alcácer do Sal Castle", descPt: "Vila histórica medieval à beira do Sado, com pousada de charme", descEn: "Historic medieval town on the Sado river, with a charming pousada", dist: "25 min", image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&q=85" },
   { icon: "🌿", namePt: "Reserva Natural do Sado", nameEn: "Sado Natural Reserve", descPt: "Golfinhos residentes, aves migratórias e paisagens de tirar o fôlego", descEn: "Resident dolphins, migratory birds and breathtaking landscapes", dist: "30 min", image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=85" },
   { icon: "🏖️", namePt: "Praia de Melides", nameEn: "Melides Beach", descPt: "Aldeia costeira com hotelaria de luxo e restaurantes exclusivos", descEn: "Coastal village with luxury hospitality and exclusive restaurants", dist: "25 min", image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&q=85" },
@@ -288,7 +289,7 @@ const Localizacao = () => {
                   </p>
                   <div style={{ borderTop: "1px solid rgba(200,160,80,0.18)", marginTop: "14px", paddingTop: "14px" }}>
                     <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "10px", letterSpacing: "0.25em", color: "rgba(200,160,80,0.65)", textTransform: "uppercase" }}>
-                      {language === "pt" ? "20 min da Comporta · 1h15 de Lisboa" : "20 min from Comporta · 1h15 from Lisbon"}
+                      {language === "pt" ? "25 min de Melides · 30 min da Comporta" : "25 min from Melides · 30 min from Comporta"}
                     </p>
                   </div>
                 </div>
@@ -449,7 +450,7 @@ const Localizacao = () => {
         {/* Bottom image strip */}
         <ScrollReveal delay={0.1}>
           <div className="max-w-[1400px] mx-auto mt-20">
-            <div className="grid grid-cols-3 gap-[4px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[4px]">
               {[herdadeImages.arches, herdadeImages.poolPergola, herdadeImages.livingRoom].map((src, i) => (
                 <div key={i} className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img

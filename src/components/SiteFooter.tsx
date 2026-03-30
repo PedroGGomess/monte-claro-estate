@@ -141,7 +141,7 @@ const SiteFooter = () => {
               {[
                 { label: language === "pt" ? "Área Total" : "Total Area", value: "12 ha" },
                 { label: language === "pt" ? "Construção Aprovada" : "Approved Construction", value: "500 m²" },
-                { label: language === "pt" ? "Habitações" : "Dwellings", value: "2 + 6" },
+                { label: language === "pt" ? "Tipologia" : "Typology", value: "T3+T3" },
                 { label: language === "pt" ? "Fontes de Água" : "Water Sources", value: "3" },
               ].map(stat => (
                 <div key={stat.label} className="flex justify-between items-center" style={{ paddingBottom: "6px", borderBottom: "1px solid hsl(var(--gold) / 0.05)" }}>

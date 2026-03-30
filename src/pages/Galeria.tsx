@@ -235,7 +235,7 @@ const Galeria = () => {
 
           {/* Image */}
           <div
-            className="flex flex-col items-center px-16 md:px-24 max-w-6xl w-full"
+            className="flex flex-col items-center px-4 sm:px-12 md:px-24 max-w-6xl w-full"
             onClick={(e) => e.stopPropagation()}
             style={{ marginTop: "60px" }}
           >

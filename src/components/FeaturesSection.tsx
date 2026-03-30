@@ -20,7 +20,7 @@ const FeaturesSection = () => {
 
             <span
               className="absolute top-6 right-8 font-display leading-none"
-              style={{ fontSize: "52px", color: "rgba(30,22,14,0.05)" }}
+              style={{ fontSize: "clamp(32px, 8vw, 52px)", color: "rgba(30,22,14,0.05)" }}
             >
               {f.num}
             </span>

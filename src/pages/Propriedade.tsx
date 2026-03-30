@@ -16,9 +16,10 @@ const galleryImages = [
 const stats = [
   { value: "12 ha", labelPt: "Área Total", labelEn: "Total Area" },
   { value: "500 m²", labelPt: "Área Aprovada", labelEn: "Approved Area" },
-  { value: "2+6", labelPt: "Habitações", labelEn: "Dwellings" },
+  { value: "T3+T3", labelPt: "Tipologia", labelEn: "Typology" },
   { value: "3", labelPt: "Fontes de Água", labelEn: "Water Sources" },
-  { value: "20 min", labelPt: "Da Comporta", labelEn: "From Comporta" },
+  { value: "25 min", labelPt: "Melides", labelEn: "Melides" },
+  { value: "30 min", labelPt: "Comporta", labelEn: "Comporta" },
   { value: "7 min", labelPt: "De Grândola", labelEn: "From Grândola" },
   { value: "1h15", labelPt: "De Lisboa", labelEn: "From Lisbon" },
   { value: "100%", labelPt: "Turismo Apto", labelEn: "Tourism Eligible" },

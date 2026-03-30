@@ -14,7 +14,7 @@ You are the exclusive AI concierge for "Herdade em Grândola" — a premium 12-h
 PROPERTY DETAILS:
 - Total area: 12 hectares (120,000 m²)
 - Approved construction: 500 m² (Architectural Project approved + Construction License issued)
-- Buildings: 2 twin houses, 5 adjoining studios, 1 independent studio, garage, large pool/leisure area
+- Buildings: 2 T3 houses (or 1 T6), 6 lofts, garage, large pool/leisure area
 - Water: 3 sources (1 borehole, 2 traditional wells, 1 natural stream) — complete water self-sufficiency
 - Access: Dual entry via 2 independent paved roads at opposite ends
 - Land: Cork oak montado, topographic survey completed, electricity available
@@ -22,7 +22,8 @@ PROPERTY DETAILS:
 - GPS: 38°10'N 8°34'W, Santa Margarida da Serra, Grândola
 
 DISTANCES:
-- Comporta/Melides beaches: 20 min
+- Melides beach: 25 min
+- Comporta beach: 30 min
 - Grândola town: 7 min
 - Lisbon: 1h 15min
 - Lisbon Airport: 1h 25min
@@ -54,12 +55,12 @@ const generateLocalResponse = (input: string, lang: "pt" | "en"): string => {
       en: "The price of Herdade em Grândola is shared exclusively during a private meeting. With 12 hectares and an issued construction license for 500 m², it's a unique asset in the Alentejo Golden Triangle. May I help you schedule a visit?",
     },
     area: {
-      pt: "A propriedade estende-se por 12 hectares (120.000 m²) de montado alentejano, com 500 m² de área de construção aprovada. O projeto inclui 2 habitações gémeas, 6 estúdios, garagem e uma generosa zona de piscina/lazer.",
-      en: "The estate spans 12 hectares (120,000 m²) of Alentejo montado, with 500 m² of approved construction. The project includes 2 twin houses, 6 studios, a garage and a generous pool/leisure area.",
+      pt: "A propriedade estende-se por 12 hectares (120.000 m²) de montado alentejano, com 500 m² de área de construção aprovada. O projeto inclui 2 moradias T3 (ou 1 T6), 6 lofts, garagem e uma generosa zona de piscina/lazer.",
+      en: "The estate spans 12 hectares (120,000 m²) of Alentejo montado, with 500 m² of approved construction. The project includes 2 T3 houses (or 1 T6), 6 lofts, a garage and a generous pool/leisure area.",
     },
     location: {
-      pt: "Estamos em Santa Margarida da Serra, Grândola — no coração do Triângulo de Ouro alentejano. A 20 minutos das praias da Comporta, 7 minutos de Grândola e apenas 1h15 de Lisboa. A localização perfeita entre serra e mar.",
-      en: "We're in Santa Margarida da Serra, Grândola — in the heart of the Alentejo Golden Triangle. 20 minutes from Comporta beaches, 7 minutes from Grândola and just 1h15 from Lisbon. The perfect location between hills and sea.",
+      pt: "Estamos em Santa Margarida da Serra, Grândola — no coração do Triângulo de Ouro alentejano. A 25 minutos da praia de Melides, 30 minutos da Comporta, 7 minutos de Grândola e apenas 1h15 de Lisboa. A localização perfeita entre serra e mar.",
+      en: "We're in Santa Margarida da Serra, Grândola — in the heart of the Alentejo Golden Triangle. 25 minutes from Melides beach, 30 minutes from Comporta, 7 minutes from Grândola and just 1h15 from Lisbon. The perfect location between hills and sea.",
     },
     water: {
       pt: "Uma das grandes raridades desta propriedade: dispõe de 3 fontes de água independentes — 1 furo, 2 poços tradicionais e 1 curso de água natural. Autossuficiência hídrica total numa região onde a água é o recurso mais precioso.",
@@ -70,7 +71,7 @@ const generateLocalResponse = (input: string, lang: "pt" | "en"): string => {
       en: "Yes, the estate has an approved Architectural Project and issued Construction License. Works can begin immediately — no years of waiting for permits. This is our greatest differentiator.",
     },
     tourism: {
-      pt: "Absolutamente. A propriedade está inserida em zona apta para Projetos de Turismo segundo o PDM de Grândola. Com 8 unidades habitacionais aprovadas e proximidade à Comporta, o potencial turístico é extraordinário.",
+      pt: "Absolutamente. A propriedade está inserida em zona apta para Projetos de Turismo segundo o PDM de Grândola. Com 2 moradias T3 e 6 lofts aprovados e proximidade à Comporta, o potencial turístico é extraordinário.",
       en: "Absolutely. The property is zoned for Tourism Projects under Grândola's PDM. With 8 approved housing units and proximity to Comporta, the tourism potential is extraordinary.",
     },
     access: {
@@ -82,12 +83,12 @@ const generateLocalResponse = (input: string, lang: "pt" | "en"): string => {
       en: "Each visit is a private and exclusive experience, from 9am to 8pm. Our team accompanies you throughout the property and presents the approved project in detail. Book at /agendar or call +351 269 000 000.",
     },
     comporta: {
-      pt: "A Comporta está a apenas 20 minutos — uma das zonas de praia mais exclusivas da Europa, com restaurantes de referência e hotelaria de luxo. Melides, igualmente espetacular, fica a 25 minutos.",
-      en: "Comporta is just 20 minutes away — one of Europe's most exclusive beach areas, with renowned restaurants and luxury hospitality. Melides, equally spectacular, is 25 minutes away.",
+      pt: "Melides está a apenas 25 minutos — uma das zonas de praia mais exclusivas da Europa. A Comporta fica a 30 minutos, com restaurantes de referência e hotelaria de luxo.",
+      en: "Melides is just 25 minutes away — one of Europe's most exclusive beach areas. Comporta is 30 minutes away, with renowned restaurants and luxury hospitality.",
     },
     project: {
-      pt: "O projeto aprovado contempla: 2 habitações gémeas (residência principal), 5 estúdios contíguos e 1 independente, garagem e uma ampla zona de lazer com piscina. Versatilidade total para residência, co-living ou exploração turística.",
-      en: "The approved project includes: 2 twin houses (main residence), 5 adjoining studios and 1 independent, garage and a spacious leisure area with pool. Total versatility for residence, co-living or tourism.",
+      pt: "O projeto aprovado contempla: 2 moradias T3 (ou 1 T6), 6 lofts, garagem e uma ampla zona de lazer com piscina. Versatilidade total para residência, co-living ou exploração turística.",
+      en: "The approved project includes: 2 T3 houses (or 1 T6), 6 lofts, garage and a spacious leisure area with pool. Total versatility for residence, co-living or tourism.",
     },
     investment: {
       pt: "Com licença de construção emitida, zona PDM turística, proximidade à Comporta e 3 fontes de água, esta é uma oportunidade rara de investimento. O mercado alentejano premium continua em forte crescimento.",
@@ -116,7 +117,7 @@ const generateLocalResponse = (input: string, lang: "pt" | "en"): string => {
     { terms: ["entrada", "estrada", "acesso", "road", "entrance", "access", "privacidade", "privacy"], key: "access" },
     { terms: ["visita", "agendar", "marcar", "visit", "schedule", "book", "appointment", "ver", "conhecer"], key: "visit" },
     { terms: ["comporta", "praia", "beach", "melides", "costa", "coast", "mar", "sea"], key: "comporta" },
-    { terms: ["projeto", "casa", "estudio", "project", "house", "studio", "habitac", "dwelling", "piscina", "pool"], key: "project" },
+    { terms: ["projeto", "casa", "estudio", "loft", "project", "house", "studio", "habitac", "dwelling", "piscina", "pool"], key: "project" },
     { terms: ["invest", "rentabil", "retorno", "roi", "profit", "return", "negocio", "business", "oportunidade"], key: "investment" },
     { terms: ["sobrei", "cortic", "arvore", "cork", "tree", "montado", "natureza", "nature"], key: "cork" },
   ];
