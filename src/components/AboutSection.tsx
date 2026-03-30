@@ -27,17 +27,17 @@ const AboutSection = () => {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <blockquote className="border-l border-gold/40 pl-4 sm:pl-6 mt-8 sm:mt-10 font-display italic text-base sm:text-lg md:text-[28px] leading-relaxed" style={{ color: "rgba(30,22,14,0.65)" }}>
-              {t("about.quote")}
+              {language === "pt" ? about.quote : about.quoteEn}
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
-            <p className="body-text mt-10">{about.p1}</p>
+            <p className="body-text mt-10">{language === "pt" ? about.p1 : about.p1En}</p>
           </ScrollReveal>
           <ScrollReveal delay={0.4}>
-            <p className="body-text mt-6">{about.p2}</p>
+            <p className="body-text mt-6">{language === "pt" ? about.p2 : about.p2En}</p>
           </ScrollReveal>
           <ScrollReveal delay={0.5}>
-            <p className="body-text mt-6">{about.p3}</p>
+            <p className="body-text mt-6">{language === "pt" ? about.p3 : about.p3En}</p>
           </ScrollReveal>
         </div>
 
@@ -51,7 +51,7 @@ const AboutSection = () => {
               style={{ aspectRatio: "3/4", filter: "brightness(0.82) saturate(0.88)" }}
               loading="lazy"
             />
-            <p className="label-muted mt-4 text-center">{about.imageCaption}</p>
+            <p className="label-muted mt-4 text-center">{language === "pt" ? about.imageCaption : about.imageCaptionEn}</p>
           </div>
         </ScrollReveal>
       </div>

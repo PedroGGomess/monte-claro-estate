@@ -121,7 +121,13 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>(() => {
-    return (localStorage.getItem("language") as Language) || "en";
+    // Force English as default — clear any old Portuguese preference
+    const stored = localStorage.getItem("language") as Language;
+    if (stored === "pt") {
+      localStorage.setItem("language", "en");
+      return "en";
+    }
+    return stored || "en";
   });
 
   const toggle = () => {

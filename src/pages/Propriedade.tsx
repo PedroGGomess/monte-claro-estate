@@ -8,9 +8,9 @@ import { useLanguage } from "@/context/LanguageContext";
 import { siteConfig, images } from "@/config/siteConfig";
 
 const galleryImages = [
-  { src: images.hero, caption: "Vista Geral" },
-  { src: images.frontView, caption: "Fachada" },
-  { src: images.poolPergola, caption: "Piscina" },
+  { src: images.hero, captionPt: "Vista Geral", captionEn: "General View" },
+  { src: images.frontView, captionPt: "Fachada", captionEn: "Facade" },
+  { src: images.poolPergola, captionPt: "Piscina", captionEn: "Pool" },
 ];
 
 const stats = [
@@ -130,7 +130,7 @@ const Propriedade = () => {
                 <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img
                     src={img.src}
-                    alt={img.caption}
+                    alt={language === "pt" ? img.captionPt : img.captionEn}
                     className="w-full h-full object-cover"
                     style={{ filter: "brightness(0.82) saturate(0.88)" }}
                     loading="lazy"

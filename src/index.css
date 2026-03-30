@@ -78,18 +78,38 @@ html {
 @layer components {
   .label-upper {
     font-family: 'Tenor Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.5em;
+    font-size: 8px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: hsl(var(--gold));
   }
 
   .label-muted {
     font-family: 'Tenor Sans', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.4em;
+    font-size: 9px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: rgba(30, 22, 14, 0.45);
+  }
+
+  @media (min-width: 640px) {
+    .label-upper {
+      font-size: 9px;
+      letter-spacing: 0.4em;
+    }
+    .label-muted {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .label-upper {
+      letter-spacing: 0.5em;
+    }
+    .label-muted {
+      letter-spacing: 0.4em;
+    }
   }
 
   .heading-display {

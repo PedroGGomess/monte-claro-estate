@@ -208,10 +208,10 @@ const AIChatbot = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="fixed z-[900] transition-all duration-500 hover:scale-[1.03] group"
         style={{
-          bottom: "28px",
-          right: "28px",
-          height: "52px",
-          padding: isOpen ? "0 16px" : "0 20px 0 16px",
+          bottom: "16px",
+          right: "16px",
+          height: "44px",
+          padding: isOpen ? "0 14px" : "0 14px",
           background: isOpen
             ? "hsl(var(--foreground))"
             : "hsl(var(--gold))",
@@ -252,6 +252,7 @@ const AIChatbot = () => {
               )}
             </div>
             <span
+              className="hidden sm:inline"
               style={{
                 fontFamily: "'Tenor Sans', sans-serif",
                 fontSize: "10px",
@@ -272,10 +273,10 @@ const AIChatbot = () => {
         <div
           className="fixed z-[899] flex flex-col"
           style={{
-            bottom: "100px",
-            right: "28px",
-            width: "min(400px, calc(100vw - 56px))",
-            height: "min(560px, calc(100vh - 150px))",
+            bottom: "70px",
+            right: "16px",
+            width: "min(400px, calc(100vw - 32px))",
+            height: "min(560px, calc(100vh - 100px))",
             background: "hsl(var(--background))",
             border: "1px solid hsl(var(--gold) / 0.18)",
             boxShadow: "0 16px 56px rgba(0,0,0,0.14)",
