@@ -16,7 +16,7 @@
 
 const SHEET_ID = "1S2yWByf8YNFAuvzcS8HRlgro_5SK_AG93gep8dqb024";
 const SHEET_NAME = "Bookings";
-const SITE_URL = "https://preview--herdade-em-grandola.lovable.app";
+const SITE_URL = "https://pedroggomess.github.io/monte-claro-estate";
 
 function getSheet() {
   return SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);

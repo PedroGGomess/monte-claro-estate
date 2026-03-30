@@ -23,7 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <LanguageProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/monte-claro-estate">
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />

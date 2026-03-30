@@ -8,6 +8,30 @@ import { useLanguage } from "@/context/LanguageContext";
 import { APPS_SCRIPT_URL } from "@/config/siteConfig";
 import { CheckCircle, XCircle, Loader2 } from "lucide-react";
 
+/** Format a value that may be an ISO date string or a plain "YYYY-MM-DD" string */
+function formatDate(raw?: string): string {
+  if (!raw) return "";
+  // If it looks like an ISO date, parse and format
+  if (raw.includes("T")) {
+    const d = new Date(raw);
+    if (!isNaN(d.getTime())) {
+      return d.toLocaleDateString("pt-PT", { day: "numeric", month: "short", year: "numeric" });
+    }
+  }
+  return raw;
+}
+
+/** Format a value that may be an ISO time string (Google Sheets epoch) or "HH:MM" */
+function formatTime(raw?: string): string {
+  if (!raw) return "";
+  // Google Sheets stores time as "1899-12-30THH:MM:SS.000Z"
+  if (raw.includes("T")) {
+    const match = raw.match(/T(\d{2}:\d{2})/);
+    if (match) return match[1];
+  }
+  return raw;
+}
+
 const BookingAction = () => {
   const { language } = useLanguage();
   const [params] = useSearchParams();
@@ -96,7 +120,7 @@ const BookingAction = () => {
                       {language === "pt" ? "Data" : "Date"}
                     </span>
                     <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", color: "hsl(var(--foreground))", marginTop: "2px" }}>
-                      {result.date}
+                      {formatDate(result.date)}
                     </p>
                   </div>
                   <div style={{ width: "1px", height: "40px", background: "hsl(var(--gold) / 0.2)" }} />
@@ -105,7 +129,7 @@ const BookingAction = () => {
                       {language === "pt" ? "Hora" : "Time"}
                     </span>
                     <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", color: "hsl(var(--foreground))", marginTop: "2px" }}>
-                      {result.time}
+                      {formatTime(result.time)}
                     </p>
                   </div>
                 </div>
