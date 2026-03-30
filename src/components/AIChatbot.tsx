@@ -31,7 +31,7 @@ DISTANCES:
 - Seville, Spain: 2h 30min
 
 CONTACT:
-- Phone: +351 269 000 000
+- Phone/WhatsApp: +351 919 024 221
 - Email: info@herdadegrandola.pt
 - Visits: Daily 9am–8pm, by appointment only
 
@@ -79,8 +79,8 @@ const generateLocalResponse = (input: string, lang: "pt" | "en"): string => {
       en: "Total privacy guaranteed: the estate has two independent entrances via paved roads at opposite ends. Premium accessibility without compromising exclusivity.",
     },
     visit: {
-      pt: "Cada visita é uma experiência privada e exclusiva, das 9h às 20h. A nossa equipa acompanha-o(a) por toda a propriedade e apresenta o projeto aprovado em detalhe. Pode agendar em /agendar ou pelo +351 269 000 000.",
-      en: "Each visit is a private and exclusive experience, from 9am to 8pm. Our team accompanies you throughout the property and presents the approved project in detail. Book at /agendar or call +351 269 000 000.",
+      pt: "Cada visita é uma experiência privada e exclusiva, das 9h às 20h. A nossa equipa acompanha-o(a) por toda a propriedade e apresenta o projeto aprovado em detalhe. Pode agendar em /agendar ou pelo +351 919 024 221.",
+      en: "Each visit is a private and exclusive experience, from 9am to 8pm. Our team accompanies you throughout the property and presents the approved project in detail. Book at /agendar or call +351 919 024 221.",
     },
     comporta: {
       pt: "Melides está a apenas 25 minutos — uma das zonas de praia mais exclusivas da Europa. A Comporta fica a 30 minutos, com restaurantes de referência e hotelaria de luxo.",
@@ -130,8 +130,8 @@ const generateLocalResponse = (input: string, lang: "pt" | "en"): string => {
 
   // Fallback
   return lang === "pt"
-    ? "Obrigado pela sua questão! A Herdade em Grândola é uma propriedade verdadeiramente única — 12 hectares com licença de construção, no coração do Alentejo. Para informações mais detalhadas, sugiro agendar uma visita privada ou contactar-nos pelo +351 269 000 000. Posso ajudá-lo(a) com alguma questão específica?"
-    : "Thank you for your question! Herdade em Grândola is a truly unique property — 12 hectares with a construction license, in the heart of Alentejo. For more detailed information, I suggest scheduling a private visit or contacting us at +351 269 000 000. Can I help with a specific question?";
+    ? "Obrigado pela sua questão! A Herdade em Grândola é uma propriedade verdadeiramente única — 12 hectares com licença de construção, no coração do Alentejo. Para informações mais detalhadas, sugiro agendar uma visita privada ou contactar-nos pelo +351 919 024 221. Posso ajudá-lo(a) com alguma questão específica?"
+    : "Thank you for your question! Herdade em Grândola is a truly unique property — 12 hectares with a construction license, in the heart of Alentejo. For more detailed information, I suggest scheduling a private visit or contacting us at +351 919 024 221. Can I help with a specific question?";
 };
 
 const AIChatbot = () => {

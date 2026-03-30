@@ -220,7 +220,7 @@ const Agendar = () => {
   const whatsappMessage = language === "pt"
     ? `Olá! Gostaria de agendar uma visita à Herdade em Grândola${selectedDate ? ` no dia ${selectedDate}` : ""}${selectedTime ? ` às ${selectedTime}` : ""}.`
     : `Hello! I would like to schedule a visit to Herdade em Grândola${selectedDate ? ` on ${selectedDate}` : ""}${selectedTime ? ` at ${selectedTime}` : ""}.`;
-  const whatsappUrl = `https://wa.me/351269000000?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/351919024221?text=${encodeURIComponent(whatsappMessage)}`;
 
   // Calendar grid
   const daysInMonth = getDaysInMonth(calYear, calMonth);
@@ -1025,7 +1025,7 @@ const Agendar = () => {
                       {language === "pt" ? "Contacto Direto" : "Direct Contact"}
                     </span>
                     <div className="space-y-4">
-                      <a href="tel:+351269000000" className="flex items-center gap-3 group" style={{ textDecoration: "none" }}>
+                      <a href="tel:+351919024221" className="flex items-center gap-3 group" style={{ textDecoration: "none" }}>
                         <div
                           className="w-9 h-9 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-105"
                           style={{ background: "hsl(var(--gold) / 0.04)", border: "1px solid hsl(var(--gold) / 0.15)" }}
@@ -1033,7 +1033,7 @@ const Agendar = () => {
                           <Phone size={13} style={{ color: "hsl(var(--gold))" }} />
                         </div>
                         <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "17px", color: "hsl(var(--foreground))" }}>
-                          +351 269 000 000
+                          +351 919 024 221
                         </span>
                       </a>
                       <a href="mailto:info@herdadegrandola.pt" className="flex items-center gap-3 group" style={{ textDecoration: "none" }}>

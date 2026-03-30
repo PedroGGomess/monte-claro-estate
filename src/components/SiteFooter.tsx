@@ -44,7 +44,7 @@ const SiteFooter = () => {
             <ArrowUpRight size={12} />
           </Link>
           <a
-            href="tel:+351269000000"
+            href="tel:+351919024221"
             className="btn-ghost flex items-center gap-2"
             style={{ fontSize: "10px", padding: "12px 24px" }}
           >
@@ -111,7 +111,7 @@ const SiteFooter = () => {
               {language === "pt" ? "Contacto" : "Contact"}
             </span>
             <div className="space-y-3">
-              <a href="tel:+351269000000" className="flex items-center gap-2" style={{ textDecoration: "none" }}>
+              <a href="tel:+351919024221" className="flex items-center gap-2" style={{ textDecoration: "none" }}>
                 <Phone size={12} style={{ color: "hsl(var(--gold))" }} />
                 <span style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "12px", color: "rgba(30,22,14,0.55)" }}>
                   {siteConfig.footer.phone}
