@@ -99,7 +99,7 @@ const SiteNav = ({ transparent = false, heroMode = false }: SiteNavProps) => {
   );
 
   const inner = (
-    <div className="flex items-center justify-between px-8 md:px-14 pt-8 pb-6">
+    <div className="flex items-center justify-between px-4 sm:px-6 md:px-14 pt-6 sm:pt-8 pb-4 sm:pb-6">
       <Link
         to="/"
         className="font-display text-lg tracking-widest leading-tight transition-colors duration-500"
@@ -175,14 +175,13 @@ const SiteNav = ({ transparent = false, heroMode = false }: SiteNavProps) => {
         </button>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-10 pt-16">
+      <div className="flex flex-col items-center justify-center gap-8 sm:gap-10 pt-12 sm:pt-16 px-6">
         {navLinks.map((link) => (
           <Link
             key={link.to}
             to={link.to}
-            className="nav-link"
+            className="nav-link text-[9px] sm:text-[11px]"
             style={{
-              fontSize: "11px",
               letterSpacing: "0.5em",
               color: isActive(link.to) ? "hsl(var(--gold))" : "rgba(30,22,14,0.55)",
             }}

@@ -32,7 +32,7 @@ DISTANCES:
 
 CONTACT:
 - Phone/WhatsApp: +351 919 024 221
-- Email: info@herdadegrandola.pt
+- Email: herdasantamargarida@gmail.com
 - Visits: Daily 9am–8pm, by appointment only
 
 GUIDELINES:

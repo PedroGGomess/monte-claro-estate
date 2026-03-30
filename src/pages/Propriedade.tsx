@@ -44,18 +44,18 @@ const Propriedade = () => {
       <SiteNav />
 
       {/* Hero */}
-      <div className="relative w-full overflow-hidden" style={{ height: "70vh", marginTop: 0 }}>
+      <div className="relative w-full overflow-hidden" style={{ height: "60vh", minHeight: "300px", marginTop: 0 }}>
         <img
           src={images.frontView}
           alt="Herdade em Grândola"
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.45) saturate(0.85)" }}
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <p className="label-upper mb-6">{t("propriedade.hero")}</p>
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
+          <p className="label-upper mb-4 sm:mb-6 text-[7px] sm:text-[9px]">{t("propriedade.hero")}</p>
           <h1
             className="heading-display text-center"
-            style={{ fontSize: "clamp(3rem, 10vw, 9rem)", color: "#F5F0E8" }}
+            style={{ fontSize: "clamp(2rem, 8vw, 9rem)", color: "#F5F0E8" }}
           >
             {language === "pt" ? (
               <>A <em>Propriedade</em></>
@@ -75,26 +75,26 @@ const Propriedade = () => {
           {stats.map((s, i) => (
             <div
               key={i}
-              className={`py-10 px-8 text-center ${i % 4 !== 3 ? "md:border-r gold-border-line" : ""} ${i < 4 ? "border-b gold-border-line" : ""}`}
+              className={`py-6 sm:py-8 md:py-10 px-3 sm:px-5 md:px-8 text-center ${i % 4 !== 3 ? "md:border-r gold-border-line" : ""} ${i < 4 ? "border-b gold-border-line" : ""}`}
             >
-              <div className="font-display text-gold text-3xl md:text-[38px] tracking-wide">
+              <div className="font-display text-gold text-xl sm:text-2xl md:text-[38px] tracking-wide break-words">
                 {s.value}
               </div>
-              <div className="label-muted mt-3">{language === "pt" ? s.labelPt : s.labelEn}</div>
+              <div className="label-muted mt-2 sm:mt-3 text-[7px] sm:text-[9px]">{language === "pt" ? s.labelPt : s.labelEn}</div>
             </div>
           ))}
         </div>
       </ScrollReveal>
 
       {/* Two-column layout */}
-      <div className="px-8 md:px-14 py-16 md:py-24 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[100px]">
+      <div className="px-4 sm:px-6 md:px-14 py-12 sm:py-16 md:py-24 max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-[100px]">
           <div>
             <ScrollReveal>
               <span className="label-upper">{t("about.label")}</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="heading-display text-bone text-4xl md:text-[52px] mt-8 leading-[1.1]">
+              <h2 className="heading-display text-bone text-2xl sm:text-3xl md:text-[52px] mt-6 sm:mt-8 leading-[1.1]">
                 {language === "pt" ? (
                   <>O valor do tempo: pronto a <em>construir</em></>
                 ) : (
@@ -104,7 +104,7 @@ const Propriedade = () => {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <blockquote
-                className="border-l border-gold/40 pl-6 mt-10 font-display italic text-xl leading-relaxed"
+                className="border-l border-gold/40 pl-4 sm:pl-6 mt-8 sm:mt-10 font-display italic text-base sm:text-lg md:text-xl leading-relaxed"
                 style={{ color: "rgba(30,22,14,0.68)", fontFamily: "'Cormorant Garamond', serif" }}
               >
                 {language === "pt" ? siteConfig.about.quote : siteConfig.about.quoteEn}
@@ -175,19 +175,19 @@ const Propriedade = () => {
 
       {/* CTA */}
       <ScrollReveal>
-        <div className="py-24 flex flex-col items-center text-center px-8" style={{ borderTop: "1px solid hsl(var(--gold) / 0.18)" }}>
+        <div className="py-16 sm:py-20 md:py-24 flex flex-col items-center text-center px-4 sm:px-6 md:px-8" style={{ borderTop: "1px solid hsl(var(--gold) / 0.18)" }}>
           <h2
             className="heading-display text-foreground"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+            style={{ fontSize: "clamp(1.5rem, 5vw, 4rem)" }}
           >
             {language === "pt" ? <>Agendar uma <em>Visita Privada</em></> : <>Schedule a <em>Private Visit</em></>}
           </h2>
-          <p className="body-text mt-6 max-w-[480px]">
+          <p className="body-text mt-4 sm:mt-6 max-w-[480px] text-sm sm:text-base px-4">
             {language === "pt"
               ? "Uma experiência exclusiva, no Triângulo de Ouro alentejano."
               : "An exclusive experience, in the Alentejo Golden Triangle."}
           </p>
-          <Link to="/agendar" className="btn-calendly mt-10">
+          <Link to="/agendar" className="btn-calendly mt-8 sm:mt-10" style={{ fontSize: "clamp(9px, 2vw, 11px)" }}>
             {t("propriedade.cta")}
           </Link>
         </div>

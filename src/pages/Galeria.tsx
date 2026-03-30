@@ -65,7 +65,7 @@ const Galeria = () => {
       {/* Hero strip */}
       <div
         className="relative w-full overflow-hidden"
-        style={{ height: "55vh", minHeight: 320 }}
+        style={{ height: "50vh", minHeight: "280px" }}
       >
         <img
           src={herdadeImages.hero}
@@ -73,14 +73,14 @@ const Galeria = () => {
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.40) saturate(0.80)" }}
         />
-        <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-14 pb-14">
-          <span className="label-upper mb-6" style={{ color: "hsl(var(--gold))" }}>
+        <div className="absolute inset-0 flex flex-col justify-end px-4 sm:px-6 md:px-14 pb-10 sm:pb-12 md:pb-14">
+          <span className="label-upper mb-4 sm:mb-6 text-[7px] sm:text-[9px]" style={{ color: "hsl(var(--gold))" }}>
             {t("gallery.label")}
           </span>
           <h1
             className="heading-display"
             style={{
-              fontSize: "clamp(3.5rem, 9vw, 9rem)",
+              fontSize: "clamp(2rem, 8vw, 9rem)",
               fontFamily: "'Cormorant Garamond', serif",
               color: "rgba(242,234,216,0.94)",
               lineHeight: 1,
@@ -89,10 +89,9 @@ const Galeria = () => {
             {t("galeria.title")}
           </h1>
           <p
-            className="mt-4"
+            className="mt-3 sm:mt-4 text-[9px] sm:text-[11px]"
             style={{
               fontFamily: "'Tenor Sans', sans-serif",
-              fontSize: "11px",
               letterSpacing: "0.25em",
               color: "rgba(242,234,216,0.45)",
             }}
@@ -102,12 +101,12 @@ const Galeria = () => {
         </div>
       </div>
 
-      <div className="px-8 md:px-14" style={{ paddingTop: "80px" }}>
+      <div className="px-4 sm:px-6 md:px-14" style={{ paddingTop: "60px" }}>
         {/* Category filter */}
         <ScrollReveal>
           <div
-            className="flex flex-wrap items-center gap-4 sm:gap-8 mb-14"
-            style={{ borderBottom: "1px solid hsl(var(--gold) / 0.18)", paddingBottom: "20px" }}
+            className="flex flex-wrap items-center gap-3 sm:gap-6 md:gap-8 mb-10 md:mb-14"
+            style={{ borderBottom: "1px solid hsl(var(--gold) / 0.18)", paddingBottom: "14px" }}
           >
             {categories.map(({ key, label }) => {
               const count = key === "todos" ? allImages.length : allImages.filter(i => i.category === key).length;
@@ -115,13 +114,13 @@ const Galeria = () => {
                 <button
                   key={key}
                   onClick={() => { setActiveCategory(key); setImageLoaded({}); }}
-                  className="label-upper transition-all duration-300 flex items-center gap-2"
+                  className="label-upper transition-all duration-300 flex items-center gap-1.5 sm:gap-2 text-[7px] sm:text-[9px]"
                   style={{
                     color: activeCategory === key ? "hsl(var(--gold))" : "rgba(30,22,14,0.40)",
                     background: activeCategory === key ? "hsl(var(--gold) / 0.06)" : "none",
                     border: "none",
                     borderBottom: activeCategory === key ? "2px solid hsl(var(--gold))" : "2px solid transparent",
-                    padding: "8px 4px 6px",
+                    padding: "6px 3px 5px",
                     cursor: "pointer",
                   }}
                 >
@@ -129,9 +128,9 @@ const Galeria = () => {
                   <span
                     className="inline-flex items-center justify-center"
                     style={{
-                      fontSize: "8px",
-                      width: "18px",
-                      height: "18px",
+                      fontSize: "7px",
+                      width: "16px",
+                      height: "16px",
                       borderRadius: "50%",
                       background: activeCategory === key ? "hsl(var(--gold) / 0.12)" : "rgba(30,22,14,0.06)",
                       color: activeCategory === key ? "hsl(var(--gold))" : "rgba(30,22,14,0.35)",
@@ -146,7 +145,7 @@ const Galeria = () => {
         </ScrollReveal>
 
         {/* Masonry-style grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[5px] pb-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[3px] sm:gap-[5px] pb-20 sm:pb-28">
           {filtered.map((img, i) => (
             <ScrollReveal key={`${activeCategory}-${i}`} delay={Math.min(i * 0.04, 0.3)}>
               <div
@@ -205,44 +204,44 @@ const Galeria = () => {
         >
           {/* Top bar */}
           <div
-            className="absolute top-0 left-0 right-0 flex items-center justify-between px-8 py-5"
+            className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 sm:px-8 py-4 sm:py-5 gap-2"
             style={{ borderBottom: "1px solid rgba(200,160,80,0.12)" }}
           >
-            <span className="label-upper text-[8px]" style={{ color: "rgba(200,160,80,0.55)" }}>
+            <span className="label-upper text-[7px] sm:text-[8px] shrink-0" style={{ color: "rgba(200,160,80,0.55)" }}>
               {lightboxIdx + 1} / {filtered.length}
             </span>
-            <span className="label-upper text-[8px]" style={{ color: "rgba(200,160,80,0.55)" }}>
+            <span className="label-upper text-[7px] sm:text-[8px] flex-1 text-center truncate" style={{ color: "rgba(200,160,80,0.55)" }}>
               {caption(filtered[lightboxIdx])}
             </span>
             <button
               onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
-              style={{ background: "none", border: "none", color: "rgba(200,160,80,0.7)", cursor: "pointer" }}
+              style={{ background: "none", border: "none", color: "rgba(200,160,80,0.7)", cursor: "pointer", flexShrink: 0 }}
               aria-label="Fechar"
             >
-              <X size={22} />
+              <X size={18} className="sm:w-6 sm:h-6" />
             </button>
           </div>
 
           {/* Nav: prev */}
           <button
             onClick={(e) => { e.stopPropagation(); prevImage(); }}
-            className="absolute left-4 md:left-8 z-10 transition-all duration-300 hover:scale-110"
-            style={{ background: "rgba(200,160,80,0.08)", border: "1px solid rgba(200,160,80,0.2)", color: "rgba(200,160,80,0.7)", cursor: "pointer", padding: "12px" }}
+            className="absolute left-2 sm:left-4 md:left-8 z-10 transition-all duration-300 hover:scale-110"
+            style={{ background: "rgba(200,160,80,0.08)", border: "1px solid rgba(200,160,80,0.2)", color: "rgba(200,160,80,0.7)", cursor: "pointer", padding: "8px", minWidth: "44px", minHeight: "44px", display: "flex", alignItems: "center", justifyContent: "center" }}
             aria-label="Anterior"
           >
-            <ChevronLeft size={28} />
+            <ChevronLeft size={20} className="sm:w-7 sm:h-7" />
           </button>
 
           {/* Image */}
           <div
-            className="flex flex-col items-center px-4 sm:px-12 md:px-24 max-w-6xl w-full"
+            className="flex flex-col items-center px-3 sm:px-8 md:px-24 max-w-6xl w-full"
             onClick={(e) => e.stopPropagation()}
             style={{ marginTop: "60px" }}
           >
             <img
               src={filtered[lightboxIdx].src}
               alt={caption(filtered[lightboxIdx])}
-              className="max-h-[75vh] w-auto object-contain"
+              className="max-h-[60vh] sm:max-h-[75vh] w-auto object-contain"
               style={{
                 filter: "brightness(0.98)",
                 border: "1px solid rgba(200,160,80,0.15)",
@@ -250,7 +249,7 @@ const Galeria = () => {
             />
             {/* Caption below image */}
             <p
-              className="mt-4 label-upper text-[9px]"
+              className="mt-3 sm:mt-4 label-upper text-[7px] sm:text-[9px] px-2"
               style={{ color: "rgba(200,160,80,0.5)" }}
             >
               {caption(filtered[lightboxIdx])}
@@ -260,16 +259,16 @@ const Galeria = () => {
           {/* Nav: next */}
           <button
             onClick={(e) => { e.stopPropagation(); nextImage(); }}
-            className="absolute right-4 md:right-8 z-10 transition-all duration-300 hover:scale-110"
-            style={{ background: "rgba(200,160,80,0.08)", border: "1px solid rgba(200,160,80,0.2)", color: "rgba(200,160,80,0.7)", cursor: "pointer", padding: "12px" }}
+            className="absolute right-2 sm:right-4 md:right-8 z-10 transition-all duration-300 hover:scale-110"
+            style={{ background: "rgba(200,160,80,0.08)", border: "1px solid rgba(200,160,80,0.2)", color: "rgba(200,160,80,0.7)", cursor: "pointer", padding: "8px", minWidth: "44px", minHeight: "44px", display: "flex", alignItems: "center", justifyContent: "center" }}
             aria-label="Próxima"
           >
-            <ChevronRight size={28} />
+            <ChevronRight size={20} className="sm:w-7 sm:h-7" />
           </button>
 
           {/* Thumbnail strip at bottom */}
           <div
-            className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-[3px] px-8 py-4 overflow-x-auto"
+            className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-[2px] sm:gap-[3px] px-3 sm:px-8 py-3 sm:py-4 overflow-x-auto"
             style={{ background: "rgba(8,6,4,0.8)" }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -279,13 +278,15 @@ const Galeria = () => {
                 onClick={() => setLightboxIdx(i)}
                 className="shrink-0 overflow-hidden transition-all duration-300"
                 style={{
-                  width: i === lightboxIdx ? "48px" : "36px",
-                  height: i === lightboxIdx ? "36px" : "28px",
+                  width: i === lightboxIdx ? "clamp(32px, 6vw, 48px)" : "clamp(24px, 5vw, 36px)",
+                  height: i === lightboxIdx ? "clamp(24px, 5vw, 36px)" : "clamp(20px, 4vw, 28px)",
                   opacity: i === lightboxIdx ? 1 : 0.4,
                   border: i === lightboxIdx ? "1px solid rgba(200,160,80,0.5)" : "1px solid transparent",
                   cursor: "pointer",
                   background: "none",
                   padding: 0,
+                  minWidth: "20px",
+                  minHeight: "20px",
                 }}
               >
                 <img

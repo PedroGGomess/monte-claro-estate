@@ -56,20 +56,20 @@ const HeroOverlay = () => {
       </div>
 
       {/* Bottom */}
-      <div className="flex items-end justify-between px-8 md:px-14 pb-8">
+      <div className="flex items-end justify-between px-4 sm:px-6 md:px-14 pb-6 sm:pb-8">
         <motion.span
           {...fadeUp(2.2)}
-          className="label-muted hidden md:block"
+          className="label-muted hidden md:block text-[7px] sm:text-[9px]"
           style={{ color: "rgba(242, 236, 224, 0.42)" }}
         >
           {hero.coords}
         </motion.span>
 
-        <motion.div {...fadeUp(2.4)} className="flex flex-col items-center gap-3">
-          <span className="label-upper text-[8px]" style={{ color: "rgba(242, 236, 224, 0.6)" }}>
+        <motion.div {...fadeUp(2.4)} className="flex flex-col items-center gap-2 sm:gap-3">
+          <span className="label-upper text-[6px] sm:text-[8px]" style={{ color: "rgba(242, 236, 224, 0.6)" }}>
             {t("hero.explore")}
           </span>
-          <div className="w-px h-16 overflow-hidden" style={{ background: "rgba(242,236,224,0.2)" }}>
+          <div className="w-px h-12 sm:h-16 overflow-hidden" style={{ background: "rgba(242,236,224,0.2)" }}>
             <div
               className="w-full h-full animate-scroll-line"
               style={{ background: "rgba(242,236,224,0.65)" }}
@@ -79,7 +79,7 @@ const HeroOverlay = () => {
 
         <motion.span
           {...fadeUp(2.2)}
-          className="label-muted hidden md:block"
+          className="label-muted hidden md:block text-[7px] sm:text-[9px]"
           style={{ color: "rgba(242, 236, 224, 0.42)" }}
         >
           {hero.location}

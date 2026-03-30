@@ -12,9 +12,9 @@ const GallerySection = () => {
   const gallery = siteConfig.gallery;
 
   return (
-    <section id="galeria" className="px-8 md:px-14 py-16 md:py-24">
-      <ScrollReveal className="mb-12">
-        <span className="label-upper">{t("gallery.label")}</span>
+    <section id="galeria" className="px-4 sm:px-6 md:px-14 py-12 sm:py-16 md:py-24">
+      <ScrollReveal className="mb-8 sm:mb-12">
+        <span className="label-upper text-[8px] sm:text-[9px]">{t("gallery.label")}</span>
       </ScrollReveal>
 
       {/* Primary grid: first image large on left, two stacked on right */}

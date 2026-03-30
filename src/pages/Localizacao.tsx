@@ -82,21 +82,21 @@ const Localizacao = () => {
       <SiteNav />
 
       {/* Hero image strip */}
-      <div className="relative w-full overflow-hidden" style={{ height: "50vh", minHeight: 280 }}>
+      <div className="relative w-full overflow-hidden" style={{ height: "50vh", minHeight: "280px" }}>
         <img
           src={herdadeImages.frontView}
           alt={language === "pt" ? "Localização da Herdade" : "Estate Location"}
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.30) saturate(0.65)" }}
         />
-        <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-14 pb-12">
-          <span className="label-upper mb-5" style={{ color: "hsl(var(--gold))" }}>
+        <div className="absolute inset-0 flex flex-col justify-end px-4 sm:px-6 md:px-14 pb-8 sm:pb-10 md:pb-12">
+          <span className="label-upper mb-4 sm:mb-5 text-[7px] sm:text-[9px]" style={{ color: "hsl(var(--gold))" }}>
             {t("location.label")}
           </span>
           <h1
             className="heading-display"
             style={{
-              fontSize: "clamp(3rem, 8vw, 8rem)",
+              fontSize: "clamp(2rem, 8vw, 8rem)",
               fontFamily: "'Cormorant Garamond', serif",
               color: "rgba(242,234,216,0.93)",
               lineHeight: 1,
@@ -105,10 +105,9 @@ const Localizacao = () => {
             {t("localizacao.title")}
           </h1>
           <p
-            className="mt-4 max-w-[560px]"
+            className="mt-3 sm:mt-4 max-w-[560px] text-[9px] sm:text-[12px]"
             style={{
               fontFamily: "'Tenor Sans', sans-serif",
-              fontSize: "12px",
               letterSpacing: "0.18em",
               color: "rgba(242,234,216,0.38)",
               textTransform: "uppercase",
@@ -119,53 +118,53 @@ const Localizacao = () => {
         </div>
       </div>
 
-      <div className="px-8 md:px-14" style={{ paddingTop: "72px", paddingBottom: "80px" }}>
+      <div className="px-4 sm:px-6 md:px-14" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
 
         {/* Map + distances */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[80px] max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-[80px] max-w-[1400px] mx-auto">
           {/* Left: distance table */}
           <div>
             <ScrollReveal>
-              <div className="flex items-center gap-3 mb-8">
-                <Navigation size={14} style={{ color: "hsl(var(--gold))" }} />
-                <span className="label-upper">{language === "pt" ? "Distâncias" : "Distances"}</span>
+              <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                <Navigation size={12} style={{ color: "hsl(var(--gold))" }} />
+                <span className="label-upper text-[7px] sm:text-[9px]">{language === "pt" ? "Distâncias" : "Distances"}</span>
               </div>
             </ScrollReveal>
             {distances.map((d, i) => (
               <ScrollReveal key={i} delay={0.08 + i * 0.07}>
                 <div
-                  className="flex items-center justify-between py-5 group transition-all duration-300 hover:pl-2"
+                  className="flex items-center justify-between gap-3 py-4 sm:py-5 group transition-all duration-300 hover:pl-2 flex-wrap sm:flex-nowrap"
                   style={{ borderBottom: "1px solid hsl(var(--gold) / 0.12)" }}
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 flex-1">
                     <div
-                      className="w-8 h-8 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
+                      className="w-7 sm:w-8 h-7 sm:h-8 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
                       style={{ background: "hsl(var(--gold) / 0.06)", border: "1px solid hsl(var(--gold) / 0.12)" }}
                     >
-                      {d.icon === "airport" ? <Plane size={13} style={{ color: "hsl(var(--gold))" }} /> :
-                       d.icon === "city" || d.icon === "town" ? <MapPin size={13} style={{ color: "hsl(var(--gold))" }} /> :
-                       <Car size={13} style={{ color: "hsl(var(--gold))" }} />}
+                      {d.icon === "airport" ? <Plane size={11} style={{ color: "hsl(var(--gold))" }} /> :
+                       d.icon === "city" || d.icon === "town" ? <MapPin size={11} style={{ color: "hsl(var(--gold))" }} /> :
+                       <Car size={11} style={{ color: "hsl(var(--gold))" }} />}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <span
-                        className="block font-body text-[14px]"
+                        className="block font-body text-[12px] sm:text-[14px]"
                         style={{ color: "rgba(30,22,14,0.75)", fontFamily: "'Tenor Sans', sans-serif" }}
                       >
                         {language === "pt" ? d.placePt : d.placeEn}
                       </span>
                       <span
-                        className="block mt-1"
-                        style={{ fontSize: "9px", letterSpacing: "0.25em", color: "rgba(200,160,80,0.6)", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase" }}
+                        className="block mt-1 text-[7px] sm:text-[9px]"
+                        style={{ letterSpacing: "0.25em", color: "rgba(200,160,80,0.6)", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase" }}
                       >
                         {language === "pt" ? d.notePt : d.noteEn}
                       </span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0 ml-4">
-                    <Clock size={12} style={{ color: "hsl(var(--gold) / 0.4)" }} />
+                  <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                    <Clock size={10} style={{ color: "hsl(var(--gold) / 0.4))" }} />
                     <span
-                      className="font-display text-gold"
-                      style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "26px", color: "hsl(var(--gold))" }}
+                      className="font-display text-gold text-[20px] sm:text-[26px]"
+                      style={{ fontFamily: "'Cormorant Garamond', serif", color: "hsl(var(--gold))" }}
                     >
                       {d.time}
                     </span>
@@ -176,14 +175,14 @@ const Localizacao = () => {
 
             {/* Coords */}
             <ScrollReveal delay={0.6}>
-              <div className="mt-10 pt-8" style={{ borderTop: "1px solid rgba(200,160,80,0.18)" }}>
+              <div className="mt-8 sm:mt-10 pt-6 sm:pt-8" style={{ borderTop: "1px solid rgba(200,160,80,0.18)" }}>
                 <p
-                  className="font-display"
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", color: "rgba(30,22,14,0.55)", letterSpacing: "0.08em" }}
+                  className="font-display break-all"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(18px, 3vw, 22px)", color: "rgba(30,22,14,0.55)", letterSpacing: "0.08em" }}
                 >
                   38°10'N · 8°34'W
                 </p>
-                <p style={{ fontSize: "10px", letterSpacing: "0.3em", color: "rgba(200,160,80,0.55)", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase", marginTop: "6px" }}>
+                <p style={{ fontSize: "clamp(8px, 2vw, 10px)", letterSpacing: "0.3em", color: "rgba(200,160,80,0.55)", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase", marginTop: "6px" }}>
                   {language === "pt" ? "Coordenadas GPS · Grândola, Alentejo" : "GPS Coordinates · Grândola, Alentejo"}
                 </p>
               </div>
@@ -195,12 +194,12 @@ const Localizacao = () => {
             <ScrollReveal delay={0.15}>
               <div className="relative">
                 {/* Map style toggle */}
-                <div className="absolute top-4 right-4 z-10 flex gap-[1px]" style={{ background: "rgba(200,160,80,0.2)" }}>
+                <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 flex gap-[1px]" style={{ background: "rgba(200,160,80,0.2)" }}>
                   <button
                     onClick={() => setMapStyle("roadmap")}
                     style={{
-                      padding: "6px 14px",
-                      fontSize: "9px",
+                      padding: "5px 10px",
+                      fontSize: "clamp(7px, 2vw, 9px)",
                       letterSpacing: "0.2em",
                       textTransform: "uppercase",
                       fontFamily: "'Tenor Sans', sans-serif",
@@ -215,8 +214,8 @@ const Localizacao = () => {
                   <button
                     onClick={() => setMapStyle("satellite")}
                     style={{
-                      padding: "6px 14px",
-                      fontSize: "9px",
+                      padding: "5px 10px",
+                      fontSize: "clamp(7px, 2vw, 9px)",
                       letterSpacing: "0.2em",
                       textTransform: "uppercase",
                       fontFamily: "'Tenor Sans', sans-serif",
@@ -271,24 +270,24 @@ const Localizacao = () => {
 
             <ScrollReveal delay={0.28}>
               <div
-                className="p-7"
+                className="p-5 sm:p-6 md:p-7"
                 style={{ background: "rgba(200,160,80,0.05)", border: "1px solid rgba(200,160,80,0.18)" }}
               >
-                <span className="label-upper block mb-5" style={{ color: "hsl(var(--gold))" }}>
+                <span className="label-upper block mb-4 sm:mb-5 text-[7px] sm:text-[9px]" style={{ color: "hsl(var(--gold))" }}>
                   {language === "pt" ? "Morada" : "Address"}
                 </span>
-                <div className="space-y-2">
-                  <p className="font-display text-xl" style={{ fontFamily: "'Cormorant Garamond', serif", color: "rgba(30,22,14,0.88)" }}>
+                <div className="space-y-1.5 sm:space-y-2">
+                  <p className="font-display text-lg sm:text-xl" style={{ fontFamily: "'Cormorant Garamond', serif", color: "rgba(30,22,14,0.88)" }}>
                     Herdade do Monte Claro
                   </p>
-                  <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "13px", color: "rgba(30,22,14,0.55)" }}>
+                  <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "clamp(12px, 2.5vw, 13px)", color: "rgba(30,22,14,0.55)" }}>
                     Santa Margarida da Serra · Grândola
                   </p>
-                  <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "13px", color: "rgba(30,22,14,0.55)" }}>
+                  <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "clamp(12px, 2.5vw, 13px)", color: "rgba(30,22,14,0.55)" }}>
                     Alentejo · Portugal
                   </p>
-                  <div style={{ borderTop: "1px solid rgba(200,160,80,0.18)", marginTop: "14px", paddingTop: "14px" }}>
-                    <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "10px", letterSpacing: "0.25em", color: "rgba(200,160,80,0.65)", textTransform: "uppercase" }}>
+                  <div style={{ borderTop: "1px solid rgba(200,160,80,0.18)", marginTop: "10px", paddingTop: "10px" }}>
+                    <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "clamp(8px, 2vw, 10px)", letterSpacing: "0.25em", color: "rgba(200,160,80,0.65)", textTransform: "uppercase" }}>
                       {language === "pt" ? "25 min de Melides · 30 min da Comporta" : "25 min from Melides · 30 min from Comporta"}
                     </p>
                   </div>
@@ -300,15 +299,15 @@ const Localizacao = () => {
 
         {/* Terrain & Dual Access section */}
         <ScrollReveal delay={0.1}>
-          <div className="max-w-[1400px] mx-auto mt-24" style={{ borderTop: "1px solid rgba(200,160,80,0.18)", paddingTop: "72px" }}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[80px] items-center">
+          <div className="max-w-[1400px] mx-auto mt-16 sm:mt-20 md:mt-24" style={{ borderTop: "1px solid rgba(200,160,80,0.18)", paddingTop: "50px sm:paddingTop: 60px md:paddingTop: 72px" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-[80px] items-center">
               <div>
-                <span className="label-upper block mb-8" style={{ color: "hsl(var(--gold))" }}>
+                <span className="label-upper block mb-6 sm:mb-8 text-[7px] sm:text-[9px]" style={{ color: "hsl(var(--gold))" }}>
                   {language === "pt" ? "O Terreno" : "The Land"}
                 </span>
                 <h2
                   className="heading-display"
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "rgba(30,22,14,0.88)", lineHeight: 1.1, marginBottom: "24px" }}
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.5rem, 4vw, 3.5rem)", color: "rgba(30,22,14,0.88)", lineHeight: 1.1, marginBottom: "18px sm:marginBottom: 24px" }}
                 >
                   {language === "pt" ? (
                     <>120.000 m² de <em>privacidade absoluta</em></>
@@ -317,7 +316,7 @@ const Localizacao = () => {
                   )}
                 </h2>
                 <p
-                  style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "14px", lineHeight: 2.1, color: "rgba(30,22,14,0.62)", marginBottom: "32px" }}
+                  style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "clamp(12px, 2.5vw, 14px)", lineHeight: 2.1, color: "rgba(30,22,14,0.62)", marginBottom: "20px sm:marginBottom: 32px" }}
                 >
                   {language === "pt"
                     ? "O terreno é ladeado por duas estradas alcatroadas independentes em extremos opostos, garantindo acessibilidade premium e privacidade total. Povoado por sobreiros estrategicamente distribuídos, confere a mística do montado alentejano sem condicionar as áreas de construção aprovadas."
@@ -333,11 +332,11 @@ const Localizacao = () => {
                     { valuePt: "Sobreiros", valueEn: "Cork Oaks", labelPt: "Montado Alentejano", labelEn: "Alentejo Montado" },
                     { valuePt: "100%", valueEn: "100%", labelPt: "Turismo Apto · PDM", labelEn: "Tourism Eligible · PDM" },
                   ].map((item, i) => (
-                    <div key={i} className="p-6" style={{ background: "hsl(var(--background))" }}>
-                      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", color: "hsl(var(--gold))", marginBottom: "6px" }}>
+                    <div key={i} className="p-4 sm:p-5 md:p-6" style={{ background: "hsl(var(--background))" }}>
+                      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(18px, 4vw, 22px)", color: "hsl(var(--gold))", marginBottom: "6px" }}>
                         {language === "pt" ? item.valuePt : item.valueEn}
                       </div>
-                      <div style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "9px", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(30,22,14,0.45)" }}>
+                      <div style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "clamp(7px, 2vw, 9px)", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(30,22,14,0.45)" }}>
                         {language === "pt" ? item.labelPt : item.labelEn}
                       </div>
                     </div>
@@ -371,27 +370,27 @@ const Localizacao = () => {
 
         {/* Property highlights */}
         <ScrollReveal delay={0.1}>
-          <div className="max-w-[1400px] mx-auto mt-24" style={{ borderTop: "1px solid rgba(200,160,80,0.18)", paddingTop: "72px" }}>
-            <span className="label-upper block mb-10" style={{ color: "hsl(var(--gold))" }}>
+          <div className="max-w-[1400px] mx-auto mt-16 sm:mt-20 md:mt-24" style={{ borderTop: "1px solid rgba(200,160,80,0.18)", paddingTop: "50px sm:paddingTop: 60px md:paddingTop: 72px" }}>
+            <span className="label-upper block mb-8 sm:mb-10 text-[7px] sm:text-[9px]" style={{ color: "hsl(var(--gold))" }}>
               {language === "pt" ? "Características Fundamentais" : "Key Features"}
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px]" style={{ background: "rgba(200,160,80,0.12)" }}>
               {highlights.map((h, i) => (
                 <ScrollReveal key={i} delay={0.1 + i * 0.08}>
-                  <div className="p-8 h-full" style={{ background: "hsl(var(--background))" }}>
+                  <div className="p-5 sm:p-6 md:p-8 h-full" style={{ background: "hsl(var(--background))" }}>
                     <span
-                      className="font-display block mb-6"
-                      style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "36px", color: "rgba(200,160,80,0.25)", lineHeight: 1 }}
+                      className="font-display block mb-4 sm:mb-6"
+                      style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 6vw, 36px)", color: "rgba(200,160,80,0.25)", lineHeight: 1 }}
                     >
                       {language === "pt" ? h.numPt : h.numEn}
                     </span>
-                    <p className="font-display" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "20px", color: "rgba(30,22,14,0.85)", marginBottom: "12px" }}>
+                    <p className="font-display" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(16px, 4vw, 20px)", color: "rgba(30,22,14,0.85)", marginBottom: "10px" }}>
                       {language === "pt" ? h.titlePt : h.titleEn}
                     </p>
-                    <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "12px", color: "rgba(30,22,14,0.5)", lineHeight: 1.9, marginBottom: "20px" }}>
+                    <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "clamp(11px, 2.5vw, 12px)", color: "rgba(30,22,14,0.5)", lineHeight: 1.9, marginBottom: "14px" }}>
                       {language === "pt" ? h.descPt : h.descEn}
                     </p>
-                    <span style={{ fontSize: "9px", letterSpacing: "0.35em", color: "hsl(var(--gold))", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase" }}>
+                    <span style={{ fontSize: "clamp(7px, 2vw, 9px)", letterSpacing: "0.35em", color: "hsl(var(--gold))", fontFamily: "'Tenor Sans', sans-serif", textTransform: "uppercase" }}>
                       {language === "pt" ? h.tagPt : h.tagEn}
                     </span>
                   </div>
@@ -403,8 +402,8 @@ const Localizacao = () => {
 
         {/* Points of interest — now with images */}
         <ScrollReveal delay={0.1}>
-          <div className="max-w-[1400px] mx-auto mt-24" style={{ borderTop: "1px solid rgba(200,160,80,0.18)", paddingTop: "72px" }}>
-            <span className="label-upper block mb-10" style={{ color: "hsl(var(--gold))" }}>
+          <div className="max-w-[1400px] mx-auto mt-16 sm:mt-20 md:mt-24" style={{ borderTop: "1px solid rgba(200,160,80,0.18)", paddingTop: "50px sm:paddingTop: 60px md:paddingTop: 72px" }}>
+            <span className="label-upper block mb-8 sm:mb-10 text-[7px] sm:text-[9px]" style={{ color: "hsl(var(--gold))" }}>
               {language === "pt" ? "Pontos de Interesse" : "Points of Interest"}
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px]" style={{ background: "rgba(200,160,80,0.12)" }}>
@@ -432,11 +431,11 @@ const Localizacao = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <p className="font-display" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "20px", color: "rgba(30,22,14,0.85)", marginBottom: "8px" }}>
+                    <div className="p-4 sm:p-5 md:p-6">
+                      <p className="font-display" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(16px, 4vw, 20px)", color: "rgba(30,22,14,0.85)", marginBottom: "6px sm:marginBottom: 8px" }}>
                         {language === "pt" ? poi.namePt : poi.nameEn}
                       </p>
-                      <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "12px", color: "rgba(30,22,14,0.5)", lineHeight: 1.8 }}>
+                      <p style={{ fontFamily: "'Tenor Sans', sans-serif", fontSize: "clamp(11px, 2.5vw, 12px)", color: "rgba(30,22,14,0.5)", lineHeight: 1.8 }}>
                         {language === "pt" ? poi.descPt : poi.descEn}
                       </p>
                     </div>
@@ -449,8 +448,8 @@ const Localizacao = () => {
 
         {/* Bottom image strip */}
         <ScrollReveal delay={0.1}>
-          <div className="max-w-[1400px] mx-auto mt-20">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[4px]">
+          <div className="max-w-[1400px] mx-auto mt-16 sm:mt-18 md:mt-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[3px] sm:gap-[4px]">
               {[herdadeImages.arches, herdadeImages.poolPergola, herdadeImages.livingRoom].map((src, i) => (
                 <div key={i} className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img

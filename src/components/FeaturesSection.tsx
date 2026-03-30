@@ -12,7 +12,7 @@ const FeaturesSection = () => {
           <ScrollReveal
             key={i}
             delay={i * 0.12}
-            className={`relative px-8 py-14 md:py-20 group transition-colors duration-700 hover:bg-gold/[0.03] ${
+            className={`relative px-4 sm:px-6 md:px-8 py-10 sm:py-14 md:py-20 group transition-colors duration-700 hover:bg-gold/[0.03] ${
               i < 3 ? "md:border-r gold-border-line" : ""
             }`}
           >
@@ -25,12 +25,12 @@ const FeaturesSection = () => {
               {f.num}
             </span>
 
-            <h3 className="font-display text-xl mt-8" style={{ color: "hsl(var(--foreground))" }}>
+            <h3 className="font-display text-base sm:text-lg md:text-xl mt-6 sm:mt-8" style={{ color: "hsl(var(--foreground))" }}>
               {language === "en" && f.titleEn ? f.titleEn : f.title}
             </h3>
             <p
-              className="font-body mt-4"
-              style={{ fontSize: "13px", lineHeight: 1.9, color: "rgba(30,22,14,0.58)" }}
+              className="font-body mt-3 sm:mt-4"
+              style={{ fontSize: "clamp(12px, 3vw, 13px)", lineHeight: 1.9, color: "rgba(30,22,14,0.58)" }}
             >
               {language === "en" && f.descEn ? f.descEn : f.desc}
             </p>

@@ -118,6 +118,6 @@ export const siteConfig = {
   footer: {
     tagline: "Grândola · Alentejo · Venda Exclusiva",
     phone: "+351 919 024 221",
-    email: "info@herdadegrandola.pt",
+    email: "herdasantamargarida@gmail.com",
   },
 };

@@ -17,14 +17,14 @@ const StatsStrip = () => {
           <ScrollReveal
             key={i}
             delay={i * 0.1}
-            className={`flex-1 py-12 px-8 text-center ${
+            className={`flex-1 py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-8 text-center ${
               i < siteConfig.stats.length - 1 ? "md:border-r gold-border-line" : ""
             }`}
           >
-            <div className="font-display text-gold text-4xl md:text-[42px] tracking-wide">
+            <div className="font-display text-gold text-3xl sm:text-4xl md:text-[42px] tracking-wide break-words">
               {s.value}
             </div>
-            <div className="label-muted mt-3">{getLabel(i)}</div>
+            <div className="label-muted mt-2 sm:mt-3 text-[7px] sm:text-[9px]">{getLabel(i)}</div>
           </ScrollReveal>
         ))}
       </div>
