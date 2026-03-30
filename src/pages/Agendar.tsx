@@ -219,19 +219,25 @@ const Agendar = () => {
 
     try {
       // Send to Formspree → email notification + exportable spreadsheet
+      const visitDate = formatDateDisplay(selectedDate, "en");
+      const [sh, sm] = selectedTime.split(":").map(Number);
+      const endMin = sh * 60 + sm + VISIT_DURATION;
+      const endTime = `${String(Math.floor(endMin / 60)).padStart(2, "0")}:${String(endMin % 60).padStart(2, "0")}`;
+
       await fetch("https://formspree.io/f/xwvwooan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.nome,
           email: formData.email,
-          phone: formData.telefone,
-          date: selectedDate,
-          time: selectedTime,
+          phone: formData.telefone || "—",
+          date: visitDate,
+          time: `${selectedTime} – ${endTime}`,
           guests: formData.pessoas,
-          message: formData.mensagem,
-          commercial_interest: comercial,
-          _subject: `New Visit Request — ${formData.nome} — ${selectedDate}`,
+          message: formData.mensagem || "—",
+          commercial_interest: comercial ? "Yes" : "No",
+          _subject: `🏡 New Visit Request — ${formData.nome} — ${visitDate}`,
+          _autoresponse: `Dear ${formData.nome},\n\nThank you for scheduling a private visit to Herdade em Grândola.\n\nYour visit details:\n• Date: ${visitDate}\n• Time: ${selectedTime} – ${endTime}\n• Guests: ${formData.pessoas}\n\nWe will contact you shortly to confirm. If you have any questions, feel free to reach us at +351 919 024 221 or reply to this email.\n\nWe look forward to welcoming you.\n\nWarm regards,\nHerdade em Grândola\nGrândola · Alentejo · Portugal\nherdade-em-grandola.lovable.app`,
         }),
       });
     } catch {
