@@ -21,7 +21,7 @@ export const images = {
 };
 
 /* Google Apps Script URL for booking management — replace with your deployed URL */
-export const APPS_SCRIPT_URL = "REPLACE_WITH_YOUR_APPS_SCRIPT_URL";
+export const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz12TASUhCQr0ysAJ4I0hPan22j1cuPDoMqKCjNIIo-vzQ_H5hyS51e8EOadgufxPgP/exec";
 
 export const siteConfig = {
   name: "Herdade em Grândola",
