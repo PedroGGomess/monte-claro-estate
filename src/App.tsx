@@ -13,6 +13,7 @@ import Propriedade from "./pages/Propriedade.tsx";
 import Galeria from "./pages/Galeria.tsx";
 import Localizacao from "./pages/Localizacao.tsx";
 import Agendar from "./pages/Agendar.tsx";
+import BookingAction from "./pages/BookingAction.tsx";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/galeria" element={<Galeria />} />
             <Route path="/localizacao" element={<Localizacao />} />
             <Route path="/agendar" element={<Agendar />} />
+            <Route path="/booking" element={<BookingAction />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

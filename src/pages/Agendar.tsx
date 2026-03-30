@@ -1,11 +1,11 @@
-import { useState, useMemo, FormEvent } from "react";
+import { useState, useMemo, useEffect, FormEvent } from "react";
 import SiteNav from "@/components/SiteNav";
 import CustomCursor from "@/components/CustomCursor";
 import FilmGrain from "@/components/FilmGrain";
 import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
-import { images as herdadeImages } from "@/config/siteConfig";
+import { images as herdadeImages, APPS_SCRIPT_URL } from "@/config/siteConfig";
 import {
   Phone, Mail, MessageCircle, CheckCircle,
   Calendar, Users, Clock, ChevronLeft, ChevronRight, ArrowRight, Sparkles,
@@ -25,23 +25,36 @@ const DAY_START_HOUR = 9;
 const DAY_END_HOUR = 20;
 
 interface BookedSlot {
+  id?: string;
   date: string;
   time: string;
   name: string;
-  email: string;
+  email?: string;
+  status?: string;
 }
 
+/* Fetch booked slots from Google Sheets backend */
+const fetchRemoteSlots = async (): Promise<BookedSlot[]> => {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === "REPLACE_WITH_YOUR_APPS_SCRIPT_URL") return [];
+  try {
+    const res = await fetch(`${APPS_SCRIPT_URL}?action=list`);
+    const data = await res.json();
+    return (data.bookings || []) as BookedSlot[];
+  } catch { return []; }
+};
+
+/* localStorage as fallback / local cache */
 const STORAGE_KEY = "herdade_booked_slots";
 
-const loadBookedSlots = (): BookedSlot[] => {
+const loadLocalSlots = (): BookedSlot[] => {
   try {
     const data = localStorage.getItem(STORAGE_KEY);
     return data ? JSON.parse(data) : [];
   } catch { return []; }
 };
 
-const saveBookedSlot = (slot: BookedSlot) => {
-  const slots = loadBookedSlots();
+const saveLocalSlot = (slot: BookedSlot) => {
+  const slots = loadLocalSlots();
   slots.push(slot);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(slots));
 };
@@ -169,7 +182,23 @@ const Agendar = () => {
   const [comercial, setComercial] = useState(false);
   const [formData, setFormData] = useState({ nome: "", email: "", telefone: "", pessoas: "2", mensagem: "" });
 
-  const bookedSlots = useMemo(() => loadBookedSlots(), [submitted]);
+  const [remoteSlots, setRemoteSlots] = useState<BookedSlot[]>([]);
+
+  useEffect(() => {
+    fetchRemoteSlots().then(setRemoteSlots);
+  }, [submitted]);
+
+  // Merge remote slots with local slots (deduplicating by date+time)
+  const bookedSlots = useMemo(() => {
+    const local = loadLocalSlots();
+    const merged = [...remoteSlots];
+    for (const ls of local) {
+      const exists = merged.some(rs => rs.date === ls.date && rs.time === ls.time);
+      if (!exists) merged.push(ls);
+    }
+    return merged;
+  }, [remoteSlots, submitted]);
+
   const allTimeSlots = useMemo(() => generateTimeSlots(), []);
 
   const availableSlotsForDate = useMemo(() => {
@@ -217,12 +246,74 @@ const Agendar = () => {
     if (!selectedDate || !selectedTime || !formData.nome || !formData.email || submitting) return;
     setSubmitting(true);
 
+    const visitDate = formatDateDisplay(selectedDate, "en");
+    const [sh, sm] = selectedTime.split(":").map(Number);
+    const endMin = sh * 60 + sm + VISIT_DURATION;
+    const endTime = `${String(Math.floor(endMin / 60)).padStart(2, "0")}:${String(endMin % 60).padStart(2, "0")}`;
+    const siteBase = window.location.origin;
+
+    let bookingId = "";
+
+    // 1. Save to Google Sheets (central database)
     try {
-      // Send to Formspree → email notification + exportable spreadsheet
-      const visitDate = formatDateDisplay(selectedDate, "en");
-      const [sh, sm] = selectedTime.split(":").map(Number);
-      const endMin = sh * 60 + sm + VISIT_DURATION;
-      const endTime = `${String(Math.floor(endMin / 60)).padStart(2, "0")}:${String(endMin % 60).padStart(2, "0")}`;
+      if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== "REPLACE_WITH_YOUR_APPS_SCRIPT_URL") {
+        const gsRes = await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.nome,
+            email: formData.email,
+            phone: formData.telefone || "",
+            date: selectedDate,
+            time: selectedTime,
+            guests: formData.pessoas,
+            message: formData.mensagem || "",
+            commercial: comercial ? "Yes" : "No",
+          }),
+        });
+        const gsData = await gsRes.json();
+        if (gsData.id) bookingId = gsData.id;
+      }
+    } catch { /* continue even if Sheets fails */ }
+
+    // Build confirm/cancel links
+    const confirmLink = bookingId ? `${siteBase}/booking?action=confirm&id=${bookingId}` : "";
+    const cancelLink = bookingId ? `${siteBase}/booking?action=cancel&id=${bookingId}` : "";
+
+    // 2. Send email notification via Formspree
+    try {
+      const autoReplyLines = [
+        `Dear ${formData.nome},`,
+        ``,
+        `Thank you for scheduling a private visit to Herdade em Grândola.`,
+        ``,
+        `Your visit details:`,
+        `  Date: ${visitDate}`,
+        `  Time: ${selectedTime} – ${endTime}`,
+        `  Guests: ${formData.pessoas}`,
+        ``,
+      ];
+
+      if (confirmLink) {
+        autoReplyLines.push(
+          `Confirm your visit:`,
+          confirmLink,
+          ``,
+          `Need to cancel? Use this link:`,
+          cancelLink,
+          ``,
+        );
+      }
+
+      autoReplyLines.push(
+        `If you have any questions, feel free to reach us at +351 919 024 221 or reply to this email.`,
+        ``,
+        `We look forward to welcoming you.`,
+        ``,
+        `Warm regards,`,
+        `Herdade em Grândola`,
+        `Grândola · Alentejo · Portugal`,
+      );
 
       await fetch("https://formspree.io/f/xwvwooan", {
         method: "POST",
@@ -236,15 +327,16 @@ const Agendar = () => {
           guests: formData.pessoas,
           message: formData.mensagem || "—",
           commercial_interest: comercial ? "Yes" : "No",
+          confirm_link: confirmLink || "N/A (Google Sheets not configured)",
+          cancel_link: cancelLink || "N/A",
           _subject: `🏡 New Visit Request — ${formData.nome} — ${visitDate}`,
-          _autoresponse: `Dear ${formData.nome},\n\nThank you for scheduling a private visit to Herdade em Grândola.\n\nYour visit details:\n• Date: ${visitDate}\n• Time: ${selectedTime} – ${endTime}\n• Guests: ${formData.pessoas}\n\nWe will contact you shortly to confirm. If you have any questions, feel free to reach us at +351 919 024 221 or reply to this email.\n\nWe look forward to welcoming you.\n\nWarm regards,\nHerdade em Grândola\nGrândola · Alentejo · Portugal\nherdade-em-grandola.lovable.app`,
+          _autoresponse: autoReplyLines.join("\n"),
         }),
       });
-    } catch {
-      // Still show success — the WhatsApp fallback is always available
-    }
+    } catch { /* continue */ }
 
-    saveBookedSlot({ date: selectedDate, time: selectedTime, name: formData.nome, email: formData.email });
+    // 3. Save locally as fallback
+    saveLocalSlot({ date: selectedDate, time: selectedTime, name: formData.nome, email: formData.email });
     setSubmitting(false);
     setSubmitted(true);
   };

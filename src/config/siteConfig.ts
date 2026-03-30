@@ -20,6 +20,9 @@ export const images = {
   diningKitchen: herdade09,
 };
 
+/* Google Apps Script URL for booking management — replace with your deployed URL */
+export const APPS_SCRIPT_URL = "REPLACE_WITH_YOUR_APPS_SCRIPT_URL";
+
 export const siteConfig = {
   name: "Herdade em Grândola",
   nameItalic: "Grândola",
