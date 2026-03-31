@@ -95,17 +95,21 @@ function sendConfirmationEmail(data, bookingId) {
       + '<tr><td style="padding:8px 0;font-size:14px;color:#6b5e52">Tipo</td><td style="padding:8px 0;font-size:14px;color:#1e160e;text-align:right;font-weight:600">Privada</td></tr>'
       + '</table>'
       + '</div>'
-      // Confirm / Cancel buttons
-      + '<div style="text-align:center;margin:30px 0">'
-      + '<a href="' + confirmUrl + '" style="display:inline-block;padding:14px 40px;background:#a08560;color:#fff;text-decoration:none;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;font-family:sans-serif;margin:0 8px">CONFIRMAR VISITA</a>'
-      + '<a href="' + cancelUrl + '" style="display:inline-block;padding:14px 40px;background:transparent;color:#a08560;text-decoration:none;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;font-family:sans-serif;border:1px solid #a08560;margin:0 8px">CANCELAR</a>'
+      // Confirm button
+      + '<div style="text-align:center;margin:30px 0 15px">'
+      + '<a href="' + confirmUrl + '" style="display:inline-block;padding:16px 48px;background:#a08560;color:#ffffff;text-decoration:none;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-family:sans-serif">CONFIRMAR VISITA</a>'
+      + '</div>'
+      // Cancel link (subtle)
+      + '<p style="text-align:center;margin:0 0 10px"><a href="' + cancelUrl + '" style="font-size:12px;color:#a08560;text-decoration:underline;font-family:sans-serif">Precisa cancelar? Clique aqui</a></p>'
       + '</div>'
       // Contact info
-      + '<p style="font-size:13px;color:#6b5e52;line-height:1.7;margin:25px 0 0;text-align:center">Questoes? Contacte-nos:<br><strong>+351 919 024 221</strong> · <strong>herdadesantamargarida@gmail.com</strong></p>'
+      + '<div style="padding:25px 30px;border-top:1px solid #e8ddd0;text-align:center">'
+      + '<p style="font-size:12px;color:#6b5e52;line-height:1.8;margin:0;font-style:italic">Questoes? Contacte-nos:</p>'
+      + '<p style="font-size:13px;color:#1e160e;margin:8px 0 0">+351 919 024 221 · <a href="mailto:herdasantamargarida@gmail.com" style="color:#a08560">herdasantamargarida@gmail.com</a></p>'
       + '</div>'
       // Footer
       + '<div style="text-align:center;padding:20px 30px;border-top:1px solid #e8ddd0;background:#f9f5ef">'
-      + '<p style="margin:0;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#a08560;font-family:sans-serif">Herdade em Grandola · Grandola · Alentejo · Portugal</p>'
+      + '<p style="margin:0;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:#a08560;font-family:sans-serif">Herdade em Grandola · Santa Margarida da Serra · Grandola · Portugal</p>'
       + '</div>'
       + '</div></body></html>';
 
