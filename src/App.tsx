@@ -17,13 +17,17 @@ import BookingAction from "./pages/BookingAction.tsx";
 
 const queryClient = new QueryClient();
 
+// Vite injects BASE_URL from the `base` config at build time
+// Lovable: "/" → basename ""  |  GitHub Pages: "/monte-claro-estate/" → basename "/monte-claro-estate"
+const basename = import.meta.env.BASE_URL.replace(/\/+$/, "");
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <LanguageProvider>
-        <BrowserRouter basename="/monte-claro-estate">
+        <BrowserRouter basename={basename}>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />

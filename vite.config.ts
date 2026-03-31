@@ -1,27 +1,12 @@
-import { defineConfig, type Plugin } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import fs from "fs";
 import { componentTagger } from "lovable-tagger";
-
-// Copy index.html → 404.html so GitHub Pages serves the SPA for any route
-function copyIndexTo404(): Plugin {
-  return {
-    name: "copy-index-to-404",
-    closeBundle() {
-      const outDir = path.resolve(__dirname, "dist");
-      const src = path.join(outDir, "index.html");
-      const dest = path.join(outDir, "404.html");
-      if (fs.existsSync(src)) {
-        fs.copyFileSync(src, dest);
-      }
-    },
-  };
-}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/monte-claro-estate/",
+  // When VITE_BASE is set (gh-pages deploy), use it; otherwise default to "/"
+  base: process.env.VITE_BASE || "/",
   server: {
     host: "::",
     port: 8080,
@@ -29,11 +14,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [
-    react(),
-    mode === "development" && componentTagger(),
-    copyIndexTo404(),
-  ].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
