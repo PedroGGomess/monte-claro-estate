@@ -10,6 +10,8 @@ import { siteConfig, images } from "@/config/siteConfig";
 const galleryImages = [
   { src: images.hero, captionPt: "Vista Geral", captionEn: "General View" },
   { src: images.frontView, captionPt: "Fachada", captionEn: "Facade" },
+  { src: images.aerialClose, captionPt: "Vista Aérea · Pátio", captionEn: "Aerial View · Courtyard" },
+  { src: images.aerialWide, captionPt: "Vista Aérea · Propriedade", captionEn: "Aerial View · Property" },
   { src: images.poolPergola, captionPt: "Piscina", captionEn: "Pool" },
 ];
 

@@ -20,6 +20,8 @@ const allImages = [
   { src: herdadeImages.frontView, captionPt: "Vista Frontal · Propriedade", captionEn: "Front View · Property", category: "casa" as Category },
   { src: herdadeImages.poolPergola, captionPt: "Pérgola · Piscina", captionEn: "Pergola · Pool", category: "casa" as Category },
   { src: herdadeImages.diningKitchen, captionPt: "Sala de Jantar · Cozinha", captionEn: "Dining Room · Kitchen", category: "casa" as Category },
+  { src: herdadeImages.aerialClose, captionPt: "Vista Aérea · Pátio e Piscina", captionEn: "Aerial View · Courtyard & Pool", category: "casa" as Category },
+  { src: herdadeImages.aerialWide, captionPt: "Vista Aérea · Propriedade", captionEn: "Aerial View · Property", category: "casa" as Category },
 ];
 
 const Galeria = () => {

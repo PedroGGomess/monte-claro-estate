@@ -7,6 +7,8 @@ import herdade06 from "@/assets/herdade-06.jpg";
 import herdade07 from "@/assets/herdade-07.jpg";
 import herdade08 from "@/assets/herdade-08.jpg";
 import herdade09 from "@/assets/herdade-09.jpg";
+import herdade10 from "@/assets/herdade-10.jpg";
+import herdade11 from "@/assets/herdade-11.jpg";
 
 export const images = {
   hero: herdade01,
@@ -18,6 +20,8 @@ export const images = {
   frontView: herdade07,
   poolPergola: herdade08,
   diningKitchen: herdade09,
+  aerialClose: herdade10,
+  aerialWide: herdade11,
 };
 
 /* Google Apps Script URL for booking management — replace with your deployed URL */
@@ -102,6 +106,8 @@ export const siteConfig = {
     { src: herdade08, caption: "Pérgola · Piscina", captionEn: "Pergola · Pool" },
     { src: herdade09, caption: "Sala de Jantar · Cozinha", captionEn: "Dining Room · Kitchen" },
     { src: herdade04, caption: "Cozinha · Mármore", captionEn: "Kitchen · Marble" },
+    { src: herdade10, caption: "Vista Aérea · Pátio", captionEn: "Aerial View · Courtyard" },
+    { src: herdade11, caption: "Vista Aérea · Propriedade", captionEn: "Aerial View · Property" },
   ],
   distances: [
     { place: "Praia de Melides", time: "25 min" },
