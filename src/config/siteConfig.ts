@@ -37,7 +37,7 @@ export const siteConfig = {
   stats: [
     { value: "12 ha", label: "Área Total" },
     { value: "500 m²", label: "Área Aprovada" },
-    { value: "T3+T3", label: "Tipologia" },
+    { value: "T3+T3 (1 T6) + 6 lofts", label: "Tipologia" },
     { value: "3", label: "Fontes de Água" },
     { value: "25 min", label: "Das Praias" },
   ],
@@ -72,8 +72,8 @@ export const siteConfig = {
       titleEn: "500 m² Approved",
       desc: "2 moradias T3 (ou 1 T6), 6 lofts, garagem e zona de lazer/piscina de grandes dimensões. Versatilidade total para residência ou turismo.",
       descEn: "2 T3 houses (or 1 T6), 6 lofts, garage and large pool/leisure area. Total versatility for residence, co-living or tourism.",
-      tag: "T3+T3 · 6 lofts",
-      tagEn: "T3+T3 · 6 lofts",
+      tag: "T3+T3 (1 T6) · 6 lofts",
+      tagEn: "T3+T3 (1 T6) · 6 lofts",
     },
     {
       num: "03",
