@@ -16,7 +16,7 @@ const galleryImages = [
 const stats = [
   { value: "12 ha", labelPt: "Área Total", labelEn: "Total Area" },
   { value: "500 m²", labelPt: "Área Aprovada", labelEn: "Approved Area" },
-  { value: "T3+T3 (1 T6) + 6 lofts", labelPt: "Tipologia", labelEn: "Typology" },
+  { value: "T3+T3 + 6 lofts", labelPt: "Tipologia", labelEn: "Typology" },
   { value: "3", labelPt: "Fontes de Água", labelEn: "Water Sources" },
   { value: "25 min", labelPt: "Melides", labelEn: "Melides" },
   { value: "30 min", labelPt: "Comporta", labelEn: "Comporta" },
