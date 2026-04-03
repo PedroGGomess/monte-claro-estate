@@ -2,11 +2,13 @@ import CustomCursor from "@/components/CustomCursor";
 import FilmGrain from "@/components/FilmGrain";
 import HeroScene from "@/components/HeroScene";
 import HeroOverlay from "@/components/HeroOverlay";
-import StatsStrip from "@/components/StatsStrip";
 import AboutSection from "@/components/AboutSection";
-import FeaturesSection from "@/components/FeaturesSection";
+import LifestyleSection from "@/components/LifestyleSection";
+import InvestmentSection from "@/components/InvestmentSection";
 import GallerySection from "@/components/GallerySection";
 import LocationSection from "@/components/LocationSection";
+import StatsStrip from "@/components/StatsStrip";
+import FeaturesSection from "@/components/FeaturesSection";
 import VisitSection from "@/components/VisitSection";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -15,17 +17,23 @@ const Index = () => (
     <CustomCursor />
     <FilmGrain />
 
-    {/* Hero */}
+    {/* Hero — aspirational headline */}
     <section className="relative w-full h-screen overflow-hidden">
       <HeroScene />
       <HeroOverlay />
     </section>
 
-    <StatsStrip />
+    {/* Narrative flow: story first, data last */}
     <AboutSection />
-    <FeaturesSection />
+    <LifestyleSection />
+    <InvestmentSection />
     <GallerySection />
     <LocationSection />
+
+    {/* Technical details — at the bottom */}
+    <StatsStrip />
+    <FeaturesSection />
+
     <VisitSection />
     <SiteFooter />
   </div>

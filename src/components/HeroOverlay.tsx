@@ -18,7 +18,7 @@ const fadeDown = (delay: number) => ({
 });
 
 const HeroOverlay = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { hero } = siteConfig;
 
   return (
@@ -41,16 +41,20 @@ const HeroOverlay = () => {
             color: "rgba(242, 236, 224, 0.72)",
           }}
         >
-          {t("hero.label")}
+          {language === "pt" ? hero.labelPt : hero.label}
         </motion.p>
         <motion.h1
           {...fadeUp(1.3)}
-          className="heading-display text-center"
-          style={{ fontSize: "clamp(3rem, 12vw, 10rem)", color: "#F5F0E8" }}
+          className="heading-display text-center max-w-[1100px]"
+          style={{ fontSize: "clamp(2.2rem, 8vw, 7rem)", color: "#F5F0E8", lineHeight: 1.05 }}
         >
-          {hero.title}
+          {language === "pt" ? hero.titlePt : hero.title}
           <br />
-          <em style={{ color: "hsl(33, 40%, 72%)" }}>{hero.titleItalic}</em>
+          <em style={{ color: "hsl(33, 40%, 72%)" }}>{language === "pt" ? hero.titleItalicPt : hero.titleItalic}</em>
+          <br />
+          <span style={{ fontSize: "clamp(1.2rem, 4vw, 3.2rem)", color: "rgba(242, 236, 224, 0.55)" }}>
+            {language === "pt" ? hero.titleEndPt : hero.titleEnd}
+          </span>
         </motion.h1>
         <motion.p
           {...fadeUp(2)}
@@ -63,8 +67,19 @@ const HeroOverlay = () => {
             color: "rgba(242, 236, 224, 0.5)",
           }}
         >
-          {t("hero.subtitle")}
+          {language === "pt" ? hero.subtitlePt : hero.subtitle}
         </motion.p>
+
+        {/* Hero CTA */}
+        <motion.div {...fadeUp(2.4)} className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-4 pointer-events-auto">
+          <a
+            href="#visita"
+            className="btn-calendly text-center"
+            style={{ fontSize: "9px", padding: "14px 32px", letterSpacing: "0.25em" }}
+          >
+            {language === "pt" ? "Agendar Visita Privada" : "Request Private Viewing"}
+          </a>
+        </motion.div>
       </div>
 
       {/* Bottom */}

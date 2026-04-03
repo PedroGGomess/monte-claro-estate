@@ -32,9 +32,9 @@ const SiteFooter = () => {
             }}
           >
             {language === "pt" ? (
-              <>Descubra a sua <em style={{ color: "hsl(var(--gold))", fontStyle: "italic" }}>próxima propriedade</em> no Alentejo.</>
+              <>Esta oportunidade não vai <em style={{ color: "hsl(var(--gold))", fontStyle: "italic" }}>esperar</em>.</>
             ) : (
-              <>Discover your <em style={{ color: "hsl(var(--gold))", fontStyle: "italic" }}>next property</em> in the Alentejo.</>
+              <>This opportunity won't <em style={{ color: "hsl(var(--gold))", fontStyle: "italic" }}>wait</em>.</>
             )}
           </p>
         </div>
