@@ -44,13 +44,22 @@ const AboutSection = () => {
         <ScrollReveal delay={0.2}>
           <div className="relative">
             <div className="absolute pointer-events-none" style={{ top: "-18px", right: "18px", bottom: "18px", left: "-18px", border: "1px solid rgba(155,130,100,0.2)" }} />
-            <img
-              src={images.hero}
-              alt="Projeto aprovado · Herdade em Grândola"
-              className="w-full object-cover"
-              style={{ aspectRatio: "3/4", filter: "brightness(0.82) saturate(0.88)" }}
-              loading="lazy"
-            />
+            <div className="flex flex-col gap-4">
+              <img
+                src={images.aerialClose}
+                alt="Vista aérea · Herdade em Grândola"
+                className="w-full object-cover"
+                style={{ aspectRatio: "4/3", filter: "brightness(0.82) saturate(0.88)" }}
+                loading="lazy"
+              />
+              <img
+                src={images.aerialWide}
+                alt="Vista aérea geral · Herdade em Grândola"
+                className="w-full object-cover"
+                style={{ aspectRatio: "4/3", filter: "brightness(0.82) saturate(0.88)" }}
+                loading="lazy"
+              />
+            </div>
             <p className="label-muted mt-4 text-center">{language === "pt" ? about.imageCaption : about.imageCaptionEn}</p>
           </div>
         </ScrollReveal>

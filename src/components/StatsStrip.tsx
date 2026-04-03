@@ -10,25 +10,48 @@ const StatsStrip = () => {
     return t(keys[idx] ?? "");
   };
 
+  /* Stats order: 0=12ha, 1=500m², 2=Tipologia, 3=Water Sources, 4=From Beaches */
+  const topStats = [0, 1, 3, 4]; /* 2x2 grid */
+  const wideStats = [2]; /* Tipologia spans full width */
+
   return (
     <section className="w-full border-b gold-border-line">
-      {/* Mobile: 2-col grid, Tablet: 3-col, Desktop: row */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row">
-        {siteConfig.stats.map((s, i) => (
+      {/* Top: 2x2 grid */}
+      <div className="grid grid-cols-2">
+        {topStats.map((si, idx) => {
+          const s = siteConfig.stats[si];
+          return (
+            <ScrollReveal
+              key={si}
+              delay={idx * 0.1}
+              className={`py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 text-center gold-border-line ${
+                idx % 2 === 0 ? "border-r" : ""
+              } ${idx < 2 ? "border-b" : ""}`}
+            >
+              <div className="font-display text-gold text-2xl sm:text-3xl md:text-[42px] tracking-wide">
+                {s.value}
+              </div>
+              <div className="label-muted mt-2">{getLabel(si)}</div>
+            </ScrollReveal>
+          );
+        })}
+      </div>
+      {/* Bottom: Tipologia full width */}
+      {wideStats.map((si) => {
+        const s = siteConfig.stats[si];
+        return (
           <ScrollReveal
-            key={i}
-            delay={i * 0.1}
-            className={`flex-1 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 text-center border-b md:border-b-0 gold-border-line ${
-              i % 2 === 0 ? "border-r gold-border-line sm:border-r" : "sm:border-r"
-            } ${i < siteConfig.stats.length - 1 ? "md:border-r" : "md:border-r-0"} last:border-r-0`}
+            key={si}
+            delay={0.4}
+            className="py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 text-center border-t gold-border-line"
           >
             <div className="font-display text-gold text-2xl sm:text-3xl md:text-[42px] tracking-wide">
               {s.value}
             </div>
-            <div className="label-muted mt-2">{getLabel(i)}</div>
+            <div className="label-muted mt-2">{getLabel(si)}</div>
           </ScrollReveal>
-        ))}
-      </div>
+        );
+      })}
     </section>
   );
 };
