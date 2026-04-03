@@ -86,6 +86,28 @@ const InvestmentSection = () => {
           ))}
         </div>
 
+        {/* Key numbers — at a glance */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-px mt-12 sm:mt-16" style={{ background: "hsl(var(--gold) / 0.10)" }}>
+          {[
+            { value: "12 ha", labelPt: "Área Total", labelEn: "Total Area" },
+            { value: "500 m²", labelPt: "Construção Aprovada", labelEn: "Approved Construction" },
+            { value: "T3+T3", labelPt: "2 Moradias", labelEn: "2 Villas" },
+            { value: "6", labelPt: "Lofts", labelEn: "Lofts" },
+            { value: "3", labelPt: "Fontes de Água", labelEn: "Water Sources" },
+          ].map((stat, i) => (
+            <ScrollReveal key={i} delay={0.3 + i * 0.06}>
+              <div className="bg-background py-6 sm:py-8 px-4 text-center">
+                <div className="font-display text-gold text-xl sm:text-2xl md:text-[32px] tracking-wide">
+                  {stat.value}
+                </div>
+                <div className="label-muted mt-1" style={{ fontSize: "8px" }}>
+                  {language === "pt" ? stat.labelPt : stat.labelEn}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+
         {/* Scarcity / urgency callout */}
         <ScrollReveal delay={0.5}>
           <div className="mt-12 sm:mt-16 p-6 sm:p-8 md:p-10 text-center" style={{ border: "1px solid hsl(var(--gold) / 0.2)", background: "hsl(var(--gold) / 0.02)" }}>

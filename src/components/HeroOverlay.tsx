@@ -71,13 +71,20 @@ const HeroOverlay = () => {
         </motion.p>
 
         {/* Hero CTA */}
-        <motion.div {...fadeUp(2.4)} className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-4 pointer-events-auto">
+        <motion.div {...fadeUp(2.4)} className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-4 pointer-events-auto items-center">
           <a
             href="#visita"
             className="btn-calendly text-center"
             style={{ fontSize: "9px", padding: "14px 32px", letterSpacing: "0.25em" }}
           >
             {language === "pt" ? "Agendar Visita Privada" : "Request Private Viewing"}
+          </a>
+          <a
+            href="mailto:herdasantamargarida@gmail.com?subject=Investment%20Brief%20-%20Herdade%20Grândola"
+            className="btn-ghost text-center"
+            style={{ fontSize: "9px", letterSpacing: "0.25em", color: "rgba(242,236,224,0.5)", borderBottomColor: "rgba(242,236,224,0.2)", textDecoration: "none" }}
+          >
+            {language === "pt" ? "Pedir Dossier de Investimento" : "Get Investment Brief"}
           </a>
         </motion.div>
       </div>

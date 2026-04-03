@@ -2,13 +2,13 @@ import CustomCursor from "@/components/CustomCursor";
 import FilmGrain from "@/components/FilmGrain";
 import HeroScene from "@/components/HeroScene";
 import HeroOverlay from "@/components/HeroOverlay";
+import ProximityStrip from "@/components/ProximityStrip";
 import AboutSection from "@/components/AboutSection";
 import LifestyleSection from "@/components/LifestyleSection";
 import InvestmentSection from "@/components/InvestmentSection";
+import FeaturesSection from "@/components/FeaturesSection";
 import GallerySection from "@/components/GallerySection";
 import LocationSection from "@/components/LocationSection";
-import StatsStrip from "@/components/StatsStrip";
-import FeaturesSection from "@/components/FeaturesSection";
 import VisitSection from "@/components/VisitSection";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -17,23 +17,34 @@ const Index = () => (
     <CustomCursor />
     <FilmGrain />
 
-    {/* Hero — aspirational headline */}
+    {/* 1. Hero — aspirational headline + dual CTA */}
     <section className="relative w-full h-screen overflow-hidden">
       <HeroScene />
       <HeroOverlay />
     </section>
 
-    {/* Narrative flow: story first, data last */}
-    <AboutSection />
-    <LifestyleSection />
-    <InvestmentSection />
-    <GallerySection />
-    <LocationSection />
+    {/* 2. Proximity strip — instant credibility */}
+    <ProximityStrip />
 
-    {/* Technical details — at the bottom */}
-    <StatsStrip />
+    {/* 3. Narrative: the opportunity */}
+    <AboutSection />
+
+    {/* 4. Lifestyle: emotional sell */}
+    <LifestyleSection />
+
+    {/* 5. Investment potential: rational sell */}
+    <InvestmentSection />
+
+    {/* 6. Technical features — for the detail-oriented */}
     <FeaturesSection />
 
+    {/* 7. Visual proof */}
+    <GallerySection />
+
+    {/* 8. Location deep-dive */}
+    <LocationSection />
+
+    {/* 9. Final CTA */}
     <VisitSection />
     <SiteFooter />
   </div>
