@@ -47,11 +47,13 @@ const VisitSection = () => {
           {language === "pt" ? "Agendar Visita Privada" : "Request Private Viewing"}
         </Link>
         <a
-          href="mailto:herdasantamargarida@gmail.com?subject=Investment%20Inquiry%20-%20Herdade%20Grândola"
+          href="/investment-brief.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn-ghost"
           style={{ textDecoration: "none" }}
         >
-          {language === "pt" ? "Pedir Dossier de Investimento" : "Request Investment Brief"}
+          {language === "pt" ? "Dossier de Investimento ↓" : "Investment Brief ↓"}
         </a>
       </ScrollReveal>
     </section>

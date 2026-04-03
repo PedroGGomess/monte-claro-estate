@@ -80,11 +80,13 @@ const HeroOverlay = () => {
             {language === "pt" ? "Agendar Visita Privada" : "Request Private Viewing"}
           </a>
           <a
-            href="mailto:herdasantamargarida@gmail.com?subject=Investment%20Brief%20-%20Herdade%20Grândola"
+            href="/investment-brief.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-ghost text-center"
             style={{ fontSize: "9px", letterSpacing: "0.25em", color: "rgba(242,236,224,0.5)", borderBottomColor: "rgba(242,236,224,0.2)", textDecoration: "none" }}
           >
-            {language === "pt" ? "Pedir Dossier de Investimento" : "Get Investment Brief"}
+            {language === "pt" ? "Dossier de Investimento ↓" : "Investment Brief ↓"}
           </a>
         </motion.div>
       </div>
