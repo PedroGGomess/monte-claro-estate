@@ -13,6 +13,9 @@ const galleryImages = [
   { src: images.aerialClose, captionPt: "Vista Aérea · Pátio", captionEn: "Aerial View · Courtyard" },
   { src: images.aerialWide, captionPt: "Vista Aérea · Propriedade", captionEn: "Aerial View · Property" },
   { src: images.poolPergola, captionPt: "Piscina", captionEn: "Pool" },
+  { src: images.archFacade, captionPt: "Fachada · Arcadas", captionEn: "Facade · Arches" },
+  { src: images.livingRoomColorful, captionPt: "Sala de Estar", captionEn: "Living Room" },
+  { src: images.kitchenetteLoft, captionPt: "Loft · Kitchenette", captionEn: "Loft · Kitchenette" },
 ];
 
 const stats = [
@@ -32,7 +35,7 @@ const features = [
   { titlePt: "Duplo Acesso", titleEn: "Dual Access", image: images.hero },
   { titlePt: "Montado de Sobreiros", titleEn: "Cork Oak Forest", image: images.frontView },
   { titlePt: "Água Abundante", titleEn: "Water Abundance", image: images.poolPergola },
-  { titlePt: "Zona Turística", titleEn: "Tourism Zone", image: images.arches },
+  { titlePt: "Zona Turística", titleEn: "Tourism Zone", image: images.patioExterior },
   { titlePt: "Licença Emitida", titleEn: "License Issued", image: images.kitchenMarble },
 ];
 

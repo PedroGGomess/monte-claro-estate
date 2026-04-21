@@ -22,6 +22,11 @@ const allImages = [
   { src: herdadeImages.diningKitchen, captionPt: "Sala de Jantar · Cozinha", captionEn: "Dining Room · Kitchen", category: "casa" as Category },
   { src: herdadeImages.aerialClose, captionPt: "Vista Aérea · Pátio e Piscina", captionEn: "Aerial View · Courtyard & Pool", category: "casa" as Category },
   { src: herdadeImages.aerialWide, captionPt: "Vista Aérea · Propriedade", captionEn: "Aerial View · Property", category: "casa" as Category },
+  { src: herdadeImages.archFacade, captionPt: "Fachada · Arcadas", captionEn: "Facade · Arches", category: "casa" as Category },
+  { src: herdadeImages.patioExterior, captionPt: "Pátio · Exterior", captionEn: "Patio · Exterior", category: "casa" as Category },
+  { src: herdadeImages.livingRoomColorful, captionPt: "Sala de Estar · Interior", captionEn: "Living Room · Interior", category: "casa" as Category },
+  { src: herdadeImages.bathroomBedroom, captionPt: "Suite · Casa de Banho", captionEn: "Suite · Bathroom", category: "casa" as Category },
+  { src: herdadeImages.kitchenetteLoft, captionPt: "Loft · Kitchenette", captionEn: "Loft · Kitchenette", category: "casa" as Category },
 ];
 
 const Galeria = () => {

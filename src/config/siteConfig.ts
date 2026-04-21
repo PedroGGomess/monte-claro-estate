@@ -9,6 +9,11 @@ import herdade08 from "@/assets/herdade-08.jpg";
 import herdade09 from "@/assets/herdade-09.jpg";
 import herdade10 from "@/assets/herdade-10.jpg";
 import herdade11 from "@/assets/herdade-11.jpg";
+import herdade12 from "@/assets/herdade-12.jpg";
+import herdade13 from "@/assets/herdade-13.jpg";
+import herdade14 from "@/assets/herdade-14.jpg";
+import herdade15 from "@/assets/herdade-15.jpg";
+import herdade16 from "@/assets/herdade-16.jpg";
 
 export const images = {
   hero: herdade01,
@@ -22,6 +27,11 @@ export const images = {
   diningKitchen: herdade09,
   aerialClose: herdade10,
   aerialWide: herdade11,
+  archFacade: herdade12,
+  patioExterior: herdade13,
+  livingRoomColorful: herdade14,
+  bathroomBedroom: herdade15,
+  kitchenetteLoft: herdade16,
 };
 
 /* Google Apps Script URL for booking management — replace with your deployed URL */
@@ -114,6 +124,11 @@ export const siteConfig = {
     { src: herdade05, caption: "Interior · Sala Principal", captionEn: "Interior · Main Room" },
     { src: herdade09, caption: "Sala de Jantar · Cozinha", captionEn: "Dining Room · Kitchen" },
     { src: herdade04, caption: "Cozinha · Mármore", captionEn: "Kitchen · Marble" },
+    { src: herdade12, caption: "Fachada · Arcadas", captionEn: "Facade · Arches" },
+    { src: herdade13, caption: "Pátio · Exterior", captionEn: "Patio · Exterior" },
+    { src: herdade14, caption: "Sala de Estar · Interior", captionEn: "Living Room · Interior" },
+    { src: herdade15, caption: "Suite · Casa de Banho", captionEn: "Suite · Bathroom" },
+    { src: herdade16, caption: "Loft · Kitchenette", captionEn: "Loft · Kitchenette" },
   ],
   distances: [
     { place: "Praia de Melides", time: "25 min" },
