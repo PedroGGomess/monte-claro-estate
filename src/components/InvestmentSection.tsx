@@ -13,6 +13,7 @@ const InvestmentSection = () => {
       descEn: "6 lofts + 2 T3 villas with pool, set within 12ha of Alentejo cork oak forest. Tourism classification guaranteed by municipal plan.",
       tagPt: "Turismo Rural Premium",
       tagEn: "Premium Rural Tourism",
+      image: images.archFacade,
     },
     {
       titlePt: "Eco-Retreat de Luxo",
@@ -21,6 +22,7 @@ const InvestmentSection = () => {
       descEn: "Water self-sufficiency, century-old cork oaks and total privacy. The perfect setting for wellness, yoga or immersive experiences.",
       tagPt: "Wellness & Natureza",
       tagEn: "Wellness & Nature",
+      image: images.patioExterior,
     },
     {
       titlePt: "Residência Familiar",
@@ -29,6 +31,7 @@ const InvestmentSection = () => {
       descEn: "2 independent T3 villas (or 1 T6) with 6 guest lofts. Space for generations — 25 min from the beach.",
       tagPt: "Privacidade Total",
       tagEn: "Total Privacy",
+      image: images.livingRoomColorful,
     },
   ];
 
@@ -60,7 +63,17 @@ const InvestmentSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px mt-12 sm:mt-16" style={{ background: "hsl(var(--gold) / 0.12)" }}>
           {scenarios.map((s, i) => (
             <ScrollReveal key={i} delay={0.2 + i * 0.1}>
-              <div className="bg-background p-6 sm:p-8 md:p-10 h-full flex flex-col">
+              <div className="bg-background h-full flex flex-col">
+                {s.image && (
+                  <img
+                    src={s.image}
+                    alt={language === "pt" ? s.titlePt : s.titleEn}
+                    className="w-full object-cover"
+                    style={{ aspectRatio: "16/9", filter: "brightness(0.85) saturate(0.9)" }}
+                    loading="lazy"
+                  />
+                )}
+                <div className="p-6 sm:p-8 md:p-10 flex flex-col flex-1">
                 <span
                   className="font-display leading-none mb-6"
                   style={{ fontSize: "clamp(32px, 6vw, 48px)", color: "rgba(30,22,14,0.06)" }}
@@ -80,6 +93,7 @@ const InvestmentSection = () => {
                   <span className="label-upper text-[9px]">
                     {language === "pt" ? s.tagPt : s.tagEn}
                   </span>
+                </div>
                 </div>
               </div>
             </ScrollReveal>

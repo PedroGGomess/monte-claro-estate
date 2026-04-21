@@ -48,13 +48,22 @@ const LifestyleSection = () => {
           <ScrollReveal>
             <div className="relative">
               <div className="absolute pointer-events-none" style={{ top: "18px", right: "-18px", bottom: "-18px", left: "18px", border: "1px solid rgba(155,130,100,0.2)" }} />
-              <img
-                src={images.poolPergola}
-                alt={language === "pt" ? "Estilo de vida · Piscina" : "Lifestyle · Pool"}
-                className="w-full object-cover relative z-10"
-                style={{ aspectRatio: "4/5", filter: "brightness(0.85) saturate(0.9)" }}
-                loading="lazy"
-              />
+              <div className="flex flex-col gap-3 relative z-10">
+                <img
+                  src={images.poolPergola}
+                  alt={language === "pt" ? "Estilo de vida · Piscina" : "Lifestyle · Pool"}
+                  className="w-full object-cover"
+                  style={{ aspectRatio: "4/3", filter: "brightness(0.85) saturate(0.9)" }}
+                  loading="lazy"
+                />
+                <img
+                  src={images.patioExterior}
+                  alt={language === "pt" ? "Pátio exterior" : "Exterior patio"}
+                  className="w-full object-cover"
+                  style={{ aspectRatio: "4/3", filter: "brightness(0.85) saturate(0.9)" }}
+                  loading="lazy"
+                />
+              </div>
             </div>
           </ScrollReveal>
 

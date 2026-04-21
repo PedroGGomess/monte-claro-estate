@@ -62,9 +62,16 @@ const AboutSection = () => {
                 style={{ aspectRatio: "4/3", filter: "brightness(0.82) saturate(0.88)" }}
                 loading="lazy"
               />
+              <img
+                src={images.archFacade}
+                alt="Fachada com arcadas · Herdade em Grândola"
+                className="w-full object-cover"
+                style={{ aspectRatio: "4/3", filter: "brightness(0.82) saturate(0.88)" }}
+                loading="lazy"
+              />
             </div>
             <p className="label-muted mt-4 text-center">
-              {language === "pt" ? "Vistas Aéreas · Projeto Aprovado" : "Aerial Views · Approved Project"}
+              {language === "pt" ? "Vistas Aéreas & Fachada · Projeto Aprovado" : "Aerial Views & Facade · Approved Project"}
             </p>
           </div>
         </ScrollReveal>
